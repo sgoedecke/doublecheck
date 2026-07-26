@@ -66,13 +66,1814 @@
       </label>
       <button type="button" id="clear-filters">Clear filters</button>
     </div>
-    <p id="result-count">139 papers</p>
+    <p id="result-count">169 papers</p>
     <div class="table-wrap">
       <table>
         <thead>
           <tr><th>Paper</th><th>Field</th><th>Verdict</th><th>Error type</th><th>Severity</th></tr>
         </thead>
-        <tbody class="paper-entry" data-field="Computer Science"
+        <tbody class="paper-entry" data-field="Economics"
+  data-error-types="logical-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1903.04954v1"><strong>Frictional Unemployment on Labor Flow Networks</strong></a></td>
+    <td>Economics</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">logical-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (5)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The stated aggregation of firm-specific unemployment rates is not the model&#x27;s aggregate unemployment rate.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 2.6, equations (10) and (13), immediately before Propositions 5 and 6</dd>
+    <dt>Analysis</dt><dd>Population conservation defines aggregate unemployment as sum(U_i)/H, requiring firm-specific rates to be weighted by U_i+L_i. The paper instead weights them equally across firms using the degree distribution P(k). These quantities generally differ.</dd>
+    <dt>Evidence</dt><dd>Consider the connected three-firm path with degrees (1,2,1) and lambda=h*=v=1/2. Equations (4) and (9) give total employment 2*varphi and total unemployment (10/3)*varphi, so aggregate unemployment is 5/8. Equation (13) gives rates 2/3, 4/7, and 2/3; weighting by P gives 40/63, not 5/8.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Proposition 1&#x27;s unconditional uniqueness claim is false.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 2.4, Proposition 1</dd>
+    <dt>Analysis</dt><dd>Normalization alone does not establish uniqueness. The paper permits hiring policies equal to zero and explicitly claims uniqueness regardless of how hiring policies are assigned.</dd>
+    <dt>Evidence</dt><dd>Take a connected two-firm network, lambda=v=1/2, and h_1=h_2=0. Employment probabilities decay to zero, while unemployed workers can never be hired or change association. Consequently every state p_1=p_2=0, q_1=x, q_2=1-x for 0&lt;=x&lt;=1 is stationary. There is therefore a continuum of steady states.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Equation (7) drops the separation-rate denominator from the firm-size formula.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 2.5, equations (4) and (7)</dd>
+    <dt>Analysis</dt><dd>No redefinition of varphi occurs between the equations, and the later normalization still contains lambda.</dd>
+    <dt>Evidence</dt><dd>Equation (4) states L_i=(varphi/lambda)h_i times average-neighbor-hiring times k_i. Setting every hiring policy to h* therefore gives L_i=(varphi/lambda)(h*)^2 k_i, whereas equation (7) prints L_i=varphi(h*)^2 k_i.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The appendix&#x27;s outflow probability omits hiring success and cannot yield the claimed  result.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Appendix, Proof of Proposition 7, equations defining o_i(t) and O_i</dd>
+    <dt>Analysis</dt><dd>Finding employment requires averaging the selected firms&#x27; hiring probabilities. The displayed expression contains neither a sum over candidate firms nor any h_j factor.</dd>
+    <dt>Evidence</dt><dd>The correct factor is (1/|gamma_i|) times sum over j in gamma_i of h_j. As printed, a one-neighbor case with opening probability v and h_j=0 gives o_i=q_i v&gt;0, even though employment is impossible. Thus the subsequent expression containing the average neighbor hiring policy does not follow.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The paper states opposite labor-supply conditions for a large network effect.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Abstract and Introduction versus Section 3.2 Results and Conclusion</dd>
+    <dt>Analysis</dt><dd>The headline condition is reversed between specific statements.</dd>
+    <dt>Evidence</dt><dd>The abstract and introduction attribute strong topology dependence to high labor-supply elasticity. Section 3.2 instead says the contribution is marginal under very elastic supply and can exceed 90% under highly inelastic supply; the conclusion likewise specifies inelastic  supply.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Robert L. Axtell, Omar A. Guerrero, Eduardo López</p>
+              <p>The paper contains two major counterexamples and three clear internal derivation or consistency errors.</p>
+              <p><a href="https://arxiv.org/abs/1903.04954v1">arXiv</a> · <a href="https://arxiv.org/pdf/1903.04954v1.pdf">PDF</a> ·
+              1903.04954v1</p>
+              <p class="meta">Reviewed 2026-07-26 07:39:55+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="statistical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1903.06958v1"><strong>Early-career setback and future career impact</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Regression discontinuity does not establish a causal performance benefit after conditioning on treatment-affected survival.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Results, pages 5-6; Methods, pages 10-12</dd>
+    <dt>Analysis</dt><dd>The paper estimates future performance among PIs remaining active while separately finding that near-miss status affects activity. Conditioning on this post-treatment variable can associate cutoff assignment with latent ability, invalidating the claimed causal interpretation for survivors.</dd>
+    <dt>Evidence</dt><dd>Let cutoff assignment be random and latent ability independently Bernoulli(0.5), with future impact equal to ability and no treatment effect. If all near winners remain active but near misses remain active only when high-ability, all pre-selection RD assumptions hold, yet active near misses have mean impact 1 versus 0.5 for active near winners. The claimed survivor effect can therefore arise entirely from selection.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Yang Wang, Benjamin F. Jones, Dashun Wang</p>
+              <p>The survivor-conditioned regression-discontinuity analysis does not establish the paper&#x27;s stated causal performance benefit.</p>
+              <p><a href="https://arxiv.org/abs/1903.06958v1">arXiv</a> · <a href="https://arxiv.org/pdf/1903.06958v1.pdf">PDF</a> ·
+              1903.06958v1</p>
+              <p class="meta">Reviewed 2026-07-26 07:39:46+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Quantitative Finance"
+  data-error-types="logical-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/0905.1518v2"><strong>Colloquium: Statistical mechanics of money, wealth, and income</strong></a></td>
+    <td>Quantitative Finance</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">logical-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The income temperature is defined as both B0/A0 and its reciprocal A0/B0.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Page 19, Section IV.B, Eqs. (23)-(25)</dd>
+    <dt>Analysis</dt><dd>Equation (24) fixes the temperature unambiguously, so the later reciprocal definition cannot be correct.</dd>
+    <dt>Evidence</dt><dd>For constant A=A0 and B=B0, Eq. (24) gives P(r) proportional to exp[-(A0/B0)r], hence Tr=B0/A0. The text after Eq. (25) instead states Tr=A0/B0.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The directed-transfer model is said both to violate time-reversal symmetry and not to violate the equation defining that symmetry.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Page 11, Section II.F, discussion following Eq. (13)</dd>
+    <dt>Analysis</dt><dd>The paper defines time-reversal symmetry as equality of forward and reverse transition rates in Eq. (13), so the two characterizations are incompatible.</dd>
+    <dt>Evidence</dt><dd>It says fixed payment directions strongly violate time-reversal symmetry, then says the same model does not violate Eq. (13). On a one-way link, balance-independent forward and reverse rates can still be unequal.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Victor M. Yakovenko, J. Barkley Rosser</p>
+              <p>Two demonstrable internal contradictions occur in the mathematical exposition.</p>
+              <p><a href="https://arxiv.org/abs/0905.1518v2">arXiv</a> · <a href="https://arxiv.org/pdf/0905.1518v2.pdf">PDF</a> ·
+              0905.1518v2</p>
+              <p class="meta">Reviewed 2026-07-26 07:39:43+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="logical-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1104.3913v2"><strong>Fairness Through Awareness</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">logical-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (4)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Statistical parity does not imply the posterior group-membership bound in Proposition 3.1(2).</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Page 7, Proposition 3.1(2)</dd>
+    <dt>Analysis</dt><dd>Equal outcome distributions conditional on group do not make posterior probabilities of membership in unequal-sized groups equal.</dd>
+    <dt>Evidence</dt><dd>Let S contain one person, T=S^c contain three, and sample uniformly from V. Let M always output a. Then D_tv(mu_S,mu_T)=0, so exact statistical parity holds. For O={a}, however, Pr{x in S | M(x) in O}=1/4 and Pr{x in T | M(x) in O}=3/4. Their difference is 1/2, violating the claimed bound with epsilon=0.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The exponential mechanism as defined is not (D_infinity,d)-Lipschitz.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Page 15, Definition 5.1 and Lemma 5.1</dd>
+    <dt>Analysis</dt><dd>Normalization can contribute additional privacy loss, so the exponent -d(x,y) does not ensure the claimed Lipschitz constant.</dd>
+    <dt>Evidence</dt><dd>Take V={x,y,z} with d(x,y)=d(x,z)=1 and d(y,z)=2, a valid metric. Then Z_x=1+2/e and Z_y=1+e^-1+e^-2. For outcome y, E(y)(y)/E(x)(y)=e Z_x/Z_y&gt;e because Z_x&gt;Z_y. Therefore D_infinity(E(x),E(y))&gt;1=d(x,y), contradicting Lemma 5.1.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Theorem 5.3 incorrectly treats radius-k/2 balls around a k/2-packing as disjoint.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Page 17, proof of Theorem 5.3, first equality after Equation (20)</dd>
+    <dt>Analysis</dt><dd>An R-packing only places centers more than R apart; disjoint radius-R balls require centers more than 2R apart. Thus the probability of the union need not equal the sum used in  the proof.</dd>
+    <dt>Evidence</dt><dd>In a line metric, take centers y1=0 and y2=3k/4. They form a k/2-packing, yet the point 3k/8 lies in both B(y1,k/2) and B(y2,k/2). Hence those balls can overlap, invalidating  the displayed equality and ensuing contradiction.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The final numerical expression in Theorem 5.3&#x27;s proof is not greater than one throughout the theorem&#x27;s stated range k&gt;=2.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Page 17, final displayed derivation in the proof of Theorem 5.3</dd>
+    <dt>Analysis</dt><dd>The asserted inequality fails for several permitted values of k.</dd>
+    <dt>Evidence</dt><dd>The expression is (2^(2k)/10)(e^-k/2)=(4/e)^k/20. At k=2 it equals 0.8e^-2, approximately 0.108, not greater than 1. It remains below 1 through k=7.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Cynthia Dwork, Moritz Hardt, Toniann Pitassi, Omer Reingold, Rich Zemel</p>
+              <p>Four demonstrable internal errors occur in the statistical-parity proposition and Section 5 proofs.</p>
+              <p><a href="https://arxiv.org/abs/1104.3913v2">arXiv</a> · <a href="https://arxiv.org/pdf/1104.3913v2.pdf">PDF</a> ·
+              1104.3913v2</p>
+              <p class="meta">Reviewed 2026-07-26 07:38:57+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="experimental-error,mathematical-error,statistical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1709.02445v2"><strong>Large Teams Have Developed Science and Technology; Small Teams Have Disrupted It</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">mathematical-error</span><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (3)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The paper incorrectly interprets a ratio of regression slopes as the fraction of total variation occurring within scientists.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Supplementary Text, pp. 13–14, “Random effects versus fixed effects models” and “Controlling for topics in science”; main text p. 4</dd>
+    <dt>Analysis</dt><dd>The coefficients measure conditional changes in mean disruption per unit of team size. Their ratio is not a decomposition of outcome variation and cannot establish that two-thirds of total variation occurs within scientists. No variance components or sums of squares supporting that percentage are reported.</dd>
+    <dt>Evidence</dt><dd>The paper reports β1 = -0.00027 and β2 = -0.00018, then infers that two-thirds of  total variation is within scientists because β2/β1 = 0.667. The same operation with β4/β1 = 0.00017/0.00027 = 0.630 is used for the topic-controlled claim. These calculations yield ratios of slopes only. Within-author team-size variance could approach zero while retaining the same within-author slope, making within-author explained variation approach zero without changing either reported ratio.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The expected reference-popularity formula is not the expectation of the stated finite-range power law and can become negative.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Figure S22 caption, pp. 7–8 of the supplement</dd>
+    <dt>Analysis</dt><dd>For p(k) proportional to k^-α on the stated interval from 1 to a finite maximum K, the expectation depends on K. The reported expression applies only to an unbounded continuous power law with α &gt; 2.</dd>
+    <dt>Evidence</dt><dd>The paper states that integrating to maximum k gives E[k] = (α-1)/(α-2), with α =  2.4m^-0.05. At the explicitly analyzed team size m = 50, α ≈ 1.974 and the formula gives E[k] ≈ -36.9, impossible for citation counts k ≥ 1. With an infinite upper limit the expectation instead diverges when α ≤ 2; with a finite upper limit it remains positive and depends on K.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The Figure S5 and S6 captions state the reverse of the trends asserted in their titles and throughout the paper.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Figure S5 and Figure S6 captions, pp. 20–22</dd>
+    <dt>Analysis</dt><dd>For the same variables and direction of increasing team size, disruption and impact cannot simultaneously move in both stated directions.</dd>
+    <dt>Evidence</dt><dd>Both figure titles say disruption decreases and impact increases with growing team size. Their caption bodies instead say D(t) increases and C(t) decreases with team size. The main text and surrounding supplementary discussion also assert decreasing disruption and increasing citations.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Lingfei Wu, Dashun Wang, James A. Evans</p>
+              <p>The paper contains one consequential statistical inference error and two clear supplementary inconsistencies; these do not by themselves refute its central descriptive trend.</p>
+              <p><a href="https://arxiv.org/abs/1709.02445v2">arXiv</a> · <a href="https://arxiv.org/pdf/1709.02445v2.pdf">PDF</a> ·
+              1709.02445v2</p>
+              <p class="meta">Reviewed 2026-07-26 07:37:13+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="statistical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1001.5289v2"><strong>The Area and Population of Cities: New Insights from a Different Perspective on Cities</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The reported GB density and area-population regressions are algebraically incompatible.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Tables 1 and 2, pages 17-18</dd>
+    <dt>Analysis</dt><dd>Both tables use the same 1,007 observations, and the paper defines ln D = ln S - ln A. Therefore their OLS coefficients must satisfy exact identities, which the reported GB values violate.</dd>
+    <dt>Evidence</dt><dd>Table 1 reports the GB regression ln S on ln A with slope 1.065 and R²=0.921. The reverse-regression slope is therefore 0.921/1.065=0.8648. Consequently, the slope of ln D=ln S-ln A on ln S must be 1-0.8648=0.1352. Table 2 instead reports 0.099 (SE 0.006), a discrepancy far beyond rounding.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The power-law test&#x27;s reported critical values do not follow its stated formula.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 3.1, equations and results on pages 8-9</dd>
+    <dt>Analysis</dt><dd>Substituting the paper&#x27;s own sample sizes and estimated exponents into qc=2.57ζ²/sqrt(2N) produces different critical values.</dd>
+    <dt>Evidence</dt><dd>For the USA, N=1,947 and ζ=0.97 give qc=2.57(0.97²)/sqrt(3894)=0.0388, not 0.0413. For GB, N=1,007 and ζ=1.07 give qc=2.57(1.07²)/sqrt(2014)=0.0656, not 0.0522. Using N=1,008, also stated elsewhere, still gives 0.0655. The corrected values do not change either non-rejection decision.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Hernan Rozenfeld, Diego Rybski, Xavier Gabaix, Hernan A. Makse</p>
+              <p>Two demonstrable statistical inconsistencies occur in the reported regressions and critical values.</p>
+              <p><a href="https://arxiv.org/abs/1001.5289v2">arXiv</a> · <a href="https://arxiv.org/pdf/1001.5289v2.pdf">PDF</a> ·
+              1001.5289v2</p>
+              <p class="meta">Reviewed 2026-07-26 07:37:05+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="mathematical-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/cond-mat/0205383v1"><strong>Identity and Search in Social Networks</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The completion criterion does not imply the stated upper bound on average chain length.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Page 2, paragraph defining a searchable network, q = &lt;(1-p)^L&gt; &gt;= r</dd>
+    <dt>Analysis</dt><dd>For 0 &lt; 1-p &lt; 1, the function f(L)=(1-p)^L is convex. Jensen&#x27;s inequality therefore has the opposite useful direction from the paper&#x27;s inference. No concentration or fixed-length assumption is stated that would justify  replacing the expectation by the function of the mean.</dd>
+    <dt>Evidence</dt><dd>Jensen gives q=E[(1-p)^L] &gt;= (1-p)^{E[L]}. Thus q&gt;=r does not imply E[L]&lt;=ln(r)/ln(1-p); distributions with a small probability of short chains and most probability on arbitrarily long chains can satisfy q&gt;=r while having an arbitrarily large mean. Consequently, the asserted requirement E[L]&lt;=10.4 for p=0.25 and r=0.05 does  not follow.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> D. J. Watts, P. S. Dodds, M. E. J. Newman</p>
+              <p>One explicit mathematical inference about mean chain length is invalid; no other glaring internal errors were established.</p>
+              <p><a href="https://arxiv.org/abs/cond-mat/0205383v1">arXiv</a> · <a href="https://arxiv.org/pdf/cond-mat/0205383v1.pdf">PDF</a> ·
+              cond-mat/0205383v1</p>
+              <p class="meta">Reviewed 2026-07-26 07:36:37+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="mathematical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1008.3926v1"><strong>Stochastic blockmodels and community structure in networks</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The vertex-move update uses the wrong sign for edges from the moved vertex to third groups.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section III, Eq. (25), pp. 5–6</dd>
+    <dt>Analysis</dt><dd>Moving vertex i from r to s removes its k_it edges from m_rt, so the updated value is m_rt-k_it. Equation (25) instead evaluates a(m_rt+k_it), and therefore does not equal the change in Eq. (23).</dd>
+    <dt>Evidence</dt><dd>Take vertices i,x in r, y in s, and z in t, with edges (i,z), (x,z), and (y,z). Moving i from r to s gives k_it=1, m_rt=2, m_st=1, κr=2, and κs=1. Afterward, m_rt=1, m_st=2, κr=1, and κs=2, merely exchanging the r and s statistics, so Eq. (23) has true change 0. Equation (25), however, gives a(3)-a(2)+a(2)-a(1)=6 log 3; its κ terms cancel and all other terms vanish. Thus it incorrectly reports a nonzero change. Replacing m_rt+k_it by m_rt-k_it fixes this case.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Brian Karrer, M. E. J. Newman</p>
+              <p>Equation (25) gives an incorrect likelihood change for moving a  vertex between groups.</p>
+              <p><a href="https://arxiv.org/abs/1008.3926v1">arXiv</a> · <a href="https://arxiv.org/pdf/1008.3926v1.pdf">PDF</a> ·
+              1008.3926v1</p>
+              <p class="meta">Reviewed 2026-07-26 07:34:40+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="mathematical-error,statistical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1210.5215v3"><strong>The scaling of human interactions with city size</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">mathematical-error</span><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The stated Bayesian Information Criterion has an incorrect penalty term.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Page 5, Section II.B, “Probability distributions for individual social connectivity”</dd>
+    <dt>Analysis</dt><dd>The paper defines BIC as −2 ln L + η|S|. BIC instead penalizes η parameters by η ln|S|. Replacing ln|S| with |S| can materially change the selected distribution and is not a valid BIC calculation.</dd>
+    <dt>Evidence</dt><dd>Paper: BIC_i,c = −2 ln L_i,c + η_i|S_c|. Correct BIC: −2 ln L_i,c + η_i ln|S_c|. These differ for every sample size other than special trivial cases. The LaTeX source confirms this is not a text-extraction artifact.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>A scaling exponent of 1.12 implies about 8.7%, not 12%, more contacts per person for each population doubling.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Page 4, Section II.A, “Superlinear scaling of social connectivity”</dd>
+    <dt>Analysis</dt><dd>Per-capita connectivity scales as N^0.12, so doubling population multiplies it by 2^0.12 rather than by 1.12.</dd>
+    <dt>Evidence</dt><dd>2^(1.12−1)−1 = 2^0.12−1 ≈ 0.0867, or 8.7%.  The paper reports approximately 12%.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Markus Schläpfer, Luis M. A. Bettencourt, Sebastian Grauwin, Mathias Raschke, Rob Claxton, Zbigniew Smoreda, Geoffrey B. West, Carlo Ratti</p>
+              <p>Two explicit formula/arithmetic errors appear in the paper.</p>
+              <p><a href="https://arxiv.org/abs/1210.5215v3">arXiv</a> · <a href="https://arxiv.org/pdf/1210.5215v3.pdf">PDF</a> ·
+              1210.5215v3</p>
+              <p class="meta">Reviewed 2026-07-26 07:34:35+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="experimental-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1408.3455v1"><strong>Collective credit allocation in science</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">experimental-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (3)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>APS dataset incompleteness never changes researchers&#x27; relative rankings.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>p. 5, Robustness of the method; Table 1</dd>
+    <dt>Analysis</dt><dd>The robustness claim is directly contradicted by the paper&#x27;s own reported credit shares.</dd>
+    <dt>Evidence</dt><dd>For the 2012 Haroche paper, WOS ranks Raimond (0.212) above Brune (0.204), whereas APS ranks Brune (0.209) above Raimond (0.206). For the 1997 Chu paper, WOS ranks Cable (0.138) above Bjorkholm (0.134), whereas APS ranks Bjorkholm (0.162) above Cable (0.160).</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The paper gives incompatible time cutoffs for the Nobel-validation scores in Table 1.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>p. 3, Validation; Table 1 caption on p. 7</dd>
+    <dt>Analysis</dt><dd>These descriptions concern the same Table 1 calculations but specify different years. This matters because the stated purpose of using the preceding year is to exclude the prize&#x27;s  influence.</dd>
+    <dt>Evidence</dt><dd>The Validation section says Table 1 reports credit shares &#x27;in the year before the  Nobel prizes were awarded.&#x27; The Table 1 caption instead says credit share &#x27;is computed ... in the awarding year of each paper.&#x27;</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The 2010 laureates&#x27; credit is stated to be 2.5 times that of the third-ranked coauthor.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>p. 3, Validation; Table 1</dd>
+    <dt>Analysis</dt><dd>The ratios obtained from the paper&#x27;s reported values are approximately 2.20 and 2.28, not 2.5.</dd>
+    <dt>Evidence</dt><dd>Table 1 gives laureate shares of 0.244 and 0.253 and a third-ranked share of 0.111. Thus 0.244/0.111 = 2.20 and 0.253/0.111 = 2.28; their mean share divided by 0.111 is 2.24.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Hua-Wei Shen, Albert-László Barabási</p>
+              <p>The paper contains two direct internal contradictions and one numerical overstatement in its validation results.</p>
+              <p><a href="https://arxiv.org/abs/1408.3455v1">arXiv</a> · <a href="https://arxiv.org/pdf/1408.3455v1.pdf">PDF</a> ·
+              1408.3455v1</p>
+              <p class="meta">Reviewed 2026-07-26 07:33:37+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="logical-error,mathematical-error" data-severities="critical,major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1009.2653v4"><strong>Opinion fluctuations and disagreement in social networks</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">logical-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">critical</span><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (6)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Theorem 4 is false because the  defined fluidity can be infinite for a network whose expected beliefs do not concentrate.</strong> (critical, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Definition 2, equations (40)-(41), and Theorem 4, equations (45)-(46)</dd>
+    <dt>Analysis</dt><dd>The logarithmic denominator in psi(P), combined with the supremum over admissible P, can approach zero while the numerator remains positive. This makes Psi infinite and forces Theorem 4&#x27;s bound to zero even when agents have different expected beliefs.</dd>
+    <dt>Evidence</dt><dd>Take  one regular agent a and two stubborn agents s0,s1 with equal-rate links a-&gt;s0 and a-&gt;s1, and beliefs 0 and 1. For r approaching e^2/8 from below, use the admissible transition matrix, in state order (a,s0,s1), P_r=[[(5-r)/5,r/10,r/10],[(1-r)/5,(4+r)/10,(4+r)/10],[(1-r)/5,(4+r)/10,(4+r)/10]]. Its stationary distribution is (1-r,r/2,r/2). For r near e^2/8, the maximal total-variation distance  after k steps is r(4/5)^k, so tau=8. Thus taupi(S)=8r approaches e^2 from below and psi(P_r)=3(1-r)/[8r log(e^2/(8r))] diverges, giving Psi=infinity. Symmetry gives E[Z]=E[X_a]=1/2, while E[X_s0]=0 and E[X_s1]=1. With epsilon=1/4 and Delta=1, the left side of (45) is 2/3 but the right side is 0.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The distance-based expected-belief and variance formulas for general trees are wrong for vertices branching off the path between stubborn agents.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Example 2, equations (29) and the following second-moment and variance formulas</dd>
+    <dt>Analysis</dt><dd>The derivation incorrectly asserts d(v,s_j)=d(w_i,s_j) for a branch vertex v attached through w_i. The branch length must be added to both distances, so the displayed interpolation does not remain constant along branches as equation (25) requires.</dd>
+    <dt>Evidence</dt><dd>Use the tree s0-w1-w2-s1 with an additional leaf v attached to w1, and set x0=0,x1=1. Harmonicity gives E[X_v]=E[X_w1]=1/3. Equation (29), however, uses d(v,s0)=2 and d(v,s1)=3 and gives E[X_v]=2/5. For theta=1, the actual variance is (1/3)(2/3)=2/9, whereas the paper&#x27;s distance formula gives 6/25.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The stated maximum stationary variance in the single-agent example  is wrong.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 2.1, immediately after equation (4)</dd>
+    <dt>Analysis</dt><dd>The paper&#x27;s own variance formula contradicts the subsequent endpoint claim.</dd>
+    <dt>Evidence</dt><dd>The paper derives Var[X_a]=theta/[4(2-theta)]. At theta=1 this equals 1/4, consistent with the stated Bernoulli(1/2) limit, not the claimed maximum 1/2.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The Green-function relation for mean hitting times has the factor n inverted.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Example 4, equation (31)</dd>
+    <dt>Analysis</dt><dd>Under the paper&#x27;s definition (I-P)Z=I-n^{-1}11^T, the relation is E_vw=n(Z_ww-Z_vw), not n^{-1} times that  difference.</dd>
+    <dt>Evidence</dt><dd>For the three-vertex cycle, P moves to either other vertex with probability 1/2. Direct first-step analysis gives E_vw=2 for v!=w. The defined Green matrix is Z=(2/3)(I-11^T/3), so Z_ww-Z_vw=2/3. Equation (31) gives (1/3)(2/3)=2/9 instead of 2.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The barbell conductance inequality and resulting numerical mixing-time bound are incorrect.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Example 6</dd>
+    <dt>Analysis</dt><dd>The displayed exact conductance  is larger, not smaller, than the claimed bound.</dd>
+    <dt>Evidence</dt><dd>The paper gives Phi=[(n/2)(n/2-1)+1]^{-1}=4/(n^2-2n+4), then claims Phi&lt;=4/(n+1)^2. For n&gt;=6, n^2-2n+4&lt;(n+1)^2, so the inequality is reversed; at n=6, Phi=1/7&gt;4/49. Consequently tau&gt;=(n+1)^2/16 does not follow. The correct direct bound is tau&gt;=(n^2-2n+4)/16.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The abstract&#x27;s unconditional claim that differing stubborn opinions make regular beliefs fluctuate conflicts with the paper&#x27;s own  example.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Abstract and conclusion versus Remark 2 and Figure 7/Example 2</dd>
+    <dt>Analysis</dt><dd>The paper explicitly exhibits a society with differently opinionated stubborn agents in which every regular agent converges to one fixed belief.</dd>
+    <dt>Evidence</dt><dd>In the left star network of  Figure 7, stubborn agent s0 is the center and stubborn agent s1 is a leaf, with x0!=x1. The paper states that all regular agents&#x27; stationary beliefs equal x0. Each regular leaf listens only to s0, so Remark 2 gives X_a(t)-&gt;x0 almost surely. Thus the regular beliefs converge rather than fluctuate,  contrary to the abstract&#x27;s claim for any society containing stubborn agents with different opinions.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Daron Acemoglu, Giacomo Como, Fabio Fagnani, Asuman Ozdaglar</p>
+              <p>The paper contains a counterexample to its main concentration theorem and several explicit mathematical errors.</p>
+              <p><a href="https://arxiv.org/abs/1009.2653v4">arXiv</a> · <a href="https://arxiv.org/pdf/1009.2653v4.pdf">PDF</a> ·
+              1009.2653v4</p>
+              <p class="meta">Reviewed 2026-07-26 07:33:08+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Statistics"
+  data-error-types="mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/0912.5410v1"><strong>A survey of statistical network models</strong></a></td>
+    <td>Statistics</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (6)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The two stated equivalent likelihoods for an undirected G(N,p) graph are not equivalent.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 3.2, page 22, G(N,p) likelihood formulas</dd>
+    <dt>Analysis</dt><dd>The adjacency matrix is symmetric, but the matrix likelihood multiplies over every ordered pair i≠j, counting each undirected edge twice. It therefore disagrees with the preceding likelihood.</dd>
+    <dt>Evidence</dt><dd>For N=2 and the graph containing its single possible edge, the first formula gives p, while the product over (1,2) and (2,1) gives p². Moreover, if the first formula truly denotes the probability of observing E edges, it omits the factor binom(binom(N,2),E).</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The degree distribution of G(N,E) is incorrectly stated to be binomial.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 4.1, page 42</dd>
+    <dt>Analysis</dt><dd>With a fixed total number of edges, incident-edge indicators are dependent. A vertex degree is hypergeometric, not binomial.</dd>
+    <dt>Evidence</dt><dd>In G(3,2), a fixed vertex has degree 1 with probability 2/3 and degree 2 with probability 1/3, while degree 0 is impossible. The claimed binomial model Bin(2,2/3) instead assigns  probabilities 1/9, 4/9, and 4/9 to degrees 0, 1, and 2.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The stated preferential-attachment process is undefined at initialization.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 4.1, page 42, preferential-attachment model</dd>
+    <dt>Analysis</dt><dd>The model begins with N0 unconnected nodes and immediately chooses attachment targets with probability proportional to degree. Every initial degree is zero, so the proposed distribution cannot be evaluated.</dd>
+    <dt>Evidence</dt><dd>At the first step, δi=0 for every initial node and therefore pi=δi/sum_j δj=0/0. Thus no multinomial attachment distribution exists under the stated initial condition.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The binary latent-space GLM reverses the paper&#x27;s stated dependence on distance.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 3.9, pages 36–37</dd>
+    <dt>Analysis</dt><dd>The original latent-space equation uses negative distance and the prose says closer nodes are more likely to connect. The subsequent binary example instead specifies ηij=β+d(Zi,Zj), whose logistic probability increases with distance.</dd>
+    <dt>Evidence</dt><dd>Holding β fixed, logistic(β+2)&gt;logistic(β+1), so the later model makes nodes at distance 2 more likely to connect than nodes at distance 1. This directly contradicts both the earlier equation ηij=α+β&#x27;Xij−|Zi−Zj| and the accompanying interpretation.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The joint distribution of a discrete-time Markov network omits the initial-state probability.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Section 4.5, Equation 4.15, page 50</dd>
+    <dt>Analysis</dt><dd>A joint Markov distribution requires Pr(Y1) multiplied by the transition probabilities. The displayed right-hand side is only a likelihood conditional on Y1.</dd>
+    <dt>Evidence</dt><dd>For T=2, the paper asserts Pr(Y1,Y2)=Pr(Y2|Y1). Summing the right-hand side over all y1 and y2 gives one for each possible y1, hence |Y| rather than 1 whenever the state space has more than one state.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The support of the mixed-membership indicators is given the wrong size and geometry.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 3.8, footnote 10, page 36</dd>
+    <dt>Analysis</dt><dd>The model defines each membership indicator as a K-category multinomial variable,  but the inference footnote says its support consists of N vertices of a K-dimensional hypercube.</dd>
+    <dt>Evidence</dt><dd>A one-trial K-category multinomial indicator has K possible one-hot values. Independently, a K-dimensional hypercube has 2^K vertices, not N. Thus neither interpretation yields  the asserted N-element support.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Anna Goldenberg, Alice X Zheng, Stephen E Fienberg, Edoardo M Airoldi</p>
+              <p>The paper contains several demonstrable mathematical inconsistencies in its definitions and probability models.</p>
+              <p><a href="https://arxiv.org/abs/0912.5410v1">arXiv</a> · <a href="https://arxiv.org/pdf/0912.5410v1.pdf">PDF</a> ·
+              0912.5410v1</p>
+              <p class="meta">Reviewed 2026-07-26 07:32:45+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="mathematical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1010.0436v1"><strong>Modeling the scaling properties of human mobility</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The stated CTRW mean-square-displacement  exponent ν=2β/α is not an MSD exponent under either interpretation of the jump distribution.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Page 3, Scaling Anomalies (C), lines 99–104; related reasoning for Eq. (7) on pages 5–6</dd>
+    <dt>Analysis</dt><dd>For the untruncated stated tail P(Δr)∼Δr^(-1-α) with α&lt;2, the second moment diverges, so the MSD is undefined. With the paper&#x27;s stated cutoff, the second moment is finite, but independent zero-mean random-direction jumps give an MSD proportional to the expected number of jumps, not to its 2/α power. Thus ν=2β/α describes a typical stable-law displacement scale, not the claimed MSD.</dd>
+    <dt>Evidence</dt><dd>Let X(t)=Σ_{j=1}^{N(t)}J_j. With random directions, E[J_j]=0, so E[|X(t)|²|N]=N E[|J|²]. Under a cutoff, E|J|² is finite and therefore E|X(t)|²=E[N(t)]E|J|². If E[N(t)]∼t^β, the MSD exponent is β; after the waiting-time cutoff it is 1.  Without the jump cutoff, E|J|²∝∫r²r^(-1-α)dr=∫r^(1-α)dr diverges for the paper&#x27;s α=0.55. Neither case yields a finite MSD scaling as t^(2β/α).</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The assertion that simple diffusive processes are not recurrent in two dimensions is false.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Page 3, Scaling Anomalies (C), lines 103–108</dd>
+    <dt>Analysis</dt><dd>The two-dimensional simple symmetric nearest-neighbor random walk is both diffusive and recurrent, directly contradicting the stated general claim.</dd>
+    <dt>Evidence</dt><dd>For the simple symmetric walk on Z², E|X_n|²=n, so it is diffusive. Its return probability after 2n steps is C(2n,n)²/4^(2n)∼1/(πn). The sum of these return probabilities diverges, which implies that the walk returns to its starting point with probability one. It is therefore a concrete recurrent two-dimensional simple diffusion.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Chaoming Song, Tal Koren, Pu Wang, Albert-László Barabási</p>
+              <p>Two demonstrable mathematical errors occur in the paper&#x27;s treatment of diffusion and recurrence.</p>
+              <p><a href="https://arxiv.org/abs/1010.0436v1">arXiv</a> · <a href="https://arxiv.org/pdf/1010.0436v1.pdf">PDF</a> ·
+              1010.0436v1</p>
+              <p class="meta">Reviewed 2026-07-26 07:31:25+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="factual-error,logical-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/0906.0612v2"><strong>Community detection in graphs</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">factual-error</span><span class="tag">logical-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (6)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The clustering-entropy formula contradicts its stated value for maximal instability.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section XIV, Eq. (84), page 70</dd>
+    <dt>Analysis</dt><dd>Substituting the paper&#x27;s maximally unstable case directly into Eq. (84) gives zero, not the claimed value one.</dd>
+    <dt>Evidence</dt><dd>For every edge, set p_ij=1/2. The bracket is (1/2)log2(1/2) - (1/2)log2(1/2)=0, so Eq. (84) gives S=0. The following sentence instead states S=1. The second minus sign must be a plus for the stated entropy behavior.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The assertion that structural communities are possible only in sparse graphs is false.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section III, opening discussion, page 8</dd>
+    <dt>Analysis</dt><dd>A connected dense graph can satisfy the paper&#x27;s own density criteria for unambiguous communities.</dd>
+    <dt>Evidence</dt><dd>Take two cliques of n/2 vertices joined by one bridge. The graph is connected and has m=n(n-2)/4+1=Theta(n^2), hence m≫n. Each clique has intra-cluster density 1 and inter-cluster density 1/(n^2/4)=4/n^2, while the whole graph&#x27;s density approaches 1/2. Thus each clique satisfies the paper&#x27;s requirement that internal density greatly exceed global density and external density be much smaller, contradicting the claimed necessity of sparsity.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The paper incorrectly states that every normalized Laplacian has  zero row sums and the all-ones zero eigenvector.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Appendix A.2, Graph Matrices, pages 94–95</dd>
+    <dt>Analysis</dt><dd>The claim fails for the paper&#x27;s symmetrically normalized Laplacian L_sym=D^(-1/2)LD^(-1/2).</dd>
+    <dt>Evidence</dt><dd>For the three-vertex path, L_sym=[[1,-1/sqrt(2),0],[-1/sqrt(2),1,-1/sqrt(2)],[0,-1/sqrt(2),1]]. Its first-row sum is 1-1/sqrt(2), not zero, and L_sym(1,1,1)^T is nonzero. Its zero eigenvector is instead proportional to (1,sqrt(2),1)^T.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The displayed Euclidean-distance formula is actually the Manhattan distance.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section III.B.4, Eqs. (3) and (4), page 12</dd>
+    <dt>Analysis</dt><dd>Equation (3) sums coordinatewise square roots rather than taking one square root after summing squares.</dd>
+    <dt>Evidence</dt><dd>Eq. (3) gives sum_k sqrt((a_k-b_k)^2)=sum_k |a_k-b_k|, exactly Eq. (4), which the paper labels Manhattan distance. For A=(0,0) and B=(1,1), Eq. (3) gives 2, whereas the L2 distance it claims to define is sqrt(2).</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The spectral cut-size expansion drops a factor of 1/4.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Section IV.A, Eqs. (18)–(19), pages 17–18</dd>
+    <dt>Analysis</dt><dd>Equation (19) does not follow from Eq. (18) and the stated eigenvector decomposition.</dd>
+    <dt>Evidence</dt><dd>From R=(1/4)s^T Ls and s=sum_i a_i v_i with orthonormal Laplacian eigenvectors, one obtains R=(1/4)sum_i a_i^2 lambda_i. Eq. (19) instead states R=sum_i a_i^2 lambda_i. Renormalizing the ±1 index vector cannot remove this factor while preserving Eq. (18).</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The appendix reverses the definitions of indegree and outdegree used elsewhere in the paper.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Appendix A.1, page 93; Section VI.B, directed modularity</dd>
+    <dt>Analysis</dt><dd>The appendix calls edges beginning at a vertex its indegree and edges ending  there its outdegree, while the directed-modularity discussion uses the opposite assignments.</dd>
+    <dt>Evidence</dt><dd>Section VI.B states that an edge is likely to point from a high-outdegree vertex B to a high-indegree vertex A and uses k_i^out k_j^in for an edge i→j. Under Appendix A.1&#x27;s definitions, that same edge would contribute to B&#x27;s indegree and A&#x27;s outdegree. Both conventions cannot hold simultaneously.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Santo Fortunato</p>
+              <p>Six explicit formula, derivation, and definition errors are demonstrable from the paper itself.</p>
+              <p><a href="https://arxiv.org/abs/0906.0612v2">arXiv</a> · <a href="https://arxiv.org/pdf/0906.0612v2.pdf">PDF</a> ·
+              0906.0612v2</p>
+              <p class="meta">Reviewed 2026-07-26 07:29:47+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="logical-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1404.6247v1"><strong>Career on the Move: Geography, Stratification, and Scientific Impact</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">logical-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The stated interpretation of rank changes has the direction reversed.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Pages 4–5, definition of Δr immediately before Figure 6 and Figure 6 discussion</dd>
+    <dt>Analysis</dt><dd>The paper defines rank 1 as best and Δr=i−j for movement from origin i to destination j. It then incorrectly claims Δr&gt;0 means movement to a lower-ranked institution and Δr&lt;0  means movement to a higher-ranked institution. Consequently, the directional conclusions drawn from  Figure 6 are reversed under the paper&#x27;s own definitions.</dd>
+    <dt>Evidence</dt><dd>Consider movement from rank i=100 to elite rank j=1. The definition gives Δr=100−1=99&gt;0, although this is movement to a higher-ranked institution. Conversely, moving from i=1 to j=100 gives Δr=−99&lt;0, although this is movement to a lower-ranked institution. Thus the claimed meanings of both signs—and hence the associated performance interpretations—cannot follow from the stated definition.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The Figure 5 caption reverses the meanings of positive and negative performance changes.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Page 5, Figure 5 caption; Equation 4 and accompanying text on page 3</dd>
+    <dt>Analysis</dt><dd>Equation 4 and its explanation explicitly state that positive Δc* represents improved impact and negative Δc* represents declining impact. The Figure 5 caption assigns the opposite meanings to panels conditioned on those signs.</dd>
+    <dt>Evidence</dt><dd>The text states: “A  positive Δc* indicates…an improvement… A negative value corresponds to a decline.” Figure 5&#x27;s caption describes M(i,j|Δc*&lt;0) and M(i,j|Δc*&gt;0) as transitions resulting in “higher and lower scientific impact, respectively.” These assignments are mutually contradictory.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Pierre Deville, Dashun Wang, Roberta Sinatra, Chaoming Song, Vincent D. Blondel, Albert-Laszlo Barabasi</p>
+              <p>The paper contains a sign error that reverses the interpretation of its central rank-mobility result, plus a contradictory figure caption.</p>
+              <p><a href="https://arxiv.org/abs/1404.6247v1">arXiv</a> · <a href="https://arxiv.org/pdf/1404.6247v1.pdf">PDF</a> ·
+              1404.6247v1</p>
+              <p class="meta">Reviewed 2026-07-26 07:28:45+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="mathematical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/0906.5007v1"><strong>Spread of Misinformation in Social Networks</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (3)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Theorem 5(b)&#x27;s bound on expected misinformation is false.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Theorem 5(b), pages 17–20</dd>
+    <dt>Analysis</dt><dd>The proof incorrectly uses |v&#x27;x| &lt;= ||v||_infinity ||x||_infinity; this omits the required dimension-dependent factor or dual norm.</dd>
+    <dt>Evidence</dt><dd>Let n=2, p12=p21=1, epsilon=1/2, alpha12=1, beta21=1, and all other alpha, beta, gamma values zero as appropriate. Assumptions 1–3 hold. The mean interaction matrix is [[1/2,1/2],[1/4,3/4]], whose stationary distribution is (1/3,2/3). For x(0)=(-1,1), theta=0 and E[xbar]=1/3. Here d=1, chi=1/2, delta=0, sum(pij alphaij)=1, and ||x(0)||_infinity=1, so Theorem 5(b) asserts 1/3 &lt;= 1/4, which is false.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Appendix Lemma 8(b) uses an incorrect exponent in its transition-matrix lower bound.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Appendix B, Lemma 8(b), page 50</dd>
+    <dt>Analysis</dt><dd>The proof itself produces epsilon^((K-k-1)B) epsilon^(kB)=epsilon^((K-1)B), not epsilon^(K-1). Since epsilon is at most 1/2, the stated stronger bound does not follow.</dd>
+    <dt>Evidence</dt><dd>Use the admissible two-agent model from F1 and consider the positive-probability realization W(s)=...=W(s+3)=J12. Set K=2, B=2, k=0, i=j=1, and xi=epsilon^2=1/4. The assumed block satisfies [Phi(s+1,s)]11=1/4. But [Phi(s+3,s)]11=epsilon^4=1/16,  whereas Lemma 8(b) claims it is at least xi epsilon^(K-1)=1/8.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Theorem 7(b)&#x27;s perturbation expansion incorrectly discards interactions between disjoint forceful edges.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Theorem 7(b) proof, equations (26) and the following inverse identity, page 26</dd>
+    <dt>Analysis</dt><dd>Disjoint support of the D blocks does not imply that products such as Dij Y Dkl Y vanish, because the fundamental matrix Y is generally dense. Consequently, the displayed decomposition of DY(I-DY)^(-1) into independent edge terms is invalid.</dd>
+    <dt>Evidence</dt><dd>Take a four-node path with p12=1, p21=p23=p32=p34=1/2, p43=1, gamma=0, and small positive alpha12 and alpha34; the forceful edges {1,2} and {3,4} satisfy the theorem&#x27;s disjointness assumption. At epsilon=1/2, D12=c e2(e2-e1)&#x27;/2 and D34=d e4(e4-e3)&#x27;/2 with c,d&gt;0. Thus D12 Y D34=(cd/4)(Y24-Y14)e2(e4-e3)&#x27;. By the paper&#x27;s equations (25) and Lemma 2, Y24-Y14=(m14-m24)/4=m12/4&gt;0, while row 4 minus row 3 of Y is also nonzero. Hence D12 Y D34 Y is nonzero. This cross term appears in (DY)^2 but is absent from the claimed edgewise expansion.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Daron Acemoglu, Asuman Ozdaglar, Ali ParandehGheibi</p>
+              <p>Three demonstrable mathematical errors invalidate a misinformation bound, an appendix lemma, and a multi-link perturbation derivation.</p>
+              <p><a href="https://arxiv.org/abs/0906.5007v1">arXiv</a> · <a href="https://arxiv.org/pdf/0906.5007v1.pdf">PDF</a> ·
+              0906.5007v1</p>
+              <p class="meta">Reviewed 2026-07-26 07:28:37+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="mathematical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1306.3293v2"><strong>Quantifying Long-Term Scientific Impact</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Equation 3 cannot follow from Equation 2 as stated.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Main text, mechanisms A–C and Equations 2–3, pages 3–4</dd>
+    <dt>Analysis</dt><dd>The paper defines c_i as citations previously received and makes citation probability proportional to c_i. A newly published paper has c_i=0, so its citation probability is zero and it can never receive its first citation. Nevertheless, Equation 3 predicts positive citations for any finite t&gt;0 when λ_i&gt;0. An unstated initial-attractiveness term or nonzero incoming-citation initial condition would be required.</dd>
+    <dt>Evidence</dt><dd>Equation 2 states Π_i(t) ∝ η_i c_i(t) P_i(t). Starting from c_i(0)=0 gives Π_i(t)=0 and hence c_i(t)=0 for all t. But Equation 3 is c_i(t)=m[exp(λ_i Φ((ln t−μ_i)/σ_i))−1]; for  m&gt;0, λ_i&gt;0, and finite t&gt;0, the normal CDF Φ is strictly positive, so c_i(t)&gt;0. Thus Equation 3 is not a solution of the stated dynamics.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Dashun Wang, Chaoming Song, Albert-László Barabási</p>
+              <p>The paper’s central citation equation is not derivable from its  stated preferential-attachment rule because zero-citation papers form an absorbing state.</p>
+              <p><a href="https://arxiv.org/abs/1306.3293v2">arXiv</a> · <a href="https://arxiv.org/pdf/1306.3293v2.pdf">PDF</a> ·
+              1306.3293v2</p>
+              <p class="meta">Reviewed 2026-07-26 07:27:40+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="mathematical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/0803.0476v2"><strong>Fast unfolding of communities in large networks</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The modularity-gain formula for inserting a node into a community is wrong by a factor of two in the internal-edge term.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 2, Equation (2), page 4</dd>
+    <dt>Analysis</dt><dd>Under Equation (1), an undirected edge between the inserted node and the community contributes twice to the sum over ordered pairs i,j. Equation (2) adds only k_i,in to the internal-weight numerator; it must add 2k_i,in.</dd>
+    <dt>Evidence</dt><dd>Consider two nodes joined by one unit-weight edge, initially in separate communities. Here m=1. Equation (1) gives Q_before=-1/2 and Q_after=0, so the true gain is 1/2. In Equation (2), taking C as one singleton gives sum_in=0, sum_tot=1, k_i=1, and k_i,in=1. The displayed formula yields [1/2-1]-[0-1/4-1/4]=0, contradicting the gain computed directly from Equation (1).</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Vincent D. Blondel, Jean-Loup Guillaume, Renaud Lambiotte, Etienne Lefebvre</p>
+              <p>Equation (2) gives an incorrect modularity gain because it omits one copy of the new internal-edge weight.</p>
+              <p><a href="https://arxiv.org/abs/0803.0476v2">arXiv</a> · <a href="https://arxiv.org/pdf/0803.0476v2.pdf">PDF</a> ·
+              0803.0476v2</p>
+              <p class="meta">Reviewed 2026-07-26 07:26:54+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="mathematical-error,statistical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1712.01804v2"><strong>Hot Streaks in Artistic, Cultural, and Scientific Careers</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">mathematical-error</span><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (4)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The piecewise formula for collective impact does not follow from the paper&#x27;s citation model.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Supplementary Information S5.4, Eqs. S15-S18</dd>
+    <dt>Analysis</dt><dd>The derivation substitutes a discontinuous Gamma(t0) into a chain rule involving delta functions. The resulting product is not valid and produces a formula unequal to the direct derivative of the defining integral.</dd>
+    <dt>Evidence</dt><dd>For t_up &lt;= t &lt; t_down, let q = Phi((ln(t-t_up)-mu)/sigma). Directly integrating Eq. S12 gives hot-streak excess G-G0 = nm integral from 0 to t-t_up of [exp(Gamma_H Phi(u))-exp(Gamma_0 Phi(u))] du. Differentiation therefore gives nm[exp(Gamma_H q)-exp(Gamma_0 q)]. Eq. S17 instead gives nm(Gamma_H-Gamma_0)q exp(Gamma_H q). For Gamma_0=1, Gamma_H=2, and q=1/2, the exact coefficient is exp(1)-exp(1/2)=1.0696, whereas Eq. S17 gives exp(1)/2=1.3591.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The paper incorrectly replaces WSB fitness lambda with log-citation goodness Gamma.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Supplementary Information S5.2, Eqs. S10-S12; S5.5</dd>
+    <dt>Analysis</dt><dd>The stated relationship between Gamma and lambda contains an additive log(m) term  that cannot be discarded inside an exponential.</dd>
+    <dt>Evidence</dt><dd>The paper states C_infinity=m(exp(lambda)-1) and Gamma approximately equals log(C_infinity). Thus lambda=log(1+exp(Gamma)/m), approximately Gamma-log(m), not Gamma. Nevertheless Eq. S12 substitutes Gamma directly for lambda. With the paper&#x27;s m=30 and Gamma=10, Eq. S12 asymptotically predicts 30(exp(10)-1), approximately 660,764 citations, while S5.5 interprets Gamma=10 as approximately exp(10)=22,026 citations.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Hot-streak duration is defined with the wrong sign.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Main text, item 3 following Eq. 1; Supplementary Information S3.3</dd>
+    <dt>Analysis</dt><dd>The ordering of start and end times makes the stated duration nonpositive, contradicting the positive durations subsequently assigned and reported.</dd>
+    <dt>Evidence</dt><dd>Eq. 1 specifies t_up &lt;= t &lt;= t_down, with t_up the start and t_down the end. The paper nevertheless defines tau_H=t_up-t_down and then assigns tau_H=6 or 4 years and reports positive duration distributions. Under its stated ordering, t_up-t_down &lt;= 0; a positive duration requires t_down-t_up.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Two incompatible parameter estimates are reported for the same auction-price distribution fit.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Supplementary Information S2.1 and Figure S3 caption</dd>
+    <dt>Analysis</dt><dd>Both passages describe a log-normal fit to the auction-price distribution in the paper&#x27;s artist dataset, but report materially different standard deviations.</dd>
+    <dt>Evidence</dt><dd>S2.1 reports mu=7.91 and sigma=1.55. The Figure S3 caption reports mu=8.0 and sigma=2.15 for P(Price). The mu values can be reconciled by rounding, but 1.55 and 2.15 cannot.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Lu Liu, Yang Wang, Roberta Sinatra, C. Lee Giles, Chaoming Song, Dashun Wang</p>
+              <p>The collective-impact model contains two demonstrable mathematical errors, alongside two smaller internal inconsistencies.</p>
+              <p><a href="https://arxiv.org/abs/1712.01804v2">arXiv</a> · <a href="https://arxiv.org/pdf/1712.01804v2.pdf">PDF</a> ·
+              1712.01804v2</p>
+              <p class="meta">Reviewed 2026-07-26 07:26:04+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="mathematical-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/cond-mat/0308217v1"><strong>Finding and evaluating community structure in networks</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Equation (4) multiplies incompatible matrix dimensions.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Section III.C, page 7, Equation (4)</dd>
+    <dt>Analysis</dt><dd>The paper defines D as n×n  but M_t as (n−1)×(n−1) after deleting the target row and column. Therefore D^{-1}(I−M_t)^{-1}s is undefined as written. The LaTeX source confirms this is not an extraction artifact.</dd>
+    <dt>Evidence</dt><dd>The  valid identity is D_t^{-1}(I−A_tD_t^{-1})^{-1}s=(D_t−A_t)^{-1}s. Equation (4) instead uses D^{-1} in its first expression; replacing it with D_t^{-1} repairs the derivation.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> M. E. J. Newman, M. Girvan</p>
+              <p>One minor but definite dimensional error appears in the random-walk derivation; the central equivalence remains valid after correcting it.</p>
+              <p><a href="https://arxiv.org/abs/cond-mat/0308217v1">arXiv</a> · <a href="https://arxiv.org/pdf/cond-mat/0308217v1.pdf">PDF</a> ·
+              cond-mat/0308217v1</p>
+              <p class="meta">Reviewed 2026-07-26 07:25:42+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="statistical-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/cond-mat/0203511v2"><strong>Statistical properties of stock order books: empirical results and models</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">statistical-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Equation (3) defines an absolute standard deviation, but the paper reports the corresponding relative standard deviation.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Pages 6–7, Equations (2) and (3)</dd>
+    <dt>Analysis</dt><dd>For the stated Gamma distribution, the unnormalized statistic in Equation (3) is measured in shares and cannot be of order one. The reported conclusion instead matches the coefficient of variation, which requires division by the mean.</dd>
+    <dt>Evidence</dt><dd>Equation (2) has Gamma shape γ and scale V0, so Var(V)=γV0². With  γ≈0.7–0.8 and V0≈2700, Equation (3) gives σV≈2700√γ≈2260–2415 shares, not order 1. The relative fluctuation is σV/E[V]=1/√γ≈1.12–1.20, which is order 1 and evidently the intended quantity.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> J. -P. Bouchaud, M. Mezard, M. Potters</p>
+              <p>One explicit normalization error makes the stated fluctuation magnitude inconsistent with the paper&#x27;s fitted Gamma distribution.</p>
+              <p><a href="https://arxiv.org/abs/cond-mat/0203511v2">arXiv</a> · <a href="https://arxiv.org/pdf/cond-mat/0203511v2.pdf">PDF</a> ·
+              cond-mat/0203511v2</p>
+              <p class="meta">Reviewed 2026-07-26 07:25:05+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="experimental-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/cond-mat/9905305v1"><strong>Scaling of the distribution of fluctuations of financial market indices</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The large-k approximation for the inverse local slope has the wrong sign.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Appendix B, Eqs. (B3)–(B4)</dd>
+    <dt>Analysis</dt><dd>Because the returns are sorted with g_k&gt;g_{k+1}, Eq. (B3) is positive. The stated approximation in Eq. (B4) is negative, so it cannot follow from Eq. (B3) or represent the plotted positive inverse exponent.</dd>
+    <dt>Evidence</dt><dd>Using P(g&gt;g_k)=k/N gives log[P(g_{k+1})/P(g_k)]=log[(k+1)/k]≈1/k. Therefore Eq. (B3) yields ζ(g_k)≈-k log(g_{k+1}/g_k)=k[log(g_k)-log(g_{k+1})]&gt;0. Equation (B4) instead states k[log(g_{k+1})-log(g_k)]&lt;0.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The positive- and negative-tail Hill estimates at one minute are assigned oppositely in Figure 5 and Table I.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Figure 5 caption and Table I, Δt=1 min row</dd>
+    <dt>Analysis</dt><dd>Both locations report the same two estimates with identical uncertainties for the same time scale and estimator, but attach them to opposite tails.</dd>
+    <dt>Evidence</dt><dd>Figure 5 assigns α=3.45±0.07 to the positive tail and 3.29±0.07 to the negative tail. Table I assigns 3.29±0.07 to the positive tail and 3.45±0.07 to the negative tail.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Parameswaran Gopikrishnan, Vasiliki Plerou, Luis A. Nunes Amaral, Martin Meyer, H. Eugene Stanley</p>
+              <p>Two demonstrable internal errors occur in the Hill-estimator derivation and reported tail labels.</p>
+              <p><a href="https://arxiv.org/abs/cond-mat/9905305v1">arXiv</a> · <a href="https://arxiv.org/pdf/cond-mat/9905305v1.pdf">PDF</a> ·
+              cond-mat/9905305v1</p>
+              <p class="meta">Reviewed 2026-07-26 07:23:22+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/cond-mat/0303516v1"><strong>The structure and function of complex networks</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (10)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The proposed harmonic-mean distance is undefined because it  includes self-distances.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Page 11, Section III.A, Equation (2)</dd>
+    <dt>Analysis</dt><dd>The summation includes i=j, while the paper explicitly states that d_ii=0. Consequently d_ii^(-1) is undefined, so Equation (2) cannot define the claimed finite harmonic mean.</dd>
+    <dt>Evidence</dt><dd>For every vertex i, the sum contains d_ii^(-1)=1/0. Excluding disconnected pairs through 1/infinity=0 does not  resolve these zero-distance terms; the sum must instead exclude i=j.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Random stub pairing does not give every multigraph topology with a fixed degree sequence equal probability.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Page 22, Section IV.B.1 and footnote 20</dd>
+    <dt>Analysis</dt><dd>Different unlabeled multigraph topologies can correspond to different numbers of stub pairings, contrary to the claimed constant multiplicity.</dd>
+    <dt>Evidence</dt><dd>For two vertices each of degree 2, the three pairings of four labeled stubs produce one self-loop at each vertex in one pairing, but two parallel edges between the vertices in two pairings. Thus these topologies have probabilities 1/3 and 2/3, not equal probabilities.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The added-shortcut small-world model&#x27;s mean degree contains an erroneous factor of L.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Page 28, Section VI</dd>
+    <dt>Analysis</dt><dd>The paper gives Lk underlying edges and a mean Lkp shortcuts, hence Lk(1+p) total edges. Dividing twice the edge count by L gives the mean degree.</dd>
+    <dt>Evidence</dt><dd>Mean degree = 2[Lk(1+p)]/L = 2k(1+p), not the stated 2Lk(1+p).</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The asymptotic regimes of the small-world scaling function are reversed.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Page 29, Section VI.C, Equations (54)-(55)</dd>
+    <dt>Analysis</dt><dd>The stated asymptotics contradict the limiting behavior immediately  preceding them.</dd>
+    <dt>Evidence</dt><dd>With x=L/xi, the large-world regime p→0 has xi→infinity and x≪1; since  ell is proportional to L there, g(x) must be proportional to x. For x≫1, the stated small-world behavior ell proportional to log L requires g(x) proportional to log x. Equation (55) states exactly  the opposite assignments.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Price&#x27;s model exponent incorrectly remains independent of the attachment offset k0.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Page 31, Section VII.A, Equation (64)</dd>
+    <dt>Analysis</dt><dd>The normalization and master equation both change when attachment is proportional to k+k0. The displayed generalization retains the k0=1 exponent and does not follow from the stated process.</dd>
+    <dt>Evidence</dt><dd>The total attractiveness per vertex is m+k0. Stationary balance gives p_k/p_(k-1)=(k-1+k0)/(k+k0+(m+k0)/m), whose large-k expansion yields exponent alpha=2+k0/m, not 2+1/m. For example, k0=2 gives alpha=2+2/m.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The generalized Barabasi-Albert master equation omits the offset k0 from attachment rates.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Page 33, Section VII.C, Equations (72)-(73)</dd>
+    <dt>Analysis</dt><dd>The section states that attachment probability is proportional to k+k0, but Equation (72) uses k in both influx and loss terms.</dd>
+    <dt>Evidence</dt><dd>The loss rate for degree-k vertices must be m(k+k0)p_k/(2m+k0), and at k=m it must be m(m+k0)p_m/(2m+k0). Equation (72) instead uses mkp_k/(2m+k0) and m^2p_m/(2m+k0), which are valid only for k0=0.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The SIR transmissibility formula is incompatible with the stated  stochastic recovery-rate model.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Page 41, Section VIII.B.1, Equation (84)</dd>
+    <dt>Analysis</dt><dd>For fixed infection rate beta and exponential recovery rate gamma, transmission and recovery are competing exponential events.</dd>
+    <dt>Evidence</dt><dd>The probability of transmission before recovery is beta/(beta+gamma), whereas Equation (84) uses 1-exp(-beta/gamma). At beta=gamma these give 1/2 and 1-e^(-1), respectively. The latter applies to a fixed infectious duration 1/gamma, not a stochastic recovery rate gamma.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The stated mean SIR outbreak size is  not the derivative of the paper&#x27;s own generating function.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Page 41, Section VIII.B.1, Equation (86)</dd>
+    <dt>Analysis</dt><dd>Differentiating the two generating-function equations given immediately before Equation (86) produces a different expression.</dd>
+    <dt>Evidence</dt><dd>From H1=1-T+TxG1(H1), H1&#x27;(1)=T/[1-TG1&#x27;(1)]. From H0=xG0(H1), H0&#x27;(1)=1+TG0&#x27;(1)/[1-TG1&#x27;(1)]. Equation (86) instead gives T[1+TG0&#x27;(1)/(1-TG1&#x27;(1))]. At T=0 the generating function gives an outbreak size of 1, while Equation  (86) gives 0.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The claim that every power-law SIS network has zero epidemic threshold is false under the paper&#x27;s own mean-field equation.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Page 43, Section  VIII.B.2, Equation (92) and following paragraph</dd>
+    <dt>Analysis</dt><dd>The referenced power-law distribution permits exponents above 3, for which its second moment is finite and Equation (92) gives a positive threshold.</dd>
+    <dt>Evidence</dt><dd>Take alpha=4 in p_k=k^(-alpha)/zeta(alpha). Equation (92) linearized at Theta=0 gives lambda_c=&lt;k&gt;/&lt;k^2&gt;=zeta(3)/zeta(2)&gt;0. For lambda below this value its left side is below 1 and decreases as Theta increases, so no positive endemic solution exists.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Repeated adjacency-matrix multiplication need not converge to the  principal eigenvector even for a connected directed network.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Pages 43-44, Section VIII.C.1, Equation (93) and following text</dd>
+    <dt>Analysis</dt><dd>Connectivity does not ensure the aperiodicity required for power iteration to converge.</dd>
+    <dt>Evidence</dt><dd>For the strongly connected directed two-cycle, A=[[0,1],[1,0]]. Starting from x=(1,2), repeated multiplication alternates between (1,2) and (2,1) forever rather than converging, directly contradicting the claim for any non-eigenvector initial vector.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> M. E. J. Newman</p>
+              <p>The paper contains several demonstrable mathematical errors, including incorrect generating-function derivatives, attachment equations, epidemic formulas, and asymptotic regimes.</p>
+              <p><a href="https://arxiv.org/abs/cond-mat/0303516v1">arXiv</a> · <a href="https://arxiv.org/pdf/cond-mat/0303516v1.pdf">PDF</a> ·
+              cond-mat/0303516v1</p>
+              <p class="meta">Reviewed 2026-07-26 07:22:49+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="logical-error,statistical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1907.05276v2"><strong>Human detection of machine manipulated media</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">logical-error</span><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (3)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Table 3 reports identifiable main effects for image-level variables while claiming to include image fixed effects.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Table 3, page 15; Results and Figure 4 caption</dd>
+    <dt>Analysis</dt><dd>Subjective quality, mask size, entropy, mean image accuracy, number of removed objects, and presence of a person are fixed characteristics of each manipulated image. Their main effects are therefore perfectly collinear with image fixed effects and cannot have separately estimated coefficients or standard errors under the stated model.</dd>
+    <dt>Evidence</dt><dd>For any image-level characteristic q_i, its observation vector equals the sum over image indicators q_i*1(image=i), so image fixed effects span it exactly. Nevertheless, Table 3 reports coefficients and standard errors such as Small Mask = -0.0551 (0.0108) and Low Entropy = 0.0264 (0.0120), while its caption states that every column includes image fixed effects.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The paper interprets initially correct participants as learning faster despite reporting that their learning-rate slope is lower.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Results, page 5; Table 3 column 6; Figure 4f</dd>
+    <dt>Analysis</dt><dd>The text first states that initial success produces a two-percentage-point reduction in learning rate, but immediately concludes that more accurate people learn faster. The reported interaction also has the direction of  slower, not faster, learning for the initially correct group.</dd>
+    <dt>Evidence</dt><dd>Table 3 reports a baseline Log(Image Position) slope of 0.0505 and a First Correct Interaction of -0.0217, giving the initially correct group a slope of 0.0505-0.0217=0.0288, below the comparison group&#x27;s 0.0505. This agrees with the text&#x27;s &#x27;reduction in the learning rate&#x27; but contradicts its claims that initially successful participants &#x27;learn faster.&#x27;</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The small-mask result contradicts the conclusion that participants learn best from the most subtle manipulations.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Results, page 4; Discussion, page 6; Table 3 column 3; Figure 4c</dd>
+    <dt>Analysis</dt><dd>The paper explicitly classifies  smaller masked areas as producing subtler changes, yet reports faster learning for large masked areas. Its own small-mask group is therefore a counterexample to the generalized conclusion about subtle manipulations.</dd>
+    <dt>Evidence</dt><dd>The Results state both that participants learn images with &#x27;large  masked area faster than images with small masked area&#x27; and that smaller masked areas are &#x27;more subtle.&#x27; Table 3 confirms the direction with Small Mask Interaction = -0.0190, while Figure 4c shows  larger gains for Large Mask. Thus the Discussion&#x27;s claim that participants &#x27;learn best from the most subtle manipulations&#x27; does not follow and is false for the paper&#x27;s mask-size measure.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Matthew Groh, Ziv Epstein, Nick Obradovich, Manuel Cebrian, Iyad Rahwan</p>
+              <p>The paper contains one impossible fixed-effects specification and two conclusions that contradict its reported heterogeneous effects.</p>
+              <p><a href="https://arxiv.org/abs/1907.05276v2">arXiv</a> · <a href="https://arxiv.org/pdf/1907.05276v2.pdf">PDF</a> ·
+              1907.05276v2</p>
+              <p class="meta">Reviewed 2026-07-26 07:21:55+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="mathematical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/cond-mat/0008305v2"><strong>Evidence for the exponential distribution of income in the USA</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Exponential individual incomes do not by themselves imply the family-income distribution in Eq. (5).</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 3, Eq. (5)</dd>
+    <dt>Analysis</dt><dd>The distribution  of a sum is the convolution of the marginal distributions only when the two incomes are independent. The paper states only that each individual income follows Eq. (1), so Eq. (5) does not follow under its stated assumptions.</dd>
+    <dt>Evidence</dt><dd>Let X have density exp(-x/R)/R and set both earners&#x27; incomes to r1=r2=X. Each income has exactly the paper&#x27;s exponential distribution, and family income is r=2X. Its density is exp(-r/(2R))/(2R), not r exp(-r/R)/R^2 as claimed in Eq. (5); at r=0 the former equals 1/(2R), while Eq. (5) equals 0.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Adrian Dragulescu, Victor M. Yakovenko</p>
+              <p>The two-earner family-income derivation incorrectly infers a convolution from exponential marginal incomes without assuming independence.</p>
+              <p><a href="https://arxiv.org/abs/cond-mat/0008305v2">arXiv</a> · <a href="https://arxiv.org/pdf/cond-mat/0008305v2.pdf">PDF</a> ·
+              cond-mat/0008305v2</p>
+              <p class="meta">Reviewed 2026-07-26 07:19:18+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="mathematical-error,statistical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1706.06974v1"><strong>The Theory is Predictive, but is it Complete? An Application to Human Perception of Randomness</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">mathematical-error</span><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (5)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The finite-sample table-lookup errors cannot be the claimed predictive limits.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 2.4, page 13; Appendix C.3, page 35</dd>
+    <dt>Analysis</dt><dd>Section 2.4 says the reported table-lookup errors are the predictive limits and that  no larger error reduction is possible. Appendix C.3 instead derives table-lookup error as irreducible error plus positive estimation variance, estimated as 0.0014 for Continuation and 0.0031  for Classification. Therefore the reported finite-sample errors exceed the irreducible errors and cannot themselves be predictive limits.</dd>
+    <dt>Evidence</dt><dd>The main text declares 0.2439 and 0.2422 to be the limits. Appendix C.3 gives estimated irreducible errors lower by 0.0014 and 0.0031, respectively, under its own decomposition.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The stated Rabin–Vayanos parameter domain permits invalid Bernoulli probabilities.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 2.2, page 10, and Appendix B</dd>
+    <dt>Analysis</dt><dd>The model allows α,δ∈R+ without constraints ensuring that its Bernoulli parameter lies in [0,1].</dd>
+    <dt>Evidence</dt><dd>For k=2, s1=1, α=1, and δ=1, the stated Bernoulli parameter is  0.5−1·(2·1−1)=−0.5. These parameters satisfy the declared domain, but −0.5 is not a probability.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The Rabin–Vayanos classification likelihood is not normalized.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Appendix B, definition of g_RV(s), page 32</dd>
+    <dt>Analysis</dt><dd>The likelihood replaces the signed dependence term required by the model with an unsigned equality indicator. Consequently, its conditional factors do not sum to one.</dd>
+    <dt>Evidence</dt><dd>At k=2 with α=0.1, the appendix assigns factors 0.5−α=0.4 when s2=s1 and 0.5 when s2≠s1. Their sum is 0.9, not 1. The model  in Section 2.2 instead implies probabilities 0.4 and 0.6. Thus g_RV is not a probability distribution for α&gt;0.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The appendix formula for the Rabin classification distribution cannot represent string probabilities.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Appendix B, definitions of q(s|r) and g_R(s), page 32</dd>
+    <dt>Analysis</dt><dd>The stated q(s|r) contains an unbound index k and lacks the product  of conditional probabilities needed for a complete string. A permitted parameter value makes the failure explicit.</dd>
+    <dt>Evidence</dt><dd>Set p=1, so the urn refreshes before every draw and every length-8 string must have probability 1/256. Only r=(1,…,1) has positive weight in the stated sum, for which q(s|r)=0.5. Hence the formula gives g_R(s)=0.5 for each of 256 strings, with total mass 128 rather than 1.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Appendix C.3 uses the minimum, rather than the maximum, to upper-bound a weighted average.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Appendix C.3, page 35</dd>
+    <dt>Analysis</dt><dd>For nonnegative weights q_s summing to one, a weighted average is at least the minimum term and at most the maximum.  The paper reverses this inequality.</dd>
+    <dt>Evidence</dt><dd>It asserts Σ_s q_s a_s≤min_s a_s. It also reports the resulting contradictions 0.0014≤0.0033 and 0.0031≤0.0066 while identifying the right-hand values  as minima; an average cannot be smaller than its minimum component.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Jon Kleinberg, Annie Liang, Sendhil Mullainathan</p>
+              <p>The paper contains several demonstrable mathematical errors, including invalid probability models and a contradiction in its interpretation of table lookup as the predictive limit.</p>
+              <p><a href="https://arxiv.org/abs/1706.06974v1">arXiv</a> · <a href="https://arxiv.org/pdf/1706.06974v1.pdf">PDF</a> ·
+              1706.06974v1</p>
+              <p class="meta">Reviewed 2026-07-26 07:19:16+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="mathematical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/cond-mat/0205405v1"><strong>Assortative mixing in networks</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>A giant component need not satisfy the claimed condition det(A)&gt;0.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Page 3, discussion following Eq. (8), checked against Eq. (9)</dd>
+    <dt>Analysis</dt><dd>The determinant vanishes at eigenvalue crossings, but its sign does not  generally identify which side has a giant component. An explicit distribution satisfying all stated  normalization and symmetry assumptions has det(A)&lt;0 while Eq. (9) yields a positive giant-component  fraction.</dd>
+    <dt>Evidence</dt><dd>Let p_1=3/4, p_3=1/4, so z=3/2 and q_0=q_2=1/2. Set e_00=e_22=0.4 and e_02=e_20=0.1, with all other entries zero. This e is symmetric, normalized, and has the required marginals. On indices (0,2), A_jk=k e_jk-q_k delta_jk equals [[-0.5,0.2],[0,0.3]], so det(A)=-0.15, contrary to the claimed necessary sign. Nevertheless Eq. (9) gives u_2=0.2+0.8u_2^2, whose nontrivial solution is u_2=1/4; then u_0=0.8+0.2u_2^2=13/16. Hence S=1-(3/4)u_0-(1/4)u_2^3=99/256&gt;0.  Thus the paper&#x27;s own giant-component equation exhibits a giant component when det(A)&lt;0.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> M. E. J. Newman</p>
+              <p>The paper&#x27;s determinant-sign criterion for a giant component is  false for an allowed degree-correlation distribution.</p>
+              <p><a href="https://arxiv.org/abs/cond-mat/0205405v1">arXiv</a> · <a href="https://arxiv.org/pdf/cond-mat/0205405v1.pdf">PDF</a> ·
+              cond-mat/0205405v1</p>
+              <p class="meta">Reviewed 2026-07-26 07:19:11+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/cond-mat/0001432v4"><strong>Statistical mechanics of money</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (3)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The asserted exponential distribution does not satisfy the functional equation used to derive it.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Page 2, Section II, Boltzmann-Gibbs distribution</dd>
+    <dt>Analysis</dt><dd>The paper defines P as a normalized probability density and asserts P(m1+m2)=P(m1)P(m2), followed by the claimed solution P(m)=C exp(-m/T). An arbitrary prefactor C is incompatible with that equation.</dd>
+    <dt>Evidence</dt><dd>Substitution gives C exp(-(m1+m2)/T) on the left and C^2 exp(-(m1+m2)/T) on the right, requiring C=C^2. The subsequently derived C=1/T therefore fails for general T. The equation is also dimensionally inconsistent because a density is equated to a product of two densities.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The reported firm parameters cannot result from maximizing the stated profit function.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Page 3, Section III, firm-model parameter calculation</dd>
+    <dt>Analysis</dt><dd>At an unconstrained interior maximum, the derivative of profit with respect  to L must vanish. It does not vanish at the paper&#x27;s reported L=20 and Q=10.</dd>
+    <dt>Evidence</dt><dd>Using R=V/Q^η and Q=L^βK^(1-β), profit is F=VQ^(1-η)-WL-rK, so ∂F/∂L=V(1-η)βQ^(1-η)/L-W. With V=100, η=0.5, β=0.8, W=10, L=20, and Q=10, this equals 2√10-10≈-3.68, not zero.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The stationary distribution following Eq. (5) omits its normalization factor.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Page 5, Section VIII, paragraph following Eq. (5)</dd>
+    <dt>Analysis</dt><dd>The stated distribution P_m=(1-P_0)^m is neither normalized nor consistent with the  definition of P_0. It contradicts the correctly normalized geometric distribution given immediately  before Eq. (5).</dd>
+    <dt>Evidence</dt><dd>Writing q=1-P_0, the stated probabilities sum to Σq^m=1/(1-q)=1/P_0 rather than 1. At m=0 they also give P_0=1. The normalized stationary solution is P_m=P_0(1-P_0)^m, consistent with the preceding expression P_m=(1-e^(-1/T))e^(-m/T).</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Adrian Dragulescu, Victor M. Yakovenko</p>
+              <p>Three demonstrable mathematical errors were found: an invalid foundational functional equation, an incorrect optimization result, and an unnormalized stationary distribution.</p>
+              <p><a href="https://arxiv.org/abs/cond-mat/0001432v4">arXiv</a> · <a href="https://arxiv.org/pdf/cond-mat/0001432v4.pdf">PDF</a> ·
+              cond-mat/0001432v4</p>
+              <p class="meta">Reviewed 2026-07-26 07:18:03+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1604.00289v3"><strong>Building Machines That Learn and Think Like People</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge no-glaring-errors-found">No errors found</span></td>
+    <td><span class="tag">no-errors-tagged</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No glaring errors were recorded.</p></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Brenden M. Lake, Tomer D. Ullman, Joshua B. Tenenbaum, Samuel J. Gershman</p>
+              <p>No demonstrable internal contradiction, counterexample, invalid derivation, or arithmetic error met the required high-confidence threshold.</p>
+              <p><a href="https://arxiv.org/abs/1604.00289v3">arXiv</a> · <a href="https://arxiv.org/pdf/1604.00289v3.pdf">PDF</a> ·
+              1604.00289v3</p>
+              <p class="meta">Reviewed 2026-07-26 07:16:46+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/cond-mat/9910332v1"><strong>Emergence of scaling in random networks</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Model B cannot evolve from its stated zero-edge initial condition.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Page 5, paragraph introducing Model B</dd>
+    <dt>Analysis</dt><dd>The attachment probability is undefined at the initial state, so the claimed early-time power law and subsequent evolution do not follow from the stated model.</dd>
+    <dt>Evidence</dt><dd>Model B starts with N vertices and no edges, hence every k_i=0 and sum_j k_j=0. Its first attachment probability is therefore Π(k_i)=0/0, which is undefined. No first edge can be generated by the specified rule.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The stated Erdős–Rényi degree-distribution formula is false.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Page 3, paragraph describing the Erdős–Rényi model</dd>
+    <dt>Analysis</dt><dd>Under the paper&#x27;s own independent-edge definition, a vertex degree is binomial, while the paper gives a Poisson expression whose parameter depends on k and equals N times the binomial probability mass.</dd>
+    <dt>Evidence</dt><dd>Take N=2 and p=1/2. The actual degree probabilities are P(0)=P(1)=1/2. The paper&#x27;s λ=N·C(N−1,k)p^k(1−p)^(N−1−k) equals 1 for both k=0 and k=1, yielding P(0)=P(1)=e^(−1). These  sum to 2/e rather than 1 and disagree with the actual probabilities.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Albert-Laszlo Barabasi, Reka Albert</p>
+              <p>Two explicit mathematical errors appear: Model B is undefined at initialization, and the stated Erdős–Rényi degree distribution is incorrect.</p>
+              <p><a href="https://arxiv.org/abs/cond-mat/9910332v1">arXiv</a> · <a href="https://arxiv.org/pdf/cond-mat/9910332v1.pdf">PDF</a> ·
+              cond-mat/9910332v1</p>
+              <p class="meta">Reviewed 2026-07-26 07:16:21+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
   data-error-types="experimental-error,statistical-error" data-severities="major,minor">
   <tr>
     <td><a href="https://arxiv.org/abs/1203.4745v1"><strong>Altmetrics in the wild: Using social media to explore scholarly impact</strong></a></td>

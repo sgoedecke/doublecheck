@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import tempfile
 import unittest
+from dataclasses import replace
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -130,6 +131,21 @@ class StorageAndSiteTests(unittest.TestCase):
             )
             with self.assertRaises(StorageError):
                 load_records(csv_path)
+
+    def test_site_can_filter_reviews_with_no_findings(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            clean_record = replace(
+                make_record(arxiv_id="2501.12346v1"),
+                verdict="no-glaring-errors-found",
+                summary="No glaring errors found.",
+                problem_tags=(),
+                findings=(),
+            )
+            output = Path(temporary) / "docs" / "index.html"
+            build_site([make_record(), clean_record], output)
+            rendered = output.read_text(encoding="utf-8")
+            self.assertIn('<option value="none">None</option>', rendered)
+            self.assertIn('data-severities="none"', rendered)
 
 
 if __name__ == "__main__":

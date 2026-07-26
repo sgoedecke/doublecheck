@@ -27,11 +27,14 @@ def build_site(records: list[ReviewRecord], output: Path) -> None:
         for record in records
         for finding in record.findings
     )
-    severity_options = _render_options(
+    severity_values = {
         finding["severity"]
         for record in records
         for finding in record.findings
-    )
+    }
+    if any(not record.findings for record in records):
+        severity_values.add("none")
+    severity_options = _render_options(severity_values)
     content = f"""<!doctype html>
 <html lang="en">
 <head>
@@ -171,7 +174,7 @@ def _render_record(record: ReviewRecord) -> str:
     error_types = tuple(sorted({item["category"] for item in record.findings}))
     severities = tuple(sorted({item["severity"] for item in record.findings}))
     error_attr = html.escape(",".join(error_types), quote=True)
-    severity_attr = html.escape(",".join(severities), quote=True)
+    severity_attr = html.escape(",".join(severities) or "none", quote=True)
     tags = "".join(
         f'<span class="tag">{html.escape(tag)}</span>'
         for tag in record.problem_tags

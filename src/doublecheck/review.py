@@ -5,6 +5,7 @@ import re
 import shutil
 import subprocess
 from dataclasses import dataclass
+from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 
@@ -196,7 +197,9 @@ def extract_source_text(source_directory: Path, text_path: Path) -> None:
     text_files = sorted(
         path
         for path in source_directory.rglob("*")
-        if path.is_file() and path.suffix.lower() in {".tex", ".txt", ".md", ".rst"}
+        if path.is_file()
+        and path.suffix.lower()
+        in {".tex", ".txt", ".md", ".rst", ".html", ".htm"}
     )
     chunks: list[str] = []
     total_bytes = 0
@@ -208,10 +211,10 @@ def extract_source_text(source_directory: Path, text_path: Path) -> None:
         if total_bytes > MAX_SOURCE_TEXT_BYTES:
             break
         relative = path.relative_to(source_directory)
-        chunks.append(
-            f"\n\n===== {relative} =====\n\n"
-            + payload.decode("utf-8", errors="replace")
-        )
+        decoded = payload.decode("utf-8", errors="replace")
+        if path.suffix.lower() in {".html", ".htm"}:
+            decoded = _html_to_text(decoded)
+        chunks.append(f"\n\n===== {relative} =====\n\n" + decoded)
 
     if not chunks:
         for path in sorted(source_directory.rglob("*.ps")):
@@ -480,3 +483,34 @@ def _extract_postscript_strings(payload: bytes) -> str:
         if text:
             decoded.append(text)
     return " ".join(decoded)
+
+
+def _html_to_text(document: str) -> str:
+    parser = _VisibleTextParser()
+    parser.feed(document)
+    return "\n".join(
+        line for line in (part.strip() for part in parser.parts) if line
+    )
+
+
+class _VisibleTextParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.parts: list[str] = []
+        self._ignored_depth = 0
+
+    def handle_starttag(
+        self,
+        tag: str,
+        attrs: list[tuple[str, str | None]],
+    ) -> None:
+        if tag in {"script", "style"}:
+            self._ignored_depth += 1
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag in {"script", "style"} and self._ignored_depth:
+            self._ignored_depth -= 1
+
+    def handle_data(self, data: str) -> None:
+        if not self._ignored_depth:
+            self.parts.append(data)

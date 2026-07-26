@@ -8,6 +8,7 @@ from doublecheck.arxiv import (
     ArxivError,
     PaperMetadata,
     _read_limited,
+    _urlopen,
     download_and_extract_source,
     field_for_category,
     normalize_arxiv_id,
@@ -78,6 +79,28 @@ class NormalizeArxivIdTests(unittest.TestCase):
             field_for_category("astro-ph.CO"),
             "Physics and Astronomy",
         )
+
+    @patch("doublecheck.arxiv.MIN_REQUEST_INTERVAL_SECONDS", 0)
+    @patch("doublecheck.arxiv.time.sleep")
+    @patch("doublecheck.arxiv.urllib.request.urlopen")
+    def test_retries_rate_limited_arxiv_requests(
+        self,
+        urlopen: object,
+        sleep: object,
+    ) -> None:
+        error = urllib.error.HTTPError(
+            "https://export.arxiv.org/api/query",
+            429,
+            "rate limited",
+            hdrs=None,
+            fp=None,
+        )
+        response = object()
+        urlopen.side_effect = [error, response]
+        request = urllib.request.Request("https://export.arxiv.org/api/query")
+        self.assertIs(_urlopen(request, timeout=30), response)
+        self.assertEqual(urlopen.call_count, 2)
+        sleep.assert_called_once_with(15)
 
 
 if __name__ == "__main__":

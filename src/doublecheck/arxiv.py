@@ -18,6 +18,8 @@ MAX_DOWNLOAD_BYTES = 100 * 1024 * 1024
 MAX_EXTRACTED_BYTES = 200 * 1024 * 1024
 MAX_SOURCE_FILES = 5_000
 MIN_REQUEST_INTERVAL_SECONDS = 3.0
+MAX_REQUEST_ATTEMPTS = 5
+RETRYABLE_HTTP_STATUS = {429, 500, 502, 503, 504}
 
 MODERN_ID_RE = re.compile(r"^\d{4}\.\d{4,5}(?:v\d+)?$")
 LEGACY_ID_RE = re.compile(r"^[A-Za-z][A-Za-z0-9.-]*/\d{7}(?:v\d+)?$")
@@ -204,14 +206,37 @@ def _download(url: str, destination: Path, timeout: int) -> None:
 
 def _urlopen(request: urllib.request.Request, timeout: int) -> object:
     global _last_request_started
-    with _REQUEST_LOCK:
-        wait_seconds = (
-            _last_request_started + MIN_REQUEST_INTERVAL_SECONDS - time.monotonic()
-        )
-        if wait_seconds > 0:
-            time.sleep(wait_seconds)
-        _last_request_started = time.monotonic()
-    return urllib.request.urlopen(request, timeout=timeout)
+    for attempt in range(MAX_REQUEST_ATTEMPTS):
+        with _REQUEST_LOCK:
+            wait_seconds = (
+                _last_request_started
+                + MIN_REQUEST_INTERVAL_SECONDS
+                - time.monotonic()
+            )
+            if wait_seconds > 0:
+                time.sleep(wait_seconds)
+            _last_request_started = time.monotonic()
+        try:
+            return urllib.request.urlopen(request, timeout=timeout)
+        except urllib.error.HTTPError as exc:
+            if (
+                exc.code not in RETRYABLE_HTTP_STATUS
+                or attempt == MAX_REQUEST_ATTEMPTS - 1
+            ):
+                raise
+            retry_after = exc.headers.get("Retry-After") if exc.headers else None
+            if exc.fp is not None:
+                exc.close()
+            try:
+                retry_seconds = int(retry_after) if retry_after else 0
+            except ValueError:
+                retry_seconds = 0
+            time.sleep(max(retry_seconds, min(15 * (2**attempt), 120)))
+        except (urllib.error.URLError, TimeoutError):
+            if attempt == MAX_REQUEST_ATTEMPTS - 1:
+                raise
+            time.sleep(min(15 * (2**attempt), 120))
+    raise AssertionError("unreachable")
 
 
 def _read_limited(response: object, limit: int) -> bytes:

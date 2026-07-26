@@ -91,10 +91,6 @@ def _render_record(record: ReviewRecord) -> str:
     findings = "\n".join(_render_finding(item) for item in record.findings)
     if not findings:
         findings = "<p>No glaring errors were recorded.</p>"
-    limitations = "".join(f"<li>{html.escape(item)}</li>" for item in record.limitations)
-    limitations_block = (
-        f"<h4>Review limitations</h4><ul>{limitations}</ul>" if limitations else ""
-    )
     return f"""<article>
   <h3><a href="{arxiv_url}">{title}</a></h3>
   <p class="status">
@@ -117,7 +113,6 @@ def _render_record(record: ReviewRecord) -> str:
         {html.escape(record.arxiv_id)}
       </p>
       <p class="meta">Reviewed {reviewed_at} UTC · {model} ({effort})</p>
-      {limitations_block}
     </div>
   </details>
 </article>"""

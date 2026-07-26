@@ -96,6 +96,8 @@ class StorageAndSiteTests(unittest.TestCase):
                 rendered.index("<strong>Authors:</strong>"),
                 rendered.index("<summary>Paper details</summary>"),
             )
+            self.assertNotIn("Review limitations", rendered)
+            self.assertNotIn("Not machine-checked.", rendered)
             self.assertTrue((output.parent / ".nojekyll").exists())
 
     def test_csv_rejects_invalid_verdict(self) -> None:

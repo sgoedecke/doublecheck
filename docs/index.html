@@ -56,23 +56,1865 @@
   <main>
     <div class="filters" aria-label="Review filters">
       <label>Field
-        <select id="field-filter"><option value="">All fields</option><option value="Computer Science">Computer Science</option><option value="Statistics">Statistics</option></select>
+        <select id="field-filter"><option value="">All fields</option><option value="Computer Science">Computer Science</option><option value="Electrical Engineering">Electrical Engineering</option><option value="Mathematics">Mathematics</option><option value="Physics and Astronomy">Physics And Astronomy</option><option value="Quantitative Biology">Quantitative Biology</option><option value="Quantitative Finance">Quantitative Finance</option><option value="Statistics">Statistics</option></select>
       </label>
       <label>Error type
         <select id="error-filter"><option value="">All error types</option><option value="experimental-error">Experimental Error</option><option value="factual-error">Factual Error</option><option value="logical-error">Logical Error</option><option value="mathematical-error">Mathematical Error</option><option value="statistical-error">Statistical Error</option></select>
       </label>
       <label>Severity
-        <select id="severity-filter"><option value="">All severities</option><option value="major">Major</option><option value="minor">Minor</option><option value="none">None</option></select>
+        <select id="severity-filter"><option value="">All severities</option><option value="critical">Critical</option><option value="major">Major</option><option value="minor">Minor</option><option value="none">None</option></select>
       </label>
       <button type="button" id="clear-filters">Clear filters</button>
     </div>
-    <p id="result-count">22 papers</p>
+    <p id="result-count">59 papers</p>
     <div class="table-wrap">
       <table>
         <thead>
           <tr><th>Paper</th><th>Field</th><th>Verdict</th><th>Error type</th><th>Severity</th></tr>
         </thead>
-        <tbody class="paper-entry" data-field="Computer Science"
+        <tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="mathematical-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/0706.1062v2"><strong>Power-law distributions in empirical data</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The log-normal generator does not generate the general lower-truncated log-normal distribution defined in the paper.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Table 2.1 and Appendix D, Table D.1</dd>
+    <dt>Analysis</dt><dd>Table 2.1 defines a log-normal distribution parameterized by μ and restricted to x≥xmin. Table D.1 instead gives x=exp(ρ sin θ) or exp(ρ cos θ), which generates an untruncated log-normal with μ=0; it includes neither μ nor enforcement of xmin.</dd>
+    <dt>Evidence</dt><dd>Set μ=0, σ=1, and xmin=1. Whenever sin θ&lt;0, the stated formula gives x1&lt;1, violating the required support x≥xmin. Moreover, the generated ln x has mean zero, so the formula also fails for every μ≠0.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Aaron Clauset, Cosma Rohilla Shalizi, M. E. J. Newman</p>
+              <p>One demonstrably incorrect random-number formula was found.</p>
+              <p><a href="https://arxiv.org/abs/0706.1062v2">arXiv</a> · <a href="https://arxiv.org/pdf/0706.1062v2.pdf">PDF</a> ·
+              0706.1062v2</p>
+              <p class="meta">Reviewed 2026-07-26 05:18:34+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="mathematical-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1108.2582v1"><strong>Ferromagnetism in semiconductors and oxides: prospects from a ten years&#x27; perspective</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The stated Coulomb-energy sign cannot support the claimed suppression of magnetic-ion aggregation.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Page 9, “Some Modeling,” paragraph discussing screened Coulomb interaction and aggregation energy</dd>
+    <dt>Analysis</dt><dd>The paper defines negative pairing energy as an energy gain favoring aggregation, citing Ed = -120 meV for neighboring  Mn atoms. It then assigns Ed = -280 meV to the interaction between identically charged ions but concludes that this term can outweigh the hybridization gain and impede aggregation. Under the paper&#x27;s own sign convention, another negative contribution would instead favor aggregation more strongly.</dd>
+    <dt>Evidence</dt><dd>Combining the stated contributions gives -120 meV + (-280 meV) = -400 meV, which is more favorable than -120 meV and therefore cannot impede pairing. The suppression argument requires a positive repulsive Coulomb contribution, approximately +280 meV.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Tomasz Dietl</p>
+              <p>One demonstrable sign inconsistency appears in the aggregation-energy argument.</p>
+              <p><a href="https://arxiv.org/abs/1108.2582v1">arXiv</a> · <a href="https://arxiv.org/pdf/1108.2582v1.pdf">PDF</a> ·
+              1108.2582v1</p>
+              <p class="meta">Reviewed 2026-07-26 05:17:58+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,mathematical-error" data-severities="critical,major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1810.06934v5"><strong>Reconfigurable Intelligent Surfaces for Energy Efficiency in Wireless Communication</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">critical</span><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (5)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The EE denominator does not use the transmit power defined by the signal model.</strong> (critical, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section II, equations (2), (5), (6), and (8a)</dd>
+    <dt>Analysis</dt><dd>Equation (2) defines the BS transmit power as tr(PG^H G), but equations (5), (6),  and (8a) charge only the sum of p_k. No unit-norm condition on the precoder columns is imposed; instead G is the generally non-normalized channel pseudoinverse. Consequently, the optimized quantity is not the bit-per-Joule EE corresponding to the paper&#x27;s own transmitted signal.</dd>
+    <dt>Evidence</dt><dd>For K=M=N=1, let the equivalent channel be 2, so the prescribed ZF precoder is G=1/2. With p_1=1, equation (2) gives transmitted power p_1|G|^2=1/4, while equation (6) counts p_1=1 as the transmit-power contribution. The two stated power values cannot both describe the same transmitted signal.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The pseudoinverse factorization used to derive equation (12) is invalid under the stated assumptions.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section III-A, equation (12) and footnote 3</dd>
+    <dt>Analysis</dt><dd>The paper assumes only that the equivalent channel H2ΦH1 has a right inverse. That does not imply (H2ΦH1)^+=H1^+Φ^-1H2^+, which is essential to equation (12) and both phase-design algorithms.</dd>
+    <dt>Evidence</dt><dd>Take K=1, N=M=2, P=1, Φ=I, H2=[1,1], and H1=diag(1,2). The equivalent channel [1,2] has full row rank and therefore a right inverse, satisfying the stated assumption. Its pseudoinverse is [1,2]^T/5. The factorization used in (12) instead gives H1^+H2^+=[1/2,1/4]^T. These  are unequal, and their squared norms are respectively 1/5 and 5/16.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Equation (18) applies the phase-update exponent with the wrong sign.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Section III-A1, equations (14), (17), and (18)</dd>
+    <dt>Analysis</dt><dd>Equation (14) defines y=vec(Φ^-1), while Φ has diagonal entries exp(jθ_n). Therefore y&#x27;s nonzero entries are exp(-jθ_n). Updating θ by +μd must multiply y by exp(-jμd), not exp(+jμd) as asserted in equation (18).</dd>
+    <dt>Evidence</dt><dd>For one phase with θ=0 and μd=π/2, equations (14) and (17) require the updated inverse phase to be exp(-jπ/2)=-j. Equation (18) produces exp(+jπ/2)=j.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The proposed closed-form step size maximizes the quadratic approximation that the algorithm is supposed to minimize.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section III-A1, equations (19) and (22)</dd>
+    <dt>Analysis</dt><dd>Equation (19) requires minimization of h(μ). Equation (22) approximates it as z0+z1μ-z2μ^2 and prescribes μ*=z1/(2z2) when z1≥0 and z2&gt;0. At that point the second derivative is negative, so it is a maximum rather than a minimum.</dd>
+    <dt>Evidence</dt><dd>For z1&gt;0 and z2&gt;0, the derivative is z1-2z2μ and vanishes at μ=z1/(2z2), while the second derivative equals -2z2&lt;0. Thus the stated point cannot solve the minimization in (19).</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The AF benchmark squares the forwarded-noise variance in its SINR denominator.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Section IV-A, equations (37), (38), and (40)</dd>
+    <dt>Analysis</dt><dd>From equation (38), user k&#x27;s forwarded relay noise is h2,k Vw_R. With the stated identity covariance for w_R, its variance is h2,k VV^Hh2,k^H. Equation (40) instead uses the squared  modulus of this already power-valued scalar, producing an incorrect SINR and affecting the RIS-versus-AF comparison.</dd>
+    <dt>Evidence</dt><dd>Direct covariance evaluation gives E[|h2,kVw_R|^2]=h2,kV E[w_Rw_R^H]V^Hh2,k^H=h2,kVV^Hh2,k^H. Equation (40) uses |h2,kVV^Hh2,k^H|^2, which is generally different; for a scalar value 2, the correct variance is 2 while (40) inserts 4.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Chongwen Huang, Alessio Zappone, George C. Alexandropoulos, Mérouane Debbah, Chau Yuen</p>
+              <p>The core EE formulation and both optimization and AF-benchmark derivations contain demonstrable internal mathematical errors.</p>
+              <p><a href="https://arxiv.org/abs/1810.06934v5">arXiv</a> · <a href="https://arxiv.org/pdf/1810.06934v5.pdf">PDF</a> ·
+              1810.06934v5</p>
+              <p class="meta">Reviewed 2026-07-26 05:16:42+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="mathematical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/cond-mat/0611714v1"><strong>Born-Oppenheimer Breakdown in Graphene</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Equation 7 does not yield the claimed zero-doping linewidth of 11 cm^-1.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Page 8, Equation 7 and following paragraph</dd>
+    <dt>Analysis</dt><dd>At T=0 and εF=0, the Fermi-function bracket in Eq. 7 equals 1. Since ℏω0 denotes angular-frequency energy, the Raman wavenumber is ω0/(2πc), approximately 1585 cm^-1 from Figure 2. Substitution into the printed prefactor gives about 432 cm^-1, not 11 cm^-1. Even interpreting ω0 as ordinary frequency gives about 69 cm^-1, so no conventional frequency interpretation produces the stated value.</dd>
+    <dt>Evidence</dt><dd>Eq. 7 gives γ=π²ω0α′/c with α′=4.39×10^-3. Thus γ=2π³(4.39×10^-3)(1585 cm^-1)≈432 cm^-1, whereas the paper states γ=11 cm^-1. A prefactor α′ω0/(4c), differing from the printed one by 4π², would produce approximately 10.9 cm^-1.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Simone Pisana, Michele Lazzeri, Cinzia Casiraghi, Kostya S. Novoselov, Andre K. Geim, Andrea C. Ferrari, Francesco Mauri</p>
+              <p>Equation 7 is numerically incompatible with the paper&#x27;s stated zero-doping linewidth.</p>
+              <p><a href="https://arxiv.org/abs/cond-mat/0611714v1">arXiv</a> · <a href="https://arxiv.org/pdf/cond-mat/0611714v1.pdf">PDF</a> ·
+              cond-mat/0611714v1</p>
+              <p class="meta">Reviewed 2026-07-26 05:15:39+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="mathematical-error,statistical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/cond-mat/0103510v2"><strong>Estimating long range dependence: finite sample properties and confidence intervals</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The GPH regression uses a frequency transformation incompatible with the paper&#x27;s periodogram definition.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Section 2.3, equations (2) and the preceding periodogram definition</dd>
+    <dt>Analysis</dt><dd>The periodogram defines ω_k=k/L and uses exp(-2πi(t-1)ω_k), so the corresponding angular frequency is λ_k=2πω_k. The fractional-difference factor must therefore be |1-exp(-iλ_k)|²=4sin²(πω_k). Equation (2) instead uses 4sin²(ω_k/2), which is appropriate only if ω_k itself is angular frequency. The same ω_k cannot  satisfy both conventions.</dd>
+    <dt>Evidence</dt><dd>For L=4 and k=1, the periodogram definition gives λ=π/2 and hence |1-exp(-iλ)|²=4sin²(π/4)=2. Equation (2), using ω_k=1/4 as explicitly defined, gives 4sin²(1/8)≈0.0622. Thus the stated regression does not follow from the stated Fourier-frequency convention.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The CalPX GPH estimate is incorrectly marked significant at the 99% level.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Tables 4 and 5</dd>
+    <dt>Analysis</dt><dd>Applying Table 4&#x27;s displayed 99% GPH interval to the stated CalPX sample length places the reported estimate inside the 99% interval, contradicting Table 5&#x27;s three-star designation.</dd>
+    <dt>Evidence</dt><dd>For L=728, N=log2(728)≈9.508 and N^(2/3)≈4.488. Table 4 gives the 99% lower bound as 0.5-exp(-0.73×4.488+2.45)≈0.0624. The reported estimate 0.0667 exceeds this bound and is therefore not significant at 99%. It is below the 95% lower bound, approximately 0.1823, so the displayed formulas support two stars, not three.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Rafal Weron</p>
+              <p>Two demonstrable internal errors were found: inconsistent frequency conventions in the GPH derivation and a significance label that disagrees with the paper&#x27;s  own confidence-interval formula.</p>
+              <p><a href="https://arxiv.org/abs/cond-mat/0103510v2">arXiv</a> · <a href="https://arxiv.org/pdf/cond-mat/0103510v2.pdf">PDF</a> ·
+              cond-mat/0103510v2</p>
+              <p class="meta">Reviewed 2026-07-26 05:13:59+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://arxiv.org/abs/0904.3602v1"><strong>Dielectric Optical Cloak</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge no-glaring-errors-found">No glaring errors found</span></td>
+    <td><span class="tag">no-errors-tagged</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No glaring errors were recorded.</p></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Jason Valentine, Jensen Li, Thomas Zentgraf, Guy Bartal, Xiang Zhang</p>
+              <p>No demonstrable internal contradiction, counterexample, invalid derivation, or arithmetic error was identified under the stated strict criteria.</p>
+              <p><a href="https://arxiv.org/abs/0904.3602v1">arXiv</a> · <a href="https://arxiv.org/pdf/0904.3602v1.pdf">PDF</a> ·
+              0904.3602v1</p>
+              <p class="meta">Reviewed 2026-07-26 05:12:57+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1912.01825v3"><strong>A Machine Learning Framework for Solving High-Dimensional Mean Field Game and Mean Field Control Problems</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (4)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The stated trajectory condition does not support the HJB terminal condition.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>p. 2, Eqs. (1)-(5)</dd>
+    <dt>Analysis</dt><dd>The value function starts at position x at time t, but Eq. (2) imposes z(0)=x rather than z(t)=x. Consequently, the terminal condition in Eq. (5) does not follow from Eq. (4).</dd>
+    <dt>Evidence</dt><dd>Let d=1, T&gt;0, L(v)=v^2/2, F=0, and G(z,rho)=z^2/2. At t=T, the running-cost integral is empty. Under Eq. (2), choose v(s)=-x/T, giving z(0)=x and z(T)=0. Thus Eq. (4) gives Phi(x,T)=0, whereas Eq. (5) requires Phi(x,T)=G(x,rho)=x^2/2 for x nonzero.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Two equations give incompatible transport-cost accumulation laws.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>pp. 4-5, Eqs. (22), (23), and (25)</dd>
+    <dt>Analysis</dt><dd>After Eq. (22) evaluates transport cost along z(x,t), Eq. (23) evaluates the gradient at x. Equation (25) then evaluates the same cL derivative at z(x,t). These expressions differ for spatially varying potentials.</dd>
+    <dt>Evidence</dt><dd>With d=1, lambda_L=1, and Phi(y,t)=y^2/2, Eq. (23) gives partial_t cL=x^2/2. The characteristic satisfies z(x,t)=x exp(-t), so Eq. (25) gives partial_t cL=x^2 exp(-2t)/2. They disagree for x nonzero and t&gt;0.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The reported parameter count is inconsistent with the stated network architecture.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Supplemental experimental setup, p. 12; Table 2</dd>
+    <dt>Analysis</dt><dd>For d=2, m=16, and M=1, the parameter dimensions in Eqs. (29)-(30) imply 365 parameters, not the reported 637.</dd>
+    <dt>Evidence</dt><dd>The count is 16 for w, 163=48 for K0, 1616=256 for K1, 32 for b0 and b1, 9 for A,  3 for c, and 1 for b: 16+48+256+32+9+3+1=365. The paper reports 637.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Figure 11 states the wrong relative objective difference.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Table 2 and Figure 11 caption</dd>
+    <dt>Analysis</dt><dd>Table 2 reports the crowd-motion ML objective as 100.08% of the finest Eulerian result, while the caption says it is 0.39% higher.</dd>
+    <dt>Evidence</dt><dd>A value of 100.08% is 0.08% above the baseline, not 0.39%. The 0.39% figure instead matches the separate level-3 Eulerian row.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Lars Ruthotto, Stanley Osher, Wuchen Li, Levon Nurbekyan, Samy Wu Fung</p>
+              <p>The paper contains one major inconsistency in its optimal-control formulation and several demonstrable equation or numerical inconsistencies.</p>
+              <p><a href="https://arxiv.org/abs/1912.01825v3">arXiv</a> · <a href="https://arxiv.org/pdf/1912.01825v3.pdf">PDF</a> ·
+              1912.01825v3</p>
+              <p class="meta">Reviewed 2026-07-26 05:12:14+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="mathematical-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/cond-mat/0112110v1"><strong>Community structure in social and biological networks</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The stated equality between node-independent paths and the minimum  vertex-removal cut is false for adjacent vertices.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Page 2, Section II.A, discussion following Fig. 2</dd>
+    <dt>Analysis</dt><dd>The paper states the vertex form of Menger&#x27;s theorem without the required restriction that the two vertices be nonadjacent. Its statement therefore fails on a simple  graph allowed by the paper&#x27;s definitions.</dd>
+    <dt>Evidence</dt><dd>Take a triangle with vertices i, j, and k. There are two node-independent i-j paths: the edge i-j and the path i-k-j. If removal of i and j is forbidden, removing any subset of other vertices cannot disconnect them because edge i-j remains. If  endpoint removal is allowed, removing i alone suffices, giving a minimum of 1 rather than 2. Thus the claimed equality is false under either interpretation.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Michelle Girvan, M. E. J. Newman</p>
+              <p>One minor but demonstrable mathematical error appears in the discussion of node-independent paths; the core community-detection results show no other glaring internal errors.</p>
+              <p><a href="https://arxiv.org/abs/cond-mat/0112110v1">arXiv</a> · <a href="https://arxiv.org/pdf/cond-mat/0112110v1.pdf">PDF</a> ·
+              cond-mat/0112110v1</p>
+              <p class="meta">Reviewed 2026-07-26 05:12:11+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="logical-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1610.02413v1"><strong>Equality of Opportunity in Supervised Learning</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">logical-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (5)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Theorem 5.6 omits necessary dependence on the scale of the bounded loss.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Theorem 5.6 and its proof, pages 10–11</dd>
+    <dt>Analysis</dt><dd>A loss being bounded does not imply the unit-scale bound used in the proof. Multiplying any bounded loss by a constant preserves boundedness but can violate the theorem&#x27;s scale-independent inequality.</dd>
+    <dt>Evidence</dt><dd>Let A and Y be independent balanced bits, X=Y, R*=Y, and Rhat=1/2 constantly. Under loss l(yhat,y)=10·I[yhat≠y], the optimal equalized-odds predictor Y*=Y has loss 0. Any equalized-odds predictor derived from (Rhat,A) must ignore A statistically and has loss at least 5. The conditional Kolmogorov distance is 1, so Theorem 5.6 asserts loss at most 2√2≈2.83, contradicting the lower bound 5.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Equation (4.5) is not the expected loss because it omits outcome prevalences.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Equation (4.5), page 9</dd>
+    <dt>Analysis</dt><dd>For common false-positive and true-positive rates γ0 and γ1, expected loss includes factors Pr(Y=0) and Pr(Y=1). These factors cannot be discarded for the previously defined per-example loss.</dd>
+    <dt>Evidence</dt><dd>With zero loss for correct predictions, expected loss is Pr(Y=0)γ0·l(1,0)+Pr(Y=1)(1−γ1)·l(0,1), not Equation (4.5). For unit error costs and Pr(Y=1)=0.99, suppose identical group-conditional ROC regions contain (0.2,0.8) and (1,1). Equation (4.5) prefers (0.2,0.8), assigning costs 0.4 versus 1. Actual errors are 0.20 versus 0.01, so the true optimum is (1,1).</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The deterministic correction from R* to Re uses a threshold with the wrong sign.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 6.2, page 14</dd>
+    <dt>Analysis</dt><dd>The paper states R*=Re+A and then claims I[Re&gt;t]=I[R*&gt;tA] with tA=t−A. Direct substitution gives the opposite sign.</dd>
+    <dt>Evidence</dt><dd>From Re=R*−A, Re&gt;t is equivalent to R*&gt;t+A. Therefore the correct group threshold  is tA=t+A, not t−A.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The proof of Proposition 4.4 uses an invalid probability factorization.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Proof of Proposition 4.4, page 7</dd>
+    <dt>Analysis</dt><dd>The proof replaces probabilities conditioned on whether the derived predictor matches the original predictor by products of unconditional probabilities. The matching event generally depends on the original prediction and protected group.</dd>
+    <dt>Evidence</dt><dd>Let A be an independent bit, Y be balanced, Yhat=Y, and the derived predictor Ye=1 constantly. For y&#x27;=y=1, the displayed left side is Pr(Ye=1,Y=1)=1/2. Its displayed final expression is Pr(Yhat=1,Y=1)Pr(Ye=Yhat)+Pr(Yhat=0,Y=1)Pr(Ye≠Yhat)=(1/2)(1/2)+0=1/4. Thus the asserted equality is false.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Equalized odds does not enforce equal overall accuracy across demographics.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 2, paragraph following Definition 2.1, page 3</dd>
+    <dt>Analysis</dt><dd>Equalized odds equalizes conditional true- and false-positive rates, but overall accuracy also depends on each group&#x27;s outcome prevalence.</dd>
+    <dt>Evidence</dt><dd>Take equalized rates TPR=0.9 and FPR=0.2 in both groups, with Pr(Y=1|A=0)=0.9 and  Pr(Y=1|A=1)=0.1. Equalized odds holds, but accuracies are 0.9·0.9+0.8·0.1=0.89 and 0.9·0.1+0.8·0.9=0.81.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Moritz Hardt, Eric Price, Nathan Srebro</p>
+              <p>Several explicit mathematical claims fail under the paper&#x27;s  stated assumptions, including the near-optimality theorem and an expected-loss objective.</p>
+              <p><a href="https://arxiv.org/abs/1610.02413v1">arXiv</a> · <a href="https://arxiv.org/pdf/1610.02413v1.pdf">PDF</a> ·
+              1610.02413v1</p>
+              <p class="meta">Reviewed 2026-07-26 05:12:05+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="mathematical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1704.00841v1"><strong>Van der Waals Engineering of Ferromagnetic Semiconductor Heterostructures for Spin and Valleytronics</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The claimed stability interval ignores the mixed second derivative of the two-domain free energy.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Supplementary section S14, Eq. S1–S4 and Table S1, page 22</dd>
+    <dt>Analysis</dt><dd>The paper declares configurations stable when both listed diagonal second derivatives are positive. For a two-variable free energy, stability instead requires the full Hessian to be positive definite. Eq.  S1 has a nonzero mixed derivative, so positivity of the two diagonal entries is insufficient.</dd>
+    <dt>Evidence</dt><dd>Let C=J M1 M2−D, so Eq. S1 contains C cos(θ1−θ2). At (θ1,θ2)=(0,0), the Hessian is [[−C+B M1+2K M1, C],[C,−C+B M2+2K M2]]. Choose M1=2, M2=1, J=1, D=1, K=1, and B=−0.9. These satisfy M1&gt;M2, J&gt;0, K&gt;0, and J M1 M2&gt;D. They also place B within the paper&#x27;s stated interval C/M2−2K&lt;B&lt;C/M2+2K, namely −1&lt;B&lt;3. Both listed diagonal derivatives are positive: 1.2 and 0.1. However, the Hessian determinant is 1.2×0.1−1²=−0.88, so one eigenvalue is negative and (0,0) is a saddle, not a stable configuration.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Ding Zhong, Kyle L. Seyler, Xiayu Linpeng, Ran Cheng, Nikhil Sivadas, Bevin Huang, Emma Schmidgall, Takashi Taniguchi, Kenji Watanabe, Michael A. McGuire, Wang Yao, Di Xiao, Kai-Mei C. Fu, Xiaodong Xu</p>
+              <p>The supplementary two-domain model applies an incomplete stability test and admits counterexamples under its own assumptions.</p>
+              <p><a href="https://arxiv.org/abs/1704.00841v1">arXiv</a> · <a href="https://arxiv.org/pdf/1704.00841v1.pdf">PDF</a> ·
+              1704.00841v1</p>
+              <p class="meta">Reviewed 2026-07-26 05:11:06+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1507.00888v1"><strong>Magnetization switching by spin-orbit torque in an antiferromagnet/ferromagnet bilayer system</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge no-glaring-errors-found">No glaring errors found</span></td>
+    <td><span class="tag">no-errors-tagged</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No glaring errors were recorded.</p></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Shunsuke Fukami, Chaoliang Zhang, Samik DuttaGupta, Hideo Ohno</p>
+              <p>No demonstrable internal contradiction, counterexample, invalid derivation, or arithmetic error met the required high-confidence threshold.</p>
+              <p><a href="https://arxiv.org/abs/1507.00888v1">arXiv</a> · <a href="https://arxiv.org/pdf/1507.00888v1.pdf">PDF</a> ·
+              1507.00888v1</p>
+              <p class="meta">Reviewed 2026-07-26 05:09:46+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="statistical-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1204.3230v1"><strong>Information, Community, and Action: How Nonprofit Organizations Use Social Media</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">statistical-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The reported mean number of tweets per organization is inconsistent with the stated total and sample size.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Page 8, Data-gathering and Sample Characteristics</dd>
+    <dt>Analysis</dt><dd>The paper states that 73 organizations produced 4,655 tweets, then reports an average of 66 tweets per organization. These figures cannot yield that mean.</dd>
+    <dt>Evidence</dt><dd>4,655 / 73 = 63.77 tweets per organization, which rounds to 64, not 66. Even excluding the one organization with zero tweets gives 4,655 / 72 = 64.65, which rounds to 65.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Kristen Lovejoy, Gregory D. Saxton</p>
+              <p>One demonstrable descriptive-statistics error was found.</p>
+              <p><a href="https://arxiv.org/abs/1204.3230v1">arXiv</a> · <a href="https://arxiv.org/pdf/1204.3230v1.pdf">PDF</a> ·
+              1204.3230v1</p>
+              <p class="meta">Reviewed 2026-07-26 05:09:31+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Statistics"
+  data-error-types="mathematical-error,statistical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1306.3171v2"><strong>Confidence Intervals and Hypothesis Testing for High-Dimensional Regression</strong></a></td>
+    <td>Statistics</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (4)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The non-Gaussian p-value omits the noise-scale factor and is not calibrated when σ≠1.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Theorem 4.1, p-value following Eq. (58)</dd>
+    <dt>Analysis</dt><dd>The preceding standardized statistic and confidence interval both include σ, but the stated p-value divides only by [MΣ̂Mᵀ]ᵢᵢ^{1/2}. Its null distribution therefore depends on σ.</dd>
+    <dt>Evidence</dt><dd>Under the theorem&#x27;s asymptotic normality, √n θ̂ᵢᵘ/[MΣ̂Mᵀ]ᵢᵢ^{1/2} converges to N(0,σ²). For σ=2 and α=0.05, the stated rule rejects with limiting probability 2[1−Φ(1.96/2)]≈0.327 rather than 0.05.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The claimed exact coverage for any Gaussian-probability-at-least-1−α  set is false.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 3.4, Eqs. (51)–(52)</dd>
+    <dt>Analysis</dt><dd>The paper permits any Borel set  Cₖ,α whose Gaussian probability is at least 1−α, but then asserts limiting coverage exactly 1−α.</dd>
+    <dt>Evidence</dt><dd>Choose Cₖ,α=Rᵏ. It satisfies the stated probability condition, while J_R(α)=Rᵏ and  P(θ₀,R∈J_R(α))=1, not 1−α for α∈(0,1).</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The FWER proof drops a factor of  p after applying the union bound.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Appendix D, transition from Eqs. (130)–(131) to Eq. (132)</dd>
+    <dt>Analysis</dt><dd>Equation (130) sums p coordinatewise Gaussian tail probabilities. Equation (132) replaces that sum by one two-sided tail rather than p times that tail.</dd>
+    <dt>Evidence</dt><dd>The first term should be 2p[1−Φ(zα(ε)−ε)], not 2[1−Φ(zα(ε)−ε)]. With zα(ε)=(1−ε)Φ⁻¹(1−α/(2p)), the omitted expression behaves for fixed ε&gt;0 like p^{2ε−ε²}/√log p and does not yield the asserted α bound. Mere  consistency of σ̂ supplies no rate that repairs this step.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The proof incorrectly infers a growth bound on p needed to make every modified optimization problem feasible.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Appendix A.2, lines following the feasibility tail bound, especially the statement preceding Eq. (1964)</dd>
+    <dt>Analysis</dt><dd>The proof claims s₀=o(√n/log p) implies p=exp(o(n^{2β})). This implication is false for the allowed range 0&lt;β&lt;1/2, so its union bound over all p rows need not vanish.</dd>
+    <dt>Evidence</dt><dd>Take β=0.1, s₀=1, and p=⌈exp(n^{0.3})⌉. Then s₀=o(√n/log p), but log p≈n^{0.3} is not o(n^{2β})=o(n^{0.2}). Consequently the required bound pn exp(−c n^{0.2}) does not tend to zero, invalidating the stated all-p feasibility conclusion.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Adel Javanmard, Andrea Montanari</p>
+              <p>Four demonstrable errors affect the non-Gaussian p-value, simultaneous confidence-region claim, FWER proof, and feasibility argument.</p>
+              <p><a href="https://arxiv.org/abs/1306.3171v2">arXiv</a> · <a href="https://arxiv.org/pdf/1306.3171v2.pdf">PDF</a> ·
+              1306.3171v2</p>
+              <p class="meta">Reviewed 2026-07-26 05:09:28+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Mathematics"
+  data-error-types="logical-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/alg-geom/9310003v1"><strong>Dual Polyhedra and Mirror Symmetry for Calabi-Yau Hypersurfaces in Toric Varieties</strong></a></td>
+    <td>Mathematics</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">logical-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (6)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Theorem 2.2.9(i) incorrectly states that every toric variety is smooth.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Page 8, Theorem 2.2.9(i); page 30, Section 5.1</dd>
+    <dt>Analysis</dt><dd>The theorem begins with an arbitrary toric variety P_Σ and unconditionally asserts that P_Σ is smooth. The paper later explicitly constructs P_{Δ_n^} and calls it a singular toric hypersurface.</dd>
+    <dt>Evidence</dt><dd>The statements “Let P_Σ be a toric variety. (i) P_Σ is smooth” and “P_{Δ_n^} is a  singular toric hypersurface H_{n+1}” cannot both hold.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The local-product dimensions in Theorem 3.1.5 are reversed.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Page 13, Theorem 3.1.5; pages 5 and 13, definitions and Corollary 3.1.6</dd>
+    <dt>Analysis</dt><dd>For an s-dimensional cone, the paper defines A_{σ,N(σ)} to have dimension s and the corresponding hypersurface stratum to have dimension n-s-1. The theorem instead calls A_{σ,N(σ)}  an (n-s)-dimensional variety and uses an (s-1)-dimensional ball. Corollary 3.1.6 gives the compatible dimensions in the opposite order.</dd>
+    <dt>Evidence</dt><dd>Taking s=0 makes the theorem claim a product involving an open ball of dimension -1 and an n-dimensional A_{0,N(0)}, although the paper defines A_{0,N(0)} as zero-dimensional and the torus hypersurface stratum has dimension n-1.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The proof of dual reflexivity uses the opposite sign from the paper&#x27;s definition of the polar.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Pages 16-18, Definition 4.1.1, Theorem 4.1.6, and Proposition 4.1.7</dd>
+    <dt>Analysis</dt><dd>Under P^={y | &lt;x,y&gt;≥-1}, facets written as &lt;x,l_i&gt;≤1 produce polar vertices -l_i,  not l_i. The proof nevertheless concludes that Δ^ is the convex hull of the l_i and describes its facets by value +1.</dd>
+    <dt>Evidence</dt><dd>Theorem 4.1.6 uses &lt;x,l_i&gt;≤1 and concludes Δ^=conv(l_i), whereas Proposition 4.1.7 correctly defines dual faces by &lt;p,y&gt;=-1. Replacing l_i by -l_i is necessary for the derivation.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Theorem 4.4.3 has the wrong Hodge index.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Page 27, Theorem 4.4.3; Theorems 4.3.7 and 4.4.2</dd>
+    <dt>Analysis</dt><dd>The theorem is said to follow by applying the preceding formulas. Those formulas exchange h^{n-2,1} for Δ with h^{1,1} for Δ^, but the conclusion instead states h^{n-1,1}.</dd>
+    <dt>Evidence</dt><dd>Theorem 4.3.7 computes h^{n-2,1}; dualizing its formula gives Theorem 4.4.2&#x27;s h^{1,1}. No step changes n-2 to n-1, and the introduction also states the intended index as n-2.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Corollary 4.5.2 gives the Euler characteristic with the wrong sign and factor.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Pages 27-28, definition preceding Corollary 4.5.1 and Corollary 4.5.2</dd>
+    <dt>Analysis</dt><dd>Let A and B denote the respective right-hand sides for h^{2,1} and h^{1,1} in Corollary 4.5.1. Corollary 4.5.2&#x27;s displayed expression is A-B, while the paper&#x27;s immediately preceding identity gives e=2(B-A).</dd>
+    <dt>Evidence</dt><dd>From e/2=h^{1,1}-h^{2,1}, substitution yields e=2(B-A). The printed corollary instead states e=A-B, differing by multiplication by -2.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The proof of Proposition 5.2.2 falsely concludes that both polytope degrees equal 1.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Page 32, Proposition 5.2.2; page 30, Section 5.1</dd>
+    <dt>Analysis</dt><dd>Having both degree ratios be positive integers implies that the two polytope degrees are equal, not that their common value is 1.</dd>
+    <dt>Evidence</dt><dd>Take both reflexive pairs to be (Δ_n,M) and both morphisms to be the identity. The hypotheses hold, while Section 5.1 states d(Δ_n)=(n+1)^n, contradicting the proof&#x27;s conclusion d(Δ_n)=1. Only the morphism degrees are forced to equal 1.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Victor V. Batyrev</p>
+              <p>Several printed statements are internally inconsistent or follow by incorrect arithmetic, including a wrong Euler-characteristic formula.</p>
+              <p><a href="https://arxiv.org/abs/alg-geom/9310003v1">arXiv</a> · <a href="https://arxiv.org/pdf/alg-geom/9310003v1.pdf">PDF</a> ·
+              alg-geom/9310003v1</p>
+              <p class="meta">Reviewed 2026-07-26 05:08:43+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Quantitative Finance"
+  data-error-types="mathematical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/0901.0434v1"><strong>The alchemy of probability distributions: beyond Gram-Charlier expansions, and a skew-kurtotic-normal distribution from a rank transmutation map</strong></a></td>
+    <td>Quantitative Finance</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Clipping the symmetric cubic map does not make it a valid rank transmutation map for every γ.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 2.6.1, Equation (14)</dd>
+    <dt>Analysis</dt><dd>The paper requires rank transmutation maps to be monotone, then claims that clipping Equation (14) to [0,1] produces a valid map for all γ. Clipping does not repair interior nonmonotonicity.</dd>
+    <dt>Evidence</dt><dd>Set γ=-10. Before clipping, h(u)=u-10u(1-u)(u-1/2). Then h(0.4)=0.64 and h(0.6)=0.36. Both values already lie in [0,1], so clipping leaves them unchanged. Since 0.4&lt;0.6 but G_R12(0.4)&gt;G_R12(0.6), the map is not monotone and therefore is not a valid RTM under the paper’s definition.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Equation (12) does not produce the claimed mean-zero standardized skew-normal density.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 2.5, Equations (11)–(12)</dd>
+    <dt>Analysis</dt><dd>Direct integration of Equation (11) gives mean -λ/√π, whereas Equation (12) translates by -λ/π. Consequently its purported standardized variable has nonzero mean whenever λ≠0.</dd>
+    <dt>Evidence</dt><dd>For f2(x)=φ(x)[1+λ-2λΦ(x)], integration by parts gives ∫xφ(x)Φ(x)dx=∫φ(x)^2dx=1/(2√π), hence E[X]=-λ/√π.  Also E[X²]=1, so σ²=1-λ²/π. A mean-zero density must therefore be σf2(σx-λ/√π,λ). The printed σf2(σx-λ/π,λ) instead has mean (λ/π-λ/√π)/σ, which is nonzero for λ≠0.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> William T. Shaw, Ian R. C. Buckley</p>
+              <p>Two explicit formulas fail the paper’s own stated requirements.</p>
+              <p><a href="https://arxiv.org/abs/0901.0434v1">arXiv</a> · <a href="https://arxiv.org/pdf/0901.0434v1.pdf">PDF</a> ·
+              0901.0434v1</p>
+              <p class="meta">Reviewed 2026-07-26 05:08:43+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Statistics"
+  data-error-types="mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1703.06856v3"><strong>Counterfactual Fairness</strong></a></td>
+    <td>Statistics</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (3)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Lemma 2&#x27;s stated conditions do not imply demographic parity.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Supplementary Section S2, Lemma 2, page 13</dd>
+    <dt>Analysis</dt><dd>The assumptions control observables conditional on the predictor&#x27;s background variables but never require those background variables to be independent of A. Consequently, their distribution can vary with A and transmit that dependence to the predictor.</dd>
+    <dt>Evidence</dt><dd>Let U be Bernoulli(1/2), with structural equations A=U and X=U, and define Y-hat=(U+X)/2=U. The background variable U is determined by A and X. The sole observable predictor input X is independent of A conditional on U because both are then deterministic. Thus every stated premise of Lemma 2 holds. Nevertheless, P(Y-hat=1|A=1)=1 while P(Y-hat=1|A=0)=0, violating demographic parity.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The claim that every nonconstant estimator depending only on X is counterfactually unfair in the Red Car structure is false.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Supplementary Section S3, immediately after Lemma 3, page 15</dd>
+    <dt>Analysis</dt><dd>Changing X under an intervention on A need not change a nonconstant function of X; the function can be invariant to the particular shift induced by  A.</dd>
+    <dt>Evidence</dt><dd>Let A be Bernoulli with attainable values 0 and 1, U be independent Uniform(0,1), X=A+U, and Y=sin(2piU). This has exactly the structure A→X←U→Y. The nonconstant X-only predictor Y-hat(X)=sin(2piX) satisfies Y-hat under do(A=0)=sin(2piU)=Y-hat under do(A=1), because sin(2pi(U+1))=sin(2piU). It is therefore counterfactually fair, contrary to the universal claim.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The average causal-effect calculation for X=A+U has its sign reversed.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Supplementary Section S1, derivation following Equation (2), page 12</dd>
+    <dt>Analysis</dt><dd>Substitution into the paper&#x27;s ordered difference gives the negative of the reported expression.</dd>
+    <dt>Evidence</dt><dd>With Y-hat=lambda*U and X=A+U, conditioning on X=x after do(A=a) gives U=x-a. Therefore lambda(x-a)-lambda(x-a0)=lambda(a0-a), whereas the paper reports lambda(a-a0). The nonzero-effect conclusion remains valid, but the stated value has the wrong sign.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Matt J. Kusner, Joshua R. Loftus, Chris Russell, Ricardo Silva</p>
+              <p>Two explicit mathematical claims admit counterexamples, and one  displayed causal-effect calculation has a reversed sign.</p>
+              <p><a href="https://arxiv.org/abs/1703.06856v3">arXiv</a> · <a href="https://arxiv.org/pdf/1703.06856v3.pdf">PDF</a> ·
+              1703.06856v3</p>
+              <p class="meta">Reviewed 2026-07-26 05:06:49+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Mathematics"
+  data-error-types="logical-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/math/0506081v3"><strong>The Dantzig selector: Statistical estimation when $p$ is much larger than $n$</strong></a></td>
+    <td>Mathematics</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">logical-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The proof does not establish Theorem 1.1 with its stated constant C1.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Theorem 1.1 and Section 3.2, especially Lemma 3.1 and equations (3.2)–(3.3)</dd>
+    <dt>Analysis</dt><dd>Theorem 1.1 states C1=4/(1−δS−θS,2S). In the proof, T01 has up to 2S elements, so Lemma 3.1 necessarily uses δ=δ2S, as the paper&#x27;s notation also specifies. Combining the  lemma with the cone and residual constraints therefore gives a denominator 1−δ2S−θS,2S, not 1−δS−θS,2S. Since δS≤δ2S, the stated constant is generally smaller and does not follow from the derivation.</dd>
+    <dt>Evidence</dt><dd>The proof obtains ||hT01||2≤2√(2S)λp/(1−δ−θ) and ||h||2≤√2||hT01||2. Thus ||h||2≤4λp√S/(1−δ2S−θS,2S), yielding C1=4/(1−δ2S−θS,2S). Nothing in the proof permits replacing δ2S by δS.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The claimed saturation cutoff (R/σ)^(1/s) after Theorem 1.3 is false.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 1.5, discussion following equations (1.18)–(1.19)</dd>
+    <dt>Analysis</dt><dd>The decay  condition |β(k)|≤Rk^(−1/s) has its natural crossover at S≈(R/σ)^s, not (R/σ)^(1/s). Consequently, parameters can satisfy the paper&#x27;s alleged saturation condition while the bound (1.18) still attains  the rate (1.19).</dd>
+    <dt>Evidence</dt><dd>Let s=1/2, σ=1, R=m², r=3/2, and S*=2m, using an orthonormal design with p=n≥4m so all restricted constants vanish. For m≥2, S*≤(R/σ)^(1/s)=m^4, placing this case in the paper&#x27;s claimed saturation regime. Yet choosing S≈3^(1/4)m≤S* in (1.18) gives S+R²S^(−3)=Θ(m), exactly the order of (1.19), R^(2/(2r+1))=R^(1/2)=m. Thus there is enough admissible sparsity to attain the stated minimax order.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Emmanuel Candes, Terence Tao</p>
+              <p>The main rates appear internally coherent, but the paper contains an invalid constant derivation and a false saturation-regime claim.</p>
+              <p><a href="https://arxiv.org/abs/math/0506081v3">arXiv</a> · <a href="https://arxiv.org/pdf/math/0506081v3.pdf">PDF</a> ·
+              math/0506081v3</p>
+              <p class="meta">Reviewed 2026-07-26 05:06:40+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Mathematics"
+  data-error-types="logical-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/math/0303109v1"><strong>Ricci flow with surgery on three-manifolds</strong></a></td>
+    <td>Mathematics</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">logical-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The after-surgery eigenfunction is incorrectly assigned the before-surgery eigenvalue.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 8.1, equation (8.2) and the following argument, page 20</dd>
+    <dt>Analysis</dt><dd>The paper explicitly defines λ− and λ+ as the eigenvalues before and after surgery, respectively. It then chooses a minimizer for the metric after surgery but states that it satisfies the eigenvalue equation with λ−. For the stated minimizer, the Euler–Lagrange equation must contain λ+. The subsequent bounds likewise repeatedly use λ− for this after-surgery metric. Unless λ−=λ+, which is neither assumed nor generally true, these statements directly conflict with the definitions  and the derivation as written is invalid. Replacing these occurrences by λ+ appears to repair the local notation.</dd>
+    <dt>Evidence</dt><dd>Section 8.1 defines “λ−, λ+” as the eigenvalues “before and after the surgery respectively.” It then says that a minimizer for “the metric after the surgery” satisfies 4Δa=Ra−λ−a in (8.2). By the variational definition of the first eigenvalue, that same minimizer instead satisfies 4Δa=Ra−λ+a.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Grisha Perelman</p>
+              <p>One explicit eigenvalue-label contradiction occurs in the surgery argument; no other demonstrable internal errors were identified.</p>
+              <p><a href="https://arxiv.org/abs/math/0303109v1">arXiv</a> · <a href="https://arxiv.org/pdf/math/0303109v1.pdf">PDF</a> ·
+              math/0303109v1</p>
+              <p class="meta">Reviewed 2026-07-26 05:05:55+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="mathematical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1308.5200v1"><strong>Manopt, a Matlab toolbox for optimization on manifolds</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Quotienting the entire oblique manifold by left orthogonal transformations does not yield the elliptope of matrices having rank exactly n.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section  1, first bullet, pages 1–2</dd>
+    <dt>Analysis</dt><dd>The paper defines the oblique manifold using only unit-column constraints, then claims its orthogonal quotient yields Gram matrices of rank n. Those constraints do not require the factor to have full row rank, while the rank of its Gram matrix equals the factor&#x27;s rank.</dd>
+    <dt>Evidence</dt><dd>Set n=m=2 and X=[[1,1],[0,0]]. Both columns have unit Euclidean norm, so X belongs to the paper&#x27;s oblique manifold. However, Y=X^T X=[[1,1],[1,1]] has diagonal (1,1), is positive semidefinite, and has rank 1 rather than the claimed rank n=2. Orthogonal transformations QX preserve this Gram matrix and cannot remove the counterexample. A full-row-rank restriction is necessary for the asserted fixed-rank quotient.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Nicolas Boumal, Bamdev Mishra, P. -A. Absil, Rodolphe Sepulchre</p>
+              <p>The stated quotient characterization of the fixed-rank elliptope is false without restricting the oblique manifold to full-row-rank matrices.</p>
+              <p><a href="https://arxiv.org/abs/1308.5200v1">arXiv</a> · <a href="https://arxiv.org/pdf/1308.5200v1.pdf">PDF</a> ·
+              1308.5200v1</p>
+              <p class="meta">Reviewed 2026-07-26 05:04:43+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="factual-error,logical-error,mathematical-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/quant-ph/9508027v2"><strong>Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">factual-error</span><span class="tag">logical-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (3)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The quantum Fourier-transform gate count  omits all one-bit R gates.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Page 14, equation (4.4) and following sentence</dd>
+    <dt>Analysis</dt><dd>The displayed circuit contains l R gates and one S gate for every pair j&lt;k, but the paper counts only the S gates.</dd>
+    <dt>Evidence</dt><dd>The total is l+l(l-1)/2=l(l+1)/2 gates, not l(l-1)/2. For l=3, the paper explicitly lists six gates but its formula gives three.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Equation (6.20) does not imply that each relevant prime power is relatively prime to some sampled c&#x27;.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Page 23, equation (6.20) through the conclusion after it</dd>
+    <dt>Analysis</dt><dd>Showing that a prime power P does not divide c&#x27; is weaker than showing gcd(P,c&#x27;)=1.</dd>
+    <dt>Evidence</dt><dd>Take p=97, q=128, and p-1=96. With c=8, {c(p-1)}q=0 and equation (6.19) gives c&#x27;=6; it satisfies condition (6.11), and for discrete logarithm r=1, d=120 also satisfies (6.10). The prime power 32&gt;20 divides p-1 and does not divide c&#x27;=6, so it passes the event controlled by (6.20), yet gcd(32,6)=2. Thus 32 is not relatively prime to that c&#x27;.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The paper incorrectly identifies Z_(p^alpha) as a field for general alpha.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Page 24, final paragraph of Section 6</dd>
+    <dt>Analysis</dt><dd>Residue classes modulo a non-prime prime power form a ring with zero divisors, not a field.</dd>
+    <dt>Evidence</dt><dd>For p=2 and alpha=2,  Z_4 contains nonzero 2 but 2·2=0 modulo 4. Therefore Z_4 is not a field.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Peter W. Shor</p>
+              <p>Three explicit local errors were found; none demonstrates failure of the main factoring algorithm.</p>
+              <p><a href="https://arxiv.org/abs/quant-ph/9508027v2">arXiv</a> · <a href="https://arxiv.org/pdf/quant-ph/9508027v2.pdf">PDF</a> ·
+              quant-ph/9508027v2</p>
+              <p class="meta">Reviewed 2026-07-26 05:04:22+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://arxiv.org/abs/astro-ph/0406183v1"><strong>PAHs as a tracer of star formation?</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge no-glaring-errors-found">No glaring errors found</span></td>
+    <td><span class="tag">no-errors-tagged</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No glaring errors were recorded.</p></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> E. Peeters, H. W. W. Spoon, A. G. G. M. Tielens</p>
+              <p>No demonstrable internal contradiction, counterexample, invalid derivation, or arithmetic error met the required high-confidence standard.</p>
+              <p><a href="https://arxiv.org/abs/astro-ph/0406183v1">arXiv</a> · <a href="https://arxiv.org/pdf/astro-ph/0406183v1.pdf">PDF</a> ·
+              astro-ph/0406183v1</p>
+              <p class="meta">Reviewed 2026-07-26 05:03:52+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="mathematical-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/astro-ph/0405087v1"><strong>New Grids of ATLAS9 Model Atmospheres</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The ODF temperature-grid specifications give impossible numbers of temperature values.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 3, page 2</dd>
+    <dt>Analysis</dt><dd>For an inclusive uniformly spaced grid, the number of values is the range divided by the step, plus one. Neither stated count matches this calculation.</dd>
+    <dt>Evidence</dt><dd>The new grid is said  to contain 57 values from log T=3.30 to 5.30 in 0.02-dex steps, but this gives (5.30-3.30)/0.02+1=101 values. The old grid is said to contain 56 values from 3.32 to 5.30 in 0.02-dex steps, but this gives (5.30-3.32)/0.02+1=100 values.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> F. Castelli, R. L. Kurucz</p>
+              <p>The stated temperature-grid counts are arithmetically incompatible with their ranges and step sizes.</p>
+              <p><a href="https://arxiv.org/abs/astro-ph/0405087v1">arXiv</a> · <a href="https://arxiv.org/pdf/astro-ph/0405087v1.pdf">PDF</a> ·
+              astro-ph/0405087v1</p>
+              <p class="meta">Reviewed 2026-07-26 05:03:12+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="factual-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/astro-ph/0405198v1"><strong>The Geneva-Copenhagen survey of the Solar neighbourhood: Ages, metallicities, and kinematic properties of 14,000 F and G dwarfs</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">factual-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The paper gives conflicting counts for the double-lined binary systems with  mass ratios in Table 2.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Sections 3.2.4 and 5.1 (pp. 6 and 20); Appendix table description (p. 31)</dd>
+    <dt>Analysis</dt><dd>All three statements refer specifically to mass ratios derived for double-lined binaries and listed in Table 2, so the counts cannot simultaneously be correct.</dd>
+    <dt>Evidence</dt><dd>Section 3.2.4 states that mass ratios were obtained for 510 systems; Section 5.1 again says Table 2 lists mass ratios for 510 double-lined binaries; the Appendix instead states that Table 2 contains mass ratios for 511 double-lined binary systems.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> B. Nordstrom, M. Mayor, J. Andersen, J. Holmberg, F. Pont, B. R. Jorgensen, E. H. Olsen, S. Udry, N. Mowlavi</p>
+              <p>One minor but explicit internal count contradiction was found.</p>
+              <p><a href="https://arxiv.org/abs/astro-ph/0405198v1">arXiv</a> · <a href="https://arxiv.org/pdf/astro-ph/0405198v1.pdf">PDF</a> ·
+              astro-ph/0405198v1</p>
+              <p class="meta">Reviewed 2026-07-26 05:02:29+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://arxiv.org/abs/hep-th/9711200v3"><strong>The Large N Limit of Superconformal Field Theories and Supergravity</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge no-glaring-errors-found">No glaring errors found</span></td>
+    <td><span class="tag">no-errors-tagged</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No glaring errors were recorded.</p></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Juan M. Maldacena</p>
+              <p>No glaring, demonstrable internal contradiction, counterexample, invalid derivation, or arithmetic error was established from the paper itself.</p>
+              <p><a href="https://arxiv.org/abs/hep-th/9711200v3">arXiv</a> · <a href="https://arxiv.org/pdf/hep-th/9711200v3.pdf">PDF</a> ·
+              hep-th/9711200v3</p>
+              <p class="meta">Reviewed 2026-07-26 05:02:21+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1710.11431v3"><strong>Physics-guided Neural Networks (PGNN): An Application in Lake Temperature Modeling</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge no-glaring-errors-found">No glaring errors found</span></td>
+    <td><span class="tag">no-errors-tagged</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No glaring errors were recorded.</p></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Arka Daw, Anuj Karpatne, William Watkins, Jordan Read, Vipin Kumar</p>
+              <p>No demonstrable internal contradiction, counterexample, invalid derivation, or arithmetic error met the required high-confidence threshold.</p>
+              <p><a href="https://arxiv.org/abs/1710.11431v3">arXiv</a> · <a href="https://arxiv.org/pdf/1710.11431v3.pdf">PDF</a> ·
+              1710.11431v3</p>
+              <p class="meta">Reviewed 2026-07-26 04:59:50+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,logical-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1706.03458v2"><strong>Deep Learning for Precipitation Nowcasting: A Benchmark and A New Model</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">logical-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (4)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The stated HSS formula cannot produce several HSS values reported in Table 3.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 5.2, HSS definition; Table 3</dd>
+    <dt>Analysis</dt><dd>For nonnegative contingency-table counts, the printed formula is bounded above by  0.5, whereas Table 3 reports many HSS values above 0.5.</dd>
+    <dt>Evidence</dt><dd>Writing TP=a, FN=b, FP=c, TN=d, the stated denominator is (a+b)(b+d)+(a+c)(c+d)=2ad+ab+b^2+bd+ac+c^2+cd, which is at least 2ad. Its numerator ad-bc is at most  ad, so the stated HSS is at most 0.5. Table 3 nevertheless reports values such as 0.6756 for offline ConvGRU-nobal. Thus the equation and table cannot both be correct.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Online fine-tuning does not consistently improve the reported performance.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 5.4 and Table 3</dd>
+    <dt>Analysis</dt><dd>The paper explicitly claims consistently better online performance, but several of its own evaluation scores decrease online.</dd>
+    <dt>Evidence</dt><dd>For 2D CNN, CSI at 2 mm/h falls from 0.4396 offline to 0.4363 online and CSI at 5  mm/h falls from 0.3406 to 0.3364. For 3D CNN, CSI at 0.5, 2, and 5 mm/h falls from 0.5109, 0.4411, and 0.3415 to 0.5106, 0.4344, and 0.3345. These directly contradict the claim of consistent improvement.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The stated all-zero initialization prevents the trajectory-generating network from learning input-dependent flows.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Appendix A-B and Equation 4</dd>
+    <dt>Analysis</dt><dd>Appendix A initializes every weight and bias in the two-layer structure-generating network to zero. Under gradient-based training, this leaves both convolutional weight matrices permanently zero, allowing only a spatially constant output bias to change.</dd>
+    <dt>Evidence</dt><dd>Let gamma(q)=W2 f(W1q+b1)+b2. Initially W1=W2=b1=b2=0, so the hidden activation is zero. Therefore dL/dW2=(dL/dgamma)f(0)^T=0 and dL/dW1=W2^T(dL/dgamma)f&#x27;(0)q^T=0. Although b2 may update, the hidden activation remains zero, so both weight gradients remain zero thereafter. Gamma consequently cannot depend on location, timestamp, input, or state as claimed.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>A positive unit-sum dynamic filter does not necessarily reduce the maximum value or prevent pixels from increasing.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 4, discussion following Table 1</dd>
+    <dt>Analysis</dt><dd>The explanation given for DFN&#x27;s poor performance makes false universal claims about convex filtering.</dd>
+    <dt>Evidence</dt><dd>For any positive weights summing to one, a constant neighborhood with value c produces sum_i w_i c=c, so its maximum does not get smaller. Likewise, a pixel initially equal to zero increases whenever its neighborhood contains a positive value receiving positive weight. Both cases satisfy the paper&#x27;s stated positive, unit-sum filter assumption.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Xingjian Shi, Zhihan Gao, Leonard Lausen, Hao Wang, Dit-Yan Yeung, Wai-kin Wong, Wang-chun Woo</p>
+              <p>The paper contains several demonstrable internal errors, including an HSS formula incompatible with its reported values and results contradicting the claimed  consistent benefit of online learning.</p>
+              <p><a href="https://arxiv.org/abs/1706.03458v2">arXiv</a> · <a href="https://arxiv.org/pdf/1706.03458v2.pdf">PDF</a> ·
+              1706.03458v2</p>
+              <p class="meta">Reviewed 2026-07-26 04:55:05+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Quantitative Biology"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1008.2591v1"><strong>Two-dimensional gel electrophoresis in proteomics: past, present and future</strong></a></td>
+    <td>Quantitative Biology</td>
+    <td><span class="badge no-glaring-errors-found">No glaring errors found</span></td>
+    <td><span class="tag">no-errors-tagged</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No glaring errors were recorded.</p></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Thierry Rabilloud, Mireille Chevallet, Sylvie Luche, Cécile Lelong</p>
+              <p>No demonstrable internal contradiction, counterexample, invalid derivation, or arithmetic error was identified under the strict review criteria.</p>
+              <p><a href="https://arxiv.org/abs/1008.2591v1">arXiv</a> · <a href="https://arxiv.org/pdf/1008.2591v1.pdf">PDF</a> ·
+              1008.2591v1</p>
+              <p class="meta">Reviewed 2026-07-26 04:49:02+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Electrical Engineering"
+  data-error-types="experimental-error,statistical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/2003.11055v1"><strong>COVIDX-Net: A Framework of Deep Learning Classifiers to Diagnose COVID-19 in X-Ray Images</strong></a></td>
+    <td>Electrical Engineering</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The paper inconsistently identifies the  DenseNet architecture evaluated.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Sections 2.1(B), 2.2, and 4</dd>
+    <dt>Analysis</dt><dd>The framework is repeatedly defined as containing exactly seven classifiers. Section 2.1 describes DenseNet121, and Section 4 lists DenseNet121 among the seven, whereas Section 2.2 and the experimental tables identify DenseNet201 while listing the same other six classifiers. These specifications cannot both describe the stated seven-model framework.</dd>
+    <dt>Evidence</dt><dd>Replacing DenseNet121 with DenseNet201 is the only difference between the two seven-model lists; because 121-layer and 201-layer DenseNets are distinct architectures, both lists cannot be correct.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The DenseNet201 normal-class metrics are internally inconsistent.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Table 3 and Equation (4)</dd>
+    <dt>Analysis</dt><dd>Table 3 reports precision 1.00, recall 8.00, and F1-score 0.89 for the DenseNet201 normal class. Substitution into the paper&#x27;s own F1 formula does not produce the reported F1-score.</dd>
+    <dt>Evidence</dt><dd>Equation (4) gives F1 = 2PR/(P+R). With P=1.00 and R=8.00, F1=16/9≈1.78, not 0.89. Moreover, Equation (3), R=TP/(TP+FN), cannot exceed 1 for nonnegative confusion-matrix counts.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Ezz El-Din Hemdan, Marwa A. Shouman, Mohamed Esmail Karar</p>
+              <p>The paper contains an architecture contradiction and an arithmetically impossible metric row.</p>
+              <p><a href="https://arxiv.org/abs/2003.11055v1">arXiv</a> · <a href="https://arxiv.org/pdf/2003.11055v1.pdf">PDF</a> ·
+              2003.11055v1</p>
+              <p class="meta">Reviewed 2026-07-26 04:44:18+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1902.03368v2"><strong>Skin Lesion Analysis Toward Melanoma Detection 2018: A Challenge Hosted by the International Skin Imaging Collaboration (ISIC)</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The abstract incorrectly states that top segmentation algorithms fail on over 10% of images on average.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Abstract; Supplementary Table 1</dd>
+    <dt>Analysis</dt><dd>Supplementary Table 1 identifies the top five segmentation submissions and reports overall failure rates below 10% for every one. Their mean is also below 10%, directly contradicting the abstract&#x27;s quantitative claim.</dd>
+    <dt>Evidence</dt><dd>The reported failure rates are 0.093, 0.079, 0.083, 0.085, and 0.084. Their mean  is (0.093+0.079+0.083+0.085+0.084)/5 = 0.0848, or 8.48%, not over 10%.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The paper gives incompatible totals for the number of submissions received.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Abstract; Sections 3.1–3.3; Discussion and Conclusion</dd>
+    <dt>Analysis</dt><dd>The results sections explicitly call their task-level figures the total submissions received. Because the challenge comprises exactly three tasks, these figures must sum to  the overall total, but they do not match the stated total of 299.</dd>
+    <dt>Evidence</dt><dd>Sections 3.1–3.3 report 112 segmentation, 26 attribute-detection, and 141 classification submissions, totaling 279. The conclusion instead states that 299 submissions were received. The abstract gives yet another task breakdown—115, 25, and 159—which totals 299 but disagrees with every corresponding results-section count.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Noel Codella, Veronica Rotemberg, Philipp Tschandl, M. Emre Celebi, Stephen Dusza, David Gutman, Brian Helba, Aadi Kalloo, Konstantinos Liopyris, Michael Marchetti, Harald Kittler, Allan Halpern</p>
+              <p>The paper contains two demonstrable internal inconsistencies in  its reported segmentation failure rate and submission counts.</p>
+              <p><a href="https://arxiv.org/abs/1902.03368v2">arXiv</a> · <a href="https://arxiv.org/pdf/1902.03368v2.pdf">PDF</a> ·
+              1902.03368v2</p>
+              <p class="meta">Reviewed 2026-07-26 04:39:27+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1711.05225v3"><strong>CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The stated train, validation, and test image counts do not partition the stated 112,120-image dataset.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 3.1, Training</dd>
+    <dt>Analysis</dt><dd>The paper says it randomly splits the 112,120-image dataset into the three reported sets, but their image counts leave 6,712 images unaccounted for. No additional split or exclusion is stated.</dd>
+    <dt>Evidence</dt><dd>98,637 training + 6,351 validation + 420 test = 105,408 images, whereas the dataset is stated to contain 112,120 images. The discrepancy is 112,120 - 105,408 = 6,712 images.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Pranav Rajpurkar, Jeremy Irvin, Kaylie Zhu, Brandon Yang, Hershel Mehta, Tony Duan, Daisy Ding, Aarti Bagul, Curtis Langlotz, Katie Shpanskaya, Matthew P. Lungren, Andrew Y. Ng</p>
+              <p>The reported pneumonia-task split is arithmetically inconsistent with the paper&#x27;s stated dataset size.</p>
+              <p><a href="https://arxiv.org/abs/1711.05225v3">arXiv</a> · <a href="https://arxiv.org/pdf/1711.05225v3.pdf">PDF</a> ·
+              1711.05225v3</p>
+              <p class="meta">Reviewed 2026-07-26 04:33:13+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Quantitative Biology"
+  data-error-types="mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1207.3907v2"><strong>Haplotype-based variant detection from short-read sequencing</strong></a></td>
+    <td>Quantitative Biology</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The stated monomorphic probability for M=2 is incorrect.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 2.4.3, Equation (12) and following paragraph</dd>
+    <dt>Analysis</dt><dd>Substituting M=2 into Equation (12) gives 1/(1+θ), not 1−θ. These expressions  are not equal except at θ=0.</dd>
+    <dt>Evidence</dt><dd>Equation (12): P(a_M=1)=(M−1)!/∏_{z=1}^{M−1}(θ+z). For M=2, this is 1/(θ+1). For example, θ=1 gives 1/2, whereas the paper states 0.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Equation (11) overcounts a balanced biallelic configuration by a factor of two.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 2.4.3, Equations (10) and (11)</dd>
+    <dt>Analysis</dt><dd>The claimed biallelic specialization omits the a_j! factor when both alleles have the same frequency. Balanced biallelic samples satisfy the stated assumptions but contradict Equation (10).</dd>
+    <dt>Evidence</dt><dd>Take M=2  and two alleles each occurring once, so a_1=2. Equation (10) gives [2!/(θ(θ+1))]·[θ²/(1²·2!)]=θ/(θ+1). Equation (11), with f_1=f_2=1, gives 2θ/(θ+1).</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Erik Garrison, Gabor Marth</p>
+              <p>Two explicit Ewens-prior calculations are inconsistent with the  paper’s own general formula.</p>
+              <p><a href="https://arxiv.org/abs/1207.3907v2">arXiv</a> · <a href="https://arxiv.org/pdf/1207.3907v2.pdf">PDF</a> ·
+              1207.3907v2</p>
+              <p class="meta">Reviewed 2026-07-26 04:27:41+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="mathematical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1009.0744v4"><strong>New and improved Johnson-Lindenstrauss embeddings via the Restricted Isometry Property</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>For fixed N and k, the required RIP embedding dimension has asymptotic dependence m ≍ δ^-2, up to a log(1/δ) factor, as δ approaches zero.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 4, item 6, pages 5–6</dd>
+    <dt>Analysis</dt><dd>The claimed asymptotic growth cannot hold with N and k fixed. The paper’s own RIP definition permits an exact isometry whose dimension is  independent of δ.</dd>
+    <dt>Evidence</dt><dd>Fix any N and k≤N and take Φ=I_N, so m=N. Then ||Φx||₂²=||x||₂² for every x, hence Φ satisfies the paper’s RIP inequalities for every δ∈(0,1), including arbitrarily small δ. Thus m remains N as δ→0, whereas δ^-2, even divided by any logarithmic factor log(1/δ), diverges.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Felix Krahmer, Rachel Ward</p>
+              <p>The main theorem’s proof shows no glaring error, but one stated  RIP optimality claim is demonstrably false.</p>
+              <p><a href="https://arxiv.org/abs/1009.0744v4">arXiv</a> · <a href="https://arxiv.org/pdf/1009.0744v4.pdf">PDF</a> ·
+              1009.0744v4</p>
+              <p class="meta">Reviewed 2026-07-26 04:19:20+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/0906.2027v2"><strong>Matrix Completion from Noisy Entries</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (3)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The algorithm assigns incompatible and internally inconsistent dimensions to X and Y.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 1.2, Equation (2), compared with Sections 1.3 and 3</dd>
+    <dt>Analysis</dt><dd>For an m-by-n matrix N, XSY^T must be m-by-n. Section 1.2 instead declares X to be n-by-r and Y to be m-by-r, making XSY^T n-by-m. Later sections use the opposite, dimensionally valid convention.</dd>
+    <dt>Evidence</dt><dd>Equation (2) compares Nij with (XSY^T)ij, while line 114 states X is n-by-r and Y  is m-by-r. Lines 197-200 and 756-757 instead assign the left factor m rows and the right factor n rows. These conventions cannot both be correct.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The paper gives two incompatible sample sizes for the Figure 3 experiments.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Figure 3 caption and accompanying text, Section 1.6</dd>
+    <dt>Analysis</dt><dd>The caption specifies |E|/n equal to 80 and 160, whereas the prose specifies |E| equal to 80 and 160. With n=600, the caption corresponds to 48,000 and 96,000 observations, not 80 and 160.</dd>
+    <dt>Evidence</dt><dd>Lines 448-450 state &#x27;|E|/n = 80 and 160&#x27;; lines 486-490 describe the same 600-by-600 experiment as having &#x27;|E| = 80 and |E| = 160.&#x27;</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The sub-Gaussian tail assumption does not imply the moment-generating-function bound  used to prove Theorem 1.3.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 4, derivation following Equation (28), especially lines 1222-1238</dd>
+    <dt>Analysis</dt><dd>The proof bounds E[exp(lambda Z^2)] by the Gaussian value 1/sqrt(1-2 lambda sigma^2), citing only the stated two-sided tail bound. That implication is false, so the displayed Chernoff derivation does not follow under the theorem&#x27;s assumptions.</dd>
+    <dt>Evidence</dt><dd>Set sigma=1 and let Z have an independent symmetric sign with P(|Z|&gt;=x)=min(1,2 exp(-x^2/2)). This is zero-mean and satisfies the paper&#x27;s stated tail assumption exactly. For lambda=3/8 and a=sqrt(2 log 2), direct integration gives E[exp(lambda Z^2)]=2^(3/4)+6*2^(-1/4), approximately 6.73. The proof&#x27;s asserted upper bound is 1/sqrt(1-2 lambda)=2. Thus the inequality used in the proof is violated by a distribution satisfying all stated noise assumptions.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Raghunandan H. Keshavan, Andrea Montanari, Sewoong Oh</p>
+              <p>Three demonstrable internal errors were found: inconsistent  factor dimensions, contradictory experimental sample sizes, and an unjustified moment-generating-function bound.</p>
+              <p><a href="https://arxiv.org/abs/0906.2027v2">arXiv</a> · <a href="https://arxiv.org/pdf/0906.2027v2.pdf">PDF</a> ·
+              0906.2027v2</p>
+              <p class="meta">Reviewed 2026-07-26 04:13:37+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Statistics"
+  data-error-types="mathematical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1111.4246v1"><strong>The No-U-Turn Sampler: Adaptively Setting Path Lengths in Hamiltonian Monte Carlo</strong></a></td>
+    <td>Statistics</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The variance-normalization term uses the number of observations instead of the number of normally distributed coefficients.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Section 4.1, hierarchical Bayesian logistic regression, Equation 22 (page 21)</dd>
+    <dt>Analysis</dt><dd>The paper specifies a 300-dimensional β and scalar α whose priors  share variance σ². Their joint normal density contributes −301/2 log σ². Equation 22 instead contains −N/2 log σ² and immediately defines N=1000 as the number of customers. The likelihood introduces no compensating power of σ², so the displayed expression is not proportional to the stated posterior.</dd>
+    <dt>Evidence</dt><dd>p(β|σ²)p(α|σ²) ∝ (σ²)^−300/2(σ²)^−1/2 exp{−(β·β+α²)/(2σ²)} = exp{−301/2 log σ²−(β·β+α²)/(2σ²)}. Equation 22 uses −1000/2 log σ².</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Equation 22&#x27;s expanded likelihood omits the stated intercept α.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 4.1, hierarchical Bayesian logistic regression, Equation 22 (page 21)</dd>
+    <dt>Analysis</dt><dd>The first line defines the target using p(y|x,α,β), and the preceding logistic-regression model uses predictor α+x_i·β. Yet Equation 22&#x27;s expanded likelihood depends only  on x_i·β. The paper continues to treat α as a separate scalar and x and β as 300-dimensional vectors, so α has not been absorbed into β.</dd>
+    <dt>Evidence</dt><dd>The stated factor p(y|x,α,β) requires terms  log(1+exp{−y_i(α+x_i·β)}), whereas the displayed second line has log(1+exp{−y_i x_i·β}). These expressions differ whenever α≠0.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Matthew D. Hoffman, Andrew Gelman</p>
+              <p>Equation 22 contains two demonstrable inconsistencies with the hierarchical logistic-regression model it purports to define.</p>
+              <p><a href="https://arxiv.org/abs/1111.4246v1">arXiv</a> · <a href="https://arxiv.org/pdf/1111.4246v1.pdf">PDF</a> ·
+              1111.4246v1</p>
+              <p class="meta">Reviewed 2026-07-26 04:05:03+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="factual-error,logical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1412.1408v1"><strong>Big-Bang Nucleosynthesis</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">factual-error</span><span class="tag">logical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The paper simultaneously claims that all light-element abundances are explained by η₁₀ = 5.7–6.7 and that lithium is inconsistent with this range.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 1.1, page 1; Section 1.3, pages 6–7; Section 1.4, page 8</dd>
+    <dt>Analysis</dt><dd>The initial universal-concordance claim cannot coexist with the later statement that lithium is inconsistent with deuterium and helium. The paper explicitly derives the stated concordance interval only after excluding lithium and later describes the discrepancy as exceeding 5σ.</dd>
+    <dt>Evidence</dt><dd>Section 1.1 states that “all the light-element abundances can be explained” for 5.7 ≤ η₁₀ ≤ 6.7. Section 1.3 says the lithium-inferred η values are inconsistent with D/H and ⁴He, then obtains that same interval only “if ... we exclude the lithium constraint.” Section 1.4 confirms that stellar Li/H is inconsistent with CMB and D/H by over 5σ.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The listed reaction ³He(⁴He,γ)⁷Li violates electric-charge conservation.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Section 1.1, page 2, discussion preceding Equation 1.1</dd>
+    <dt>Analysis</dt><dd>The reaction cannot occur as written under the Standard Model physics assumed by the paper. It is likely  a typographical duplication of the correctly listed ³He(⁴He,γ)⁷Be channel, but the printed claim is  nevertheless false.</dd>
+    <dt>Evidence</dt><dd>The initial nuclei have total charge Z = 2 + 2 = 4. The proposed products have Z = 3 for ⁷Li and Z = 0 for the photon, totaling 3. The paper later correctly identifies ³He(⁴He,γ)⁷Be, whose product has Z = 4, as the dominant mass-7 production channel.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Brian D. Fields, Paolo Molaro, Subir Sarkar</p>
+              <p>Two demonstrable internal errors were found: a direct contradiction about abundance concordance and an impossible nuclear reaction.</p>
+              <p><a href="https://arxiv.org/abs/1412.1408v1">arXiv</a> · <a href="https://arxiv.org/pdf/1412.1408v1.pdf">PDF</a> ·
+              1412.1408v1</p>
+              <p class="meta">Reviewed 2026-07-26 03:57:51+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1807.06209v4"><strong>Planck 2018 results. VI. Cosmological parameters</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge no-glaring-errors-found">No glaring errors found</span></td>
+    <td><span class="tag">no-errors-tagged</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No glaring errors were recorded.</p></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Planck Collaboration, N. Aghanim, Y. Akrami, M. Ashdown, J. Aumont, C. Baccigalupi, M. Ballardini, A. J. Banday, R. B. Barreiro, N. Bartolo, S. Basak, R. Battye, K. Benabed, J. -P. Bernard, M. Bersanelli, P. Bielewicz, J. J. Bock, J. R. Bond, J. Borrill, F. R. Bouchet, F. Boulanger, M. Bucher, C. Burigana, R. C. Butler, E. Calabrese, J. -F. Cardoso, J. Carron, A. Challinor, H. C. Chiang, J. Chluba, L. P. L. Colombo, C. Combet, D. Contreras, B. P. Crill, F. Cuttaia, P. de Bernardis, G. de Zotti, J. Delabrouille, J. -M. Delouis, E. Di Valentino, J. M. Diego, O. Doré, M. Douspis, A. Ducout, X. Dupac, S. Dusini, G. Efstathiou, F. Elsner, T. A. Enßlin, H. K. Eriksen, Y. Fantaye, M. Farhang, J. Fergusson, R. Fernandez-Cobos, F. Finelli, F. Forastieri, M. Frailis, A. A. Fraisse, E. Franceschi, A. Frolov, S. Galeotta, S. Galli, K. Ganga, R. T. Génova-Santos, M. Gerbino, T. Ghosh, J. González-Nuevo, K. M. Górski, S. Gratton, A. Gruppuso, J. E. Gudmundsson, J. Hamann, W. Handley, F. K. Hansen, D. Herranz, S. R. Hildebrandt, E. Hivon, Z. Huang, A. H. Jaffe, W. C. Jones, A. Karakci, E. Keihänen, R. Keskitalo, K. Kiiveri, J. Kim, T. S. Kisner, L. Knox, N. Krachmalnicoff, M. Kunz, H. Kurki-Suonio, G. Lagache, J. -M. Lamarre, A. Lasenby, M. Lattanzi, C. R. Lawrence, M. Le Jeune, P. Lemos, J. Lesgourgues, F. Levrier, A. Lewis, M. Liguori, P. B. Lilje, M. Lilley, V. Lindholm, M. López-Caniego, P. M. Lubin, Y. -Z. Ma, J. F. Macías-Pérez, G. Maggio, D. Maino, N. Mandolesi, A. Mangilli, A. Marcos-Caballero, M. Maris, P. G. Martin, M. Martinelli, E. Martínez-González, S. Matarrese, N. Mauri, J. D. McEwen, P. R. Meinhold, A. Melchiorri, A. Mennella, M. Migliaccio, M. Millea, S. Mitra, M. -A. Miville-Deschênes, D. Molinari, L. Montier, G. Morgante, A. Moss, P. Natoli, H. U. Nørgaard-Nielsen, L. Pagano, D. Paoletti, B. Partridge, G. Patanchon, H. V. Peiris, F. Perrotta, V. Pettorino, F. Piacentini, L. Polastri, G. Polenta, J. -L. Puget, J. P. Rachen, M. Reinecke, M. Remazeilles, A. Renzi, G. Rocha, C. Rosset, G. Roudier, J. A. Rubiño-Martín, B. Ruiz-Granados, L. Salvati, M. Sandri, M. Savelainen, D. Scott, E. P. S. Shellard, C. Sirignano, G. Sirri, L. D. Spencer, R. Sunyaev, A. -S. Suur-Uski, J. A. Tauber, D. Tavagnacco, M. Tenti, L. Toffolatti, M. Tomasi, T. Trombetti, L. Valenziano, J. Valiviita, B. Van Tent, L. Vibert, P. Vielva, F. Villa, N. Vittorio, B. D. Wandelt, I. K. Wehus, M. White, S. D. M. White, A. Zacchei, A. Zonca</p>
+              <p>No high-confidence, demonstrable internal error met the strict reporting criteria.</p>
+              <p><a href="https://arxiv.org/abs/1807.06209v4">arXiv</a> · <a href="https://arxiv.org/pdf/1807.06209v4.pdf">PDF</a> ·
+              1807.06209v4</p>
+              <p class="meta">Reviewed 2026-07-26 03:53:14+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1602.03837v1"><strong>Observation of Gravitational Waves from a Binary Black Hole Merger</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge no-glaring-errors-found">No glaring errors found</span></td>
+    <td><span class="tag">no-errors-tagged</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No glaring errors were recorded.</p></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> The LIGO Scientific Collaboration, the Virgo Collaboration</p>
+              <p>No demonstrable internal contradiction, counterexample, invalid derivation, or arithmetic error met the required high-confidence threshold.</p>
+              <p><a href="https://arxiv.org/abs/1602.03837v1">arXiv</a> · <a href="https://arxiv.org/pdf/1602.03837v1.pdf">PDF</a> ·
+              1602.03837v1</p>
+              <p class="meta">Reviewed 2026-07-26 03:42:59+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
   data-error-types="experimental-error,logical-error,mathematical-error" data-severities="major,minor">
   <tr>
     <td><a href="https://arxiv.org/abs/1910.10683v4"><strong>Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer</strong></a></td>

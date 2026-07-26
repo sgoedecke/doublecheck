@@ -11,6 +11,7 @@ from doublecheck.review import (
     build_copilot_command,
     build_review_prompt,
     extract_pdf_text,
+    extract_source_text,
     parse_review_response,
 )
 
@@ -161,6 +162,29 @@ class ParseReviewResponseTests(unittest.TestCase):
                 output.read_text(encoding="utf-8"),
                 "unstructured review",
             )
+
+    def test_extracts_text_from_latex_source(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            source = Path(temporary) / "source"
+            source.mkdir()
+            (source / "main.tex").write_text(
+                "\\\\section{Result} A demonstrable claim.",
+                encoding="utf-8",
+            )
+            output = Path(temporary) / "paper.txt"
+            extract_source_text(source, output)
+            self.assertIn("A demonstrable claim.", output.read_text())
+
+    def test_extracts_text_from_postscript_source(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            source = Path(temporary) / "source"
+            source.mkdir()
+            (source / "paper.ps").write_bytes(
+                b"%!PS\\n(This is a paper) show\\n"
+            )
+            output = Path(temporary) / "paper.txt"
+            extract_source_text(source, output)
+            self.assertIn("This is a paper", output.read_text())
 
 
 if __name__ == "__main__":

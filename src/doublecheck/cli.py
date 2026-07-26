@@ -19,6 +19,7 @@ from doublecheck.review import (
     ReviewError,
     ReviewParseError,
     extract_pdf_text,
+    extract_source_text,
     run_copilot_review,
 )
 from doublecheck.site import build_site
@@ -99,12 +100,23 @@ def _review(args: argparse.Namespace) -> int:
         workspace = Path(temporary)
         pdf_path = workspace / "paper.pdf"
         paper_text_path = workspace / "paper.txt"
+        source_directory = workspace / "source"
         print(f"Downloading {metadata.arxiv_id}...", file=sys.stderr)
-        download_pdf(metadata, pdf_path)
-        print("Extracting compact paper text...", file=sys.stderr)
-        extract_pdf_text(pdf_path, paper_text_path)
-        source = download_and_extract_source(metadata, workspace / "source")
+        source = download_and_extract_source(metadata, source_directory)
         print(f"Source: {source.note}", file=sys.stderr)
+        try:
+            download_pdf(metadata, pdf_path)
+        except ArxivError:
+            if not source.available:
+                raise
+            print(
+                "PDF unavailable; extracting compact source text...",
+                file=sys.stderr,
+            )
+            extract_source_text(source_directory, paper_text_path)
+        else:
+            print("Extracting compact paper text...", file=sys.stderr)
+            extract_pdf_text(pdf_path, paper_text_path)
         print(
             f"Reviewing with {args.model} at {args.effort} effort...",
             file=sys.stderr,

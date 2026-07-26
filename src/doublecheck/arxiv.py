@@ -261,7 +261,8 @@ def download_and_extract_source(
     except (tarfile.TarError, EOFError):
         if b"\x00" in decompressed[:4096]:
             return SourceExtraction(False, 0, "source payload was not a supported archive")
-        target = destination / "main.tex"
+        suffix = ".ps" if decompressed.startswith(b"%!PS") else ".tex"
+        target = destination / f"paper{suffix}"
         target.write_bytes(decompressed)
         return SourceExtraction(True, 1, "single source file extracted")
 

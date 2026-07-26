@@ -1,0 +1,104 @@
+from __future__ import annotations
+
+import tempfile
+import unittest
+from datetime import datetime, timezone
+from pathlib import Path
+
+from doublecheck.arxiv import PaperMetadata
+from doublecheck.review import ReviewResult
+from doublecheck.site import build_site
+from doublecheck.storage import (
+    ReviewRecord,
+    StorageError,
+    load_records,
+    upsert_record,
+)
+
+
+def make_record(
+    *,
+    arxiv_id: str = "2501.12345v1",
+    summary: str = "A problem was found.",
+    reviewed_at: datetime | None = None,
+) -> ReviewRecord:
+    metadata = PaperMetadata(
+        arxiv_id=arxiv_id,
+        title="Unsafe <Title>",
+        authors=("Ada Lovelace", "Emmy Noether"),
+        summary="Abstract",
+        published="2025-01-01T00:00:00Z",
+        updated="2025-01-02T00:00:00Z",
+    )
+    review = ReviewResult(
+        verdict="errors-found",
+        summary=summary,
+        findings=(
+            {
+                "id": "F1",
+                "severity": "major",
+                "category": "logical-error",
+                "evidence_type": "counterexample",
+                "claim": "Missing case",
+                "location": "Theorem 2",
+                "analysis": "The proof omits a branch.",
+                "evidence": "The branch is permitted by Definition 1.",
+                "confidence": "high",
+            },
+        ),
+        limitations=("Not machine-checked.",),
+        raw_response="{}",
+    )
+    return ReviewRecord.from_review(
+        metadata,
+        review,
+        model="gpt-5.6-sol",
+        effort="high",
+        reviewed_at=reviewed_at or datetime(2025, 1, 3, tzinfo=timezone.utc),
+    )
+
+
+class StorageAndSiteTests(unittest.TestCase):
+    def test_upsert_replaces_same_arxiv_version(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            csv_path = Path(temporary) / "reviews.csv"
+            upsert_record(csv_path, make_record(summary="First"))
+            upsert_record(csv_path, make_record(summary="Replacement"))
+            records = load_records(csv_path)
+            self.assertEqual(len(records), 1)
+            self.assertEqual(records[0].summary, "Replacement")
+
+    def test_upsert_keeps_distinct_versions(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            csv_path = Path(temporary) / "reviews.csv"
+            upsert_record(csv_path, make_record(arxiv_id="2501.12345v1"))
+            upsert_record(csv_path, make_record(arxiv_id="2501.12345v2"))
+            self.assertEqual(len(load_records(csv_path)), 2)
+
+    def test_site_renders_tags_and_escapes_paper_data(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            output = Path(temporary) / "docs" / "index.html"
+            build_site([make_record()], output)
+            rendered = output.read_text(encoding="utf-8")
+            self.assertIn("logical-error", rendered)
+            self.assertIn("Glaring errors found", rendered)
+            self.assertIn("counterexample", rendered)
+            self.assertIn("Unsafe &lt;Title&gt;", rendered)
+            self.assertNotIn("Unsafe <Title>", rendered)
+            self.assertTrue((output.parent / ".nojekyll").exists())
+
+    def test_csv_rejects_invalid_verdict(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            csv_path = Path(temporary) / "reviews.csv"
+            upsert_record(csv_path, make_record())
+            content = csv_path.read_text(encoding="utf-8")
+            csv_path.write_text(
+                content.replace("errors-found", "invented-verdict", 1),
+                encoding="utf-8",
+            )
+            with self.assertRaises(StorageError):
+                load_records(csv_path)
+
+
+if __name__ == "__main__":
+    unittest.main()

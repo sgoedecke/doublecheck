@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arxiv-doublecheck"
+version = "0.1.0"
+description = "Review arXiv papers with GitHub Copilot CLI and publish a static index."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Sean Goedecke" }]
+dependencies = []
+
+[project.scripts]
+doublecheck = "doublecheck.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

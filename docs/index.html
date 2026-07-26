@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LLM-assisted technical audits of arXiv papers.">
+  <title>arXiv Double-Check</title>
+  <style>
+    :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
+    body { max-width: 58rem; margin: 0 auto; padding: 2rem 1rem 4rem; line-height: 1.55; }
+    header { margin-bottom: 2rem; }
+    h1, h2, h3 { line-height: 1.2; }
+    article { border-top: 1px solid #8888; padding: 1.5rem 0; }
+    .meta { color: #777; }
+    .badge, .tag { display: inline-block; border: 1px solid #8888; border-radius: 1rem;
+      padding: .12rem .55rem; margin: .15rem .2rem .15rem 0; font-size: .85rem; }
+    .errors-found { border-color: #b33; color: #b33; }
+    .no-glaring-errors-found { border-color: #287a3c; color: #287a3c; }
+    .inconclusive { border-color: #9a6a00; color: #9a6a00; }
+    details { margin: .7rem 0; }
+    dt { font-weight: 650; margin-top: .5rem; }
+    dd { margin-left: 0; }
+    code { background: #8882; padding: .1rem .25rem; }
+    a { color: inherit; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>arXiv Double-Check</h1>
+    <p>LLM-assisted audits for demonstrable internal errors.</p>
+  </header>
+  <main>
+    <h2>Reviewed papers</h2>
+    <article>
+  <h3><a href="https://arxiv.org/abs/1810.04805v2">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</a></h3>
+  <p class="meta">Jacob Devlin, Ming-Wei Chang, Kenton Lee, Kristina Toutanova</p>
+  <p>
+    <span class="badge errors-found">Glaring errors found</span>
+    <span class="tag">mathematical-error</span>
+  </p>
+  <p>One concrete arithmetic inconsistency was identified in the stated estimate of pre-training corpus epochs.</p>
+  <details>
+    <summary>Findings (1)</summary>
+    <details>
+  <summary><strong>The claimed approximately 40 corpus epochs conflicts with the stated sequence-length schedule.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Appendix A.2 and Appendix C.1</dd>
+    <dt>Analysis</dt><dd>The 40-epoch estimate effectively counts every training sequence as length 512, although the paper states that 90% of steps use length 128.</dd>
+    <dt>Evidence</dt><dd>The stated schedule processes at most 1,000,000 * 256 * (0.9 * 128 + 0.1 * 512) = 42.5984 billion token slots. Relative to the stated 3.3 billion-word corpus, that is about 12.9 passes, not 40; tokenization differences are not large enough to close the gap.</dd>
+  </dl>
+</details>
+  </details>
+  <details><summary>Review limitations</summary><ul><li>This arithmetic issue concerns the paper&#x27;s descriptive epoch estimate, not the reported downstream results.</li></ul></details>
+  <p class="meta">
+    <a href="https://arxiv.org/pdf/1810.04805v2.pdf">PDF</a> · arXiv 1810.04805v2 ·
+    reviewed 2026-07-25 12:21:00+00:00 UTC · gpt-5.6-sol (high)
+  </p>
+</article>
+<article>
+  <h3><a href="https://arxiv.org/abs/1706.03762v7">Attention Is All You Need</a></h3>
+  <p class="meta">Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin</p>
+  <p>
+    <span class="badge errors-found">Glaring errors found</span>
+    <span class="tag">factual-error</span>
+  </p>
+  <p>One concrete internal error was identified: the paper reports two different English-French BLEU scores for the same headline model.</p>
+  <details>
+    <summary>Findings (1)</summary>
+    <details>
+  <summary><strong>The English-French headline score is internally inconsistent.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Abstract, Table 2, and Section 6.1</dd>
+    <dt>Analysis</dt><dd>The same Transformer (big) English-French result cannot simultaneously be 41.8 and 41.0 BLEU.</dd>
+    <dt>Evidence</dt><dd>The abstract and Table 2 report 41.8 BLEU, while Section 6.1 reports 41.0 BLEU for the English-French big model.</dd>
+  </dl>
+</details>
+  </details>
+  <details><summary>Review limitations</summary><ul><li>This discrepancy may be a typographical error and does not undermine the paper&#x27;s central architecture or results.</li></ul></details>
+  <p class="meta">
+    <a href="https://arxiv.org/pdf/1706.03762v7.pdf">PDF</a> · arXiv 1706.03762v7 ·
+    reviewed 2026-07-25 12:18:44+00:00 UTC · gpt-5.6-sol (high)
+  </p>
+</article>
+  </main>
+</body>
+</html>

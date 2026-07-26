@@ -166,7 +166,7 @@ def download_and_extract_source(
         with _urlopen(request, timeout=timeout) as response:
             payload = _read_limited(response, MAX_DOWNLOAD_BYTES)
     except urllib.error.HTTPError as exc:
-        if exc.code in {403, 404, 429} or 500 <= exc.code <= 599:
+        if 300 <= exc.code <= 399 or exc.code in {403, 404, 429} or 500 <= exc.code <= 599:
             return SourceExtraction(False, 0, f"source unavailable (HTTP {exc.code})")
         raise ArxivError(f"could not download arXiv source: HTTP {exc.code}") from exc
     except (urllib.error.URLError, TimeoutError) as exc:

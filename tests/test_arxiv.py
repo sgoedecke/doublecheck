@@ -45,7 +45,7 @@ class NormalizeArxivIdTests(unittest.TestCase):
         with self.assertRaises(ArxivError):
             _read_limited(Response(), 100)
 
-    def test_source_rate_limit_falls_back_to_pdf_only(self) -> None:
+    def test_source_http_failure_falls_back_to_pdf_only(self) -> None:
         metadata = PaperMetadata(
             arxiv_id="2501.12345v1",
             title="Paper",
@@ -54,23 +54,25 @@ class NormalizeArxivIdTests(unittest.TestCase):
             published="2025-01-01T00:00:00Z",
             updated="2025-01-01T00:00:00Z",
         )
-        error = urllib.error.HTTPError(
-            metadata.abstract_url,
-            429,
-            "rate limited",
-            hdrs=None,
-            fp=None,
-        )
-        with TemporaryDirectory() as temporary, patch(
-            "doublecheck.arxiv._urlopen",
-            side_effect=error,
-        ):
-            result = download_and_extract_source(
-                metadata,
-                Path(temporary) / "source",
-            )
-        self.assertFalse(result.available)
-        self.assertIn("HTTP 429", result.note)
+        for status in (301, 429):
+            with self.subTest(status=status):
+                error = urllib.error.HTTPError(
+                    metadata.abstract_url,
+                    status,
+                    "source unavailable",
+                    hdrs=None,
+                    fp=None,
+                )
+                with TemporaryDirectory() as temporary, patch(
+                    "doublecheck.arxiv._urlopen",
+                    side_effect=error,
+                ):
+                    result = download_and_extract_source(
+                        metadata,
+                        Path(temporary) / "source",
+                    )
+                self.assertFalse(result.available)
+                self.assertIn(f"HTTP {status}", result.note)
 
     def test_maps_arxiv_categories_to_broad_fields(self) -> None:
         self.assertEqual(field_for_category("cs.CL"), "Computer Science")

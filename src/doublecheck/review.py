@@ -264,7 +264,7 @@ def parse_review_response(raw_response: str) -> ReviewResult:
     if not isinstance(payload, dict):
         raise ReviewError("Copilot response must be a JSON object")
 
-    verdict = _required_string(payload, "verdict")
+    verdict = _required_enum(payload, "verdict")
     if verdict not in VERDICTS:
         raise ReviewError(f"invalid verdict: {verdict}")
     summary = _required_string(payload, "summary")
@@ -358,16 +358,23 @@ def validate_finding(value: object, index: int) -> dict[str, str]:
         key: _required_string(value, key)
         for key in (
             "id",
-            "severity",
-            "category",
-            "evidence_type",
             "claim",
             "location",
             "analysis",
             "evidence",
-            "confidence",
         )
     }
+    finding.update(
+        {
+            key: _required_enum(value, key)
+            for key in (
+                "severity",
+                "category",
+                "evidence_type",
+                "confidence",
+            )
+        }
+    )
     if finding["severity"] not in SEVERITIES:
         raise ReviewError(
             f"finding {index} has invalid severity: {finding['severity']}"
@@ -393,3 +400,7 @@ def _required_string(value: dict[str, Any], key: str) -> str:
     if not isinstance(item, str) or not item.strip():
         raise ReviewError(f"{key} must be a non-empty string")
     return item.strip()
+
+
+def _required_enum(value: dict[str, Any], key: str) -> str:
+    return "".join(_required_string(value, key).split())

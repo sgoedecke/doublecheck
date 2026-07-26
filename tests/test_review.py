@@ -57,6 +57,17 @@ class ParseReviewResponseTests(unittest.TestCase):
             "A central estimate is not justified.",
         )
 
+    def test_repairs_terminal_wrapping_inside_enum_values(self) -> None:
+        raw = json.dumps(valid_payload()).replace(
+            "counterexample",
+            "c\nounterexample",
+        )
+        result = parse_review_response(raw)
+        self.assertEqual(
+            result.findings[0]["evidence_type"],
+            "counterexample",
+        )
+
     def test_rejects_inconsistent_verdict(self) -> None:
         payload = valid_payload()
         payload["verdict"] = "no-glaring-errors-found"

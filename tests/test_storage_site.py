@@ -106,6 +106,11 @@ class StorageAndSiteTests(unittest.TestCase):
                 'href="https://github.com/sgoedecke/doublecheck"',
                 rendered,
             )
+            self.assertNotIn("<h2>Reviewed papers</h2>", rendered)
+            self.assertNotIn(
+                "scientific papers.</p>\n    <p><a",
+                rendered,
+            )
             self.assertTrue((output.parent / ".nojekyll").exists())
 
     def test_csv_rejects_invalid_verdict(self) -> None:

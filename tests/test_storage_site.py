@@ -89,7 +89,7 @@ class StorageAndSiteTests(unittest.TestCase):
             build_site([make_record()], output)
             rendered = output.read_text(encoding="utf-8")
             self.assertIn("logical-error", rendered)
-            self.assertIn("Glaring errors found", rendered)
+            self.assertIn("Errors found", rendered)
             self.assertIn("counterexample", rendered)
             self.assertIn("Unsafe &lt;Title&gt;", rendered)
             self.assertNotIn("Unsafe <Title>", rendered)
@@ -152,6 +152,7 @@ class StorageAndSiteTests(unittest.TestCase):
             rendered = output.read_text(encoding="utf-8")
             self.assertIn('<option value="none">None</option>', rendered)
             self.assertIn('data-severities="none"', rendered)
+            self.assertIn("No errors found", rendered)
 
 
 if __name__ == "__main__":

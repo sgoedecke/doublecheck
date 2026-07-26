@@ -6,8 +6,8 @@ from pathlib import Path
 from doublecheck.storage import ReviewRecord
 
 VERDICT_LABELS = {
-    "errors-found": "Glaring errors found",
-    "no-glaring-errors-found": "No glaring errors found",
+    "errors-found": "Errors found",
+    "no-glaring-errors-found": "No errors found",
     "inconclusive": "Inconclusive",
 }
 

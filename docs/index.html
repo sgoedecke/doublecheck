@@ -56,7 +56,7 @@
   <main>
     <div class="filters" aria-label="Review filters">
       <label>Field
-        <select id="field-filter"><option value="">All fields</option><option value="Computer Science">Computer Science</option><option value="Electrical Engineering">Electrical Engineering</option><option value="Mathematics">Mathematics</option><option value="Physics and Astronomy">Physics And Astronomy</option><option value="Quantitative Biology">Quantitative Biology</option><option value="Quantitative Finance">Quantitative Finance</option><option value="Statistics">Statistics</option></select>
+        <select id="field-filter"><option value="">All fields</option><option value="Computer Science">Computer Science</option><option value="Economics">Economics</option><option value="Electrical Engineering">Electrical Engineering</option><option value="Mathematics">Mathematics</option><option value="Other">Other</option><option value="Physics and Astronomy">Physics And Astronomy</option><option value="Quantitative Biology">Quantitative Biology</option><option value="Quantitative Finance">Quantitative Finance</option><option value="Statistics">Statistics</option></select>
       </label>
       <label>Error type
         <select id="error-filter"><option value="">All error types</option><option value="experimental-error">Experimental Error</option><option value="factual-error">Factual Error</option><option value="logical-error">Logical Error</option><option value="mathematical-error">Mathematical Error</option><option value="statistical-error">Statistical Error</option></select>
@@ -66,13 +66,2889 @@
       </label>
       <button type="button" id="clear-filters">Clear filters</button>
     </div>
-    <p id="result-count">89 papers</p>
+    <p id="result-count">139 papers</p>
     <div class="table-wrap">
       <table>
         <thead>
           <tr><th>Paper</th><th>Field</th><th>Verdict</th><th>Error type</th><th>Severity</th></tr>
         </thead>
-        <tbody class="paper-entry" data-field="Quantitative Biology"
+        <tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,statistical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1203.4745v1"><strong>Altmetrics in the wild: Using social media to explore scholarly impact</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The stated collection date precedes the latest publication included in the supposedly already-collected dataset.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Methods—Data collection; Results—Dataset attributes</dd>
+    <dt>Analysis</dt><dd>The same 24,331-item dataset is said to have been collected in November 2010 and to include a publication dated December 23, 2010. An article published after November could not have been among articles collected by then.</dd>
+    <dt>Evidence</dt><dd>Methods states that identifiers for all 24,331 articles published to date were collected in November 2010. Results states that the 24,331 publications extend through 2010-12-23.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The reported kappa of 0.81 does not match Table 5&#x27;s confusion matrix.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Identifying clusters with rules, Table 5</dd>
+    <dt>Analysis</dt><dd>Computing multiclass Cohen&#x27;s kappa directly from the displayed matrix gives approximately 0.826, which rounds to 0.83 rather than 0.81.</dd>
+    <dt>Evidence</dt><dd>The matrix has N=4,294, diagonal total 3,825, row totals (113, 85, 2253, 970, 873), and column totals (84, 85, 2277, 953, 895). This gives observed agreement 0.8908, expected agreement 0.3716, and kappa 0.8262.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Jason Priem, Heather A. Piwowar, Bradley M. Hemminger</p>
+              <p>The paper contains an impossible data-collection chronology and an incorrectly reported kappa statistic.</p>
+              <p><a href="https://arxiv.org/abs/1203.4745v1">arXiv</a> · <a href="https://arxiv.org/pdf/1203.4745v1.pdf">PDF</a> ·
+              1203.4745v1</p>
+              <p class="meta">Reviewed 2026-07-26 07:01:01+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://arxiv.org/abs/cs/9904010v1"><strong>Beyond Concern: Understanding Net Users&#x27; Attitudes About Online Privacy</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge no-glaring-errors-found">No glaring errors found</span></td>
+    <td><span class="tag">no-errors-tagged</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No glaring errors were recorded.</p></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Lorrie Faith Cranor, Joseph Reagle, Mark S. Ackerman</p>
+              <p>No demonstrable internal contradiction, counterexample, invalid derivation, or material arithmetic error met the strict reporting threshold.</p>
+              <p><a href="https://arxiv.org/abs/cs/9904010v1">arXiv</a> · <a href="https://arxiv.org/pdf/cs/9904010v1.pdf">PDF</a> ·
+              cs/9904010v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:59:30+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Other"
+  data-error-types="mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/adap-org/9306002v1"><strong>Swarms, Phase Transitions, and Collective Intelligence</strong></a></td>
+    <td>Other</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (5)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Equation (5) does not generally satisfy the stated detailed-balance relation, invalidating the ensuing general thermodynamic distribution.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Page 12, Section  3.1, Equation (5) and the paragraph immediately following it</dd>
+    <dt>Analysis</dt><dd>The normalization denominator in Equation (5) depends on the departure node, so it does not cancel as the claimed relation requires.</dd>
+    <dt>Evidence</dt><dd>Let the network be the undirected path 1-2-3 with unit node measures  and weights f1=1, f2=1, f3=2. Equation (5) gives ω12=1/(1+2)=1/3 and ω21=1. The claimed relation ω12 f2=ω21 f1 would require 1/3=1. The actual stationary probabilities are proportional to (1,3,2), not to the Gibbs weights (1,1,2) used in Equations (6)-(8).</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Equation (9) has the wrong sign for the organism-density term.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Page 12, Section 3.2, Equations (3) and (9)</dd>
+    <dt>Analysis</dt><dd>The stated variable substitution applied to Equation (3) produces a positive density term, not the negative term printed in Equation (9).</dd>
+    <dt>Evidence</dt><dd>From dσi/dt=-κσi+ηρi, τ=κt, and si=κσi/η, direct substitution gives dsi/dτ=-si+ρi. Equation (9) instead states dsi/dτ=-si-ρi. Equation (12) subsequently returns to the required plus sign.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The branch-choice formula in Equation (27) contradicts both Equation (5) and its stated zero-temperature limit.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Page 16, Section 4.1, Equation (27)  and the following paragraph</dd>
+    <dt>Analysis</dt><dd>Using a ratio of energies in the exponential cannot represent the normalized competition between the two branch weights.</dd>
+    <dt>Evidence</dt><dd>For equal positive  pheromone densities σ=σ0, Equation (5) assigns equal branches probability 1/2. Equation (27) instead gives T(σ0)=[1+exp(β)]^-1, which is not 1/2 for β&gt;0. Moreover, because U(σ)/U(σ0)&gt;0 for positive σ and σ0, Equation (27) tends to zero as β→∞, contradicting the paper&#x27;s statement that it tends to Θ(σ-σ0).</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Equation (28) inverts the effective-temperature factor implied by its definition.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Pages 17-18, Section 4.1, Equation (28)</dd>
+    <dt>Analysis</dt><dd>Equating the two expressions for the same weighting function gives the reciprocal of the printed formula.</dd>
+    <dt>Evidence</dt><dd>The paper defines exp(-βU)=exp(-βU0/θ), so θ=U0/U=ln(1+σ)/ln(1+σ/(1+δσ)). Equation (28) prints the reciprocal. For δ&gt;0 and σ&gt;0, the printed expression is below 1, directly conflicting with Figure 4 and the accompanying claim that effective temperature increases.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The claimed critical density γc=2 conflicts with the paper&#x27;s own critical-temperature equation.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Page 22, Equation (31); pages 23 and 25, Sections 5.1.1 and 5.3</dd>
+    <dt>Analysis</dt><dd>Substituting the parameter values explicitly adopted for  the binary bridge into Equation (31) yields a different critical density.</dd>
+    <dt>Evidence</dt><dd>Section 5 sets δ=0 and β=2, hence T=1/2. Equation (31) then becomes Tc=γ/(1+γ). Solving 1/2=γ/(1+γ) gives γc=1. Sections 5.1.1 and 5.3 instead state γc=2 and interpret the simulation using that value. These  values cannot both follow from the same model and parameterization.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Mark M. Millonas</p>
+              <p>Five demonstrable internal mathematical errors were found, including a false detailed-balance claim and contradictory transition and critical-point formulas.</p>
+              <p><a href="https://arxiv.org/abs/adap-org/9306002v1">arXiv</a> · <a href="https://arxiv.org/pdf/adap-org/9306002v1.pdf">PDF</a> ·
+              adap-org/9306002v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:57:40+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Statistics"
+  data-error-types="mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1706.02744v2"><strong>Avoiding Discrimination through Causal Reasoning</strong></a></td>
+    <td>Statistics</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The proof of Theorem 2 incorrectly assumes an arbitrary structural term has zero expectation.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Supplementary material, page 13, proof of Theorem 2</dd>
+    <dt>Analysis</dt><dd>The assumptions impose no centering condition on g_X. Therefore the displayed conclusion E[X | do(P)] = mu_X P does not follow. The theorem remains repairable because subtracting  the omitted constant still yields a quantity invariant to P, but the stated derivation is false.</dd>
+    <dt>Evidence</dt><dd>Let U ~ N(1,1), independent of P, and X = U + P. This satisfies X = g_X(U) + mu_X  P with g_X(U)=U and mu_X=1. However E[X | do(P=p)] = 1+p, not p as claimed. Consequently X-E[X | do(P)] = U-1, not g_X(U)=U.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The proof of the additional theorem unjustifiably equates g_X and g_R and consequently derives a false formula for R.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Supplementary material, Additional statements theorem, pages 14–15</dd>
+    <dt>Analysis</dt><dd>The stated additive-linearity assumptions do not imply g_X=g_R. The proof also introduces an undefined mu_P and ultimately drops the arbitrary functions g_X, g_R, and h when asserting R=X+mu_R P. Thus its displayed conclusion does not follow from its premises.</dd>
+    <dt>Evidence</dt><dd>Let U ~ N(0,1), let P be independent, set X=2U+P, and define R=1.5(X-P)=3U. Take g_X(U)=2U, mu_X=1, h(t)=t, g_R(U)=3U, and mu_R=0. All stated assumptions hold, R is a function of P and X, and R has the same N(0,9) distribution under every do(P=p). Nevertheless g_X is not g_R, and the proof&#x27;s formula R=X+mu_R P=X is false. The theorem&#x27;s claimed representation happens here only with r(z)=1.5z, which the proof never derives.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Niki Kilbertus, Mateo Rojas-Carulla, Giambattista Parascandolo, Moritz Hardt, Dominik Janzing, Bernhard Schölkopf</p>
+              <p>Two supplementary proofs contain demonstrably invalid derivation steps.</p>
+              <p><a href="https://arxiv.org/abs/1706.02744v2">arXiv</a> · <a href="https://arxiv.org/pdf/1706.02744v2.pdf">PDF</a> ·
+              1706.02744v2</p>
+              <p class="meta">Reviewed 2026-07-26 06:52:27+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="logical-error,mathematical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1706.02409v1"><strong>A Convex Framework for Fair Regression</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">logical-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (3)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>A constant regressor minimizing each fairness penalty does not imply convergence to a constant as λ increases.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Section 2.2, page 4, “What minimizes these penalties?”</dd>
+    <dt>Analysis</dt><dd>Group fairness can be zero for nonconstant regressors. The accuracy-optimal  zero-penalty model can therefore remain nonconstant for arbitrarily large λ.</dd>
+    <dt>Evidence</dt><dd>Let each group contain examples with labels +1 and -1, with features M e1, M e2 in group 1 and M e3, M e4 in group 2. Use d(y,y&#x27;)=exp(-(y-y&#x27;)²) and w=(1/M,-1/M,1/M,-1/M). Predictions equal the labels, so MSE=0. In Equation 2 the weighted cross-pair differences are 0, 2e^-4, -2e^-4, 0, whose sum is zero;  hence f2(w)=0 although w is nonconstant. Its full objective is 2γ/M for every λ. Choosing M&gt;2γ makes this less than 1, the minimum MSE of any constant predictor on these balanced labels. Thus no constant predictor can be optimal, even as λ→∞.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Jensen’s inequality does not establish that group fairness is always less costly than individual fairness under the allowed weights.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Section 4.1, page 7, paragraph beginning “Note that in theory”</dd>
+    <dt>Analysis</dt><dd>Jensen gives (mean(dΔ))² ≤ mean(d²Δ²), whereas Equation 1 is mean(dΔ²). The claimed comparison additionally requires d≤1, which the paper never assumes.</dd>
+    <dt>Evidence</dt><dd>Take one cross pair with equal labels, d(y,y&#x27;)=2exp(-(y-y&#x27;)²), and prediction difference Δ=1. This d is nonnegative and decreasing as required. Equation 1 gives f1=2, while Equation 2 gives f2=4, directly  reversing the claimed ordering.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The Price of Fairness is undefined when the unconstrained optimal loss is zero.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 4.2, page 8, definition of PoF(α)</dd>
+    <dt>Analysis</dt><dd>The definition divides by ℓP(w*), but no assumption requires this quantity to be  positive. Consequently the subsequent claims PoF(α)≥1 and PoF(1)=1 do not hold throughout the stated setting.</dd>
+    <dt>Evidence</dt><dd>Let P place equal mass on (e1,1) and (e2,-1), assigned to the two groups, and use linear regression. The model w*=(1,-1) has MSE ℓP(w*)=0. At α=1, w* satisfies fP(w*)≤fP(w*), so the constrained numerator is also zero. The defined PoF(1) is therefore 0/0, not 1.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Richard Berk, Hoda Heidari, Shahin Jabbari, Matthew Joseph, Michael Kearns, Jamie Morgenstern, Seth Neel, Aaron Roth</p>
+              <p>Three core mathematical claims fail under the paper’s stated assumptions.</p>
+              <p><a href="https://arxiv.org/abs/1706.02409v1">arXiv</a> · <a href="https://arxiv.org/pdf/1706.02409v1.pdf">PDF</a> ·
+              1706.02409v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:49:27+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/2012.02972v3"><strong>Empirical observation of negligible fairness-accuracy trade-offs in machine learning for public policy</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Monotonic recall does not guarantee an exactly balanced, unique allocation for a fixed integer top-k list.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Page 4, paragraph preceding “Measuring Fairness”; Methods, page 13; Supplementary  Discussion, pages 1–3</dd>
+    <dt>Analysis</dt><dd>Recall at successive list depths is a discrete step function. Monotonicity alone guarantees neither existence nor uniqueness of an allocation having equal subgroup recalls. The paper nevertheless repeatedly claims that a unique recall-balancing solution exists, apart from score ties.</dd>
+    <dt>Evidence</dt><dd>Consider two groups with distinct scores and k=2. Group A has one positive ranked  first and one negative ranked second, so its total positive count is 1. Group B has two positives ranked first and second, so its total positive count is 2. The possible prefix allocations (k_A,k_B)  are (0,2), (1,1), and (2,0), producing recall pairs (0,1), (1,1/2), and (1,0), respectively. None achieves equal recall despite monotonic recall and no score ties.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Equation 6 does not imply that group-specific score scaling preserves within-group rankings.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Supplementary Discussion, Equations 3–6, especially the conclusion following Equation 6</dd>
+    <dt>Analysis</dt><dd>The derived score multiplies the original probability by 1+lambda_g/P[G=g,Y=1]. Being group-specific is insufficient to preserve ordering; the multiplier must also be positive. No such condition is stated or derived for the Lagrange parameter.</dd>
+    <dt>Evidence</dt><dd>Let P[G=g,Y=1]=0.2 and lambda_g=-0.3. The multiplier is 1-0.3/0.2=-0.5. For two same-group examples with original probabilities 0.8 and 0.2, Equation 6 gives scores -0.9 and -0.6, respectively. Their ordering is reversed, directly contradicting the claim that this transformation cannot reorder scores within a subgroup.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Kit T. Rodolfa, Hemank Lamba, Rayid Ghani</p>
+              <p>The paper makes two mathematically false claims about its recall-balancing construction.</p>
+              <p><a href="https://arxiv.org/abs/2012.02972v3">arXiv</a> · <a href="https://arxiv.org/pdf/2012.02972v3.pdf">PDF</a> ·
+              2012.02972v3</p>
+              <p class="meta">Reviewed 2026-07-26 06:48:48+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Statistics"
+  data-error-types="statistical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1201.0220v1"><strong>Inference for High-Dimensional Sparse Econometric Models</strong></a></td>
+    <td>Statistics</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Theorem 3 incorrectly estimates the structural-error variance using residuals formed with the estimated instruments rather  than the endogenous regressors.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Theorem 3, page 18; Appendix B, Step 5, page 36</dd>
+    <dt>Analysis</dt><dd>The theorem defines the variance estimator as En[(y1i-Ahat_i&#x27; alphahat*)^2], but the  structural equation is y1i=d_i&#x27;alpha+zeta_i. Accordingly, Appendix B proves consistency for residuals y1i-d_i&#x27;alphahat*, not for the estimator stated in the theorem. Replacing d_i by Ahat_i leaves first-stage noise in the residual and generally does not estimate sigma_zeta^2.</dd>
+    <dt>Evidence</dt><dd>Take no controls, alpha1=1, f(zi)=xi1 with normalized design, beta0=(1,0,...,0), and independent vi,zeta_i ~ N(0,1). Choose a growing design satisfying Condition SE and log^2(p or n)=o(n). Then all ASIV requirements hold, fhat converges to f, and alphahat* converges to 1. The theorem&#x27;s residual converges to y1i-f(zi)=vi+zeta_i, so its empirical variance converges to 2, whereas sigma_zeta^2=1. By contrast, the Appendix B residual y1i-y2i alphahat* converges to zeta_i and has variance 1.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Alexandre Belloni, Victor Chernozhukov, Christian Hansen</p>
+              <p>The feasible variance estimator in Theorem 3 is demonstrably inconsistent with both the structural model and its proof.</p>
+              <p><a href="https://arxiv.org/abs/1201.0220v1">arXiv</a> · <a href="https://arxiv.org/pdf/1201.0220v1.pdf">PDF</a> ·
+              1201.0220v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:46:56+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,factual-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/2110.00530v3"><strong>A survey on datasets for fairness-aware machine learning</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">factual-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (7)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The stated statistical-parity condition permits maximal discrimination against the protected group.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 2.3.1, Equation 3</dd>
+    <dt>Analysis</dt><dd>Equation 3 uses a one-sided difference rather than an absolute difference or two-sided bound, contradicting its description as limiting the  difference between groups.</dd>
+    <dt>Evidence</dt><dd>Let epsilon=0.1, P(yhat=+|S=s)=0, and P(yhat=+|S=non-protected)=1. Equation 3 gives 0-1=-1&lt;=0.1, so it declares statistical parity satisfied. Yet Equation 4 gives SP=1, which the paper identifies as maximum discrimination against the protected group.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The reported KDD Census-Income race counts cannot describe the cleaned dataset.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 3.1.2, Protected attributes</dd>
+    <dt>Analysis</dt><dd>The two stated binary race groups neither partition the cleaned dataset nor yield the stated percentages.</dd>
+    <dt>Evidence</dt><dd>The cleaned dataset has 284,556 records and race has no missing values. Reported counts 239,081 white and 29,239 non-white sum to only 268,320, leaving 16,236 records. They  correspond to 89.1% and 10.9%, not 86% and 14%. Since 239,081 is approximately 84.01% of 284,556 as  separately stated, the complementary count should be 45,475 (15.99%).</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The Student-Mathematics dataset cardinality is reported inconsistently.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Table 1 and Section 3.4.1</dd>
+    <dt>Analysis</dt><dd>Two explicit dataset-size statements cannot both be true.</dd>
+    <dt>Evidence</dt><dd>Table 1 reports 649 Student-Mathematics instances, while Section 3.4.1 reports 395. The latter section&#x27;s stated sex counts, 208 and 187, also sum to 395.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The claimed female majority in both student datasets contradicts the  labeled sex ratios.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 3.4.1, Protected attributes</dd>
+    <dt>Analysis</dt><dd>Both ratios are explicitly labeled male:female but contain more males, contrary to the immediately preceding statement.</dd>
+    <dt>Evidence</dt><dd>The paper says females dominate, then gives male:female ratios of 208:187 and 383:266. Under those labels, males constitute 52.7% and 59%, respectively.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The OULAD gender percentages are arithmetically wrong.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 3.4.2, Protected attributes</dd>
+    <dt>Analysis</dt><dd>The stated percentages do not follow from the stated counts and do not sum to 100%.</dd>
+    <dt>Evidence</dt><dd>For 11,568 males and 9,994 females among 21,562 records, the percentages are approximately 53.65% and 46.35%. The paper reports  56.6% and 46.4%, totaling 103%.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The paper incorrectly identifies Bank marketing as having the worst statistical parity.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 4.2 and Table 15</dd>
+    <dt>Analysis</dt><dd>The narrative directly contradicts its own reported metric values; the section treats values nearer zero as better and discusses absolute statistical parity.</dd>
+    <dt>Evidence</dt><dd>Table 15  gives Bank marketing an absolute statistical-parity value of 0.0153. Dutch census has 0.3568 and COMPAS recidivism has 0.3398 in absolute value, so Bank marketing is near the best, not the worst.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The stated ordering of the best ABROCA results is reversed for KDD and OULAD.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 4.2, Table 15 and Figure 33</dd>
+    <dt>Analysis</dt><dd>The paper defines lower ABROCA as better but ranks the larger of two values first.</dd>
+    <dt>Evidence</dt><dd>After Ricci at 0.0, KDD Census-Income has ABROCA 0.0074 and OULAD has 0.0088. Therefore KDD ranks ahead of OULAD, contrary to the stated order Ricci, OULAD, KDD.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Tai Le Quy, Arjun Roy, Vasileios Iosifidis, Wenbin Zhang, Eirini Ntoutsi</p>
+              <p>The paper contains one substantive fairness-definition error and several explicit numerical or tabular contradictions.</p>
+              <p><a href="https://arxiv.org/abs/2110.00530v3">arXiv</a> · <a href="https://arxiv.org/pdf/2110.00530v3.pdf">PDF</a> ·
+              2110.00530v3</p>
+              <p class="meta">Reviewed 2026-07-26 06:46:52+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="experimental-error,factual-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/2103.01256v1"><strong>Understanding the onset of hot streaks across artistic, cultural, and scientific careers</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">factual-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The film co-casting network is defined with incompatible node types.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Main text p.3; Fig. 1e caption; SI S1.2.2, p.9</dd>
+    <dt>Analysis</dt><dd>The main text and figure caption describe a network whose nodes are actors, whereas the supplementary method defines a network whose nodes are films. These are different graphs and cannot both be the network to which DeepWalk was applied.</dd>
+    <dt>Evidence</dt><dd>The main text says the authors construct a weighted co-casting network among all actors, and Fig. 1e describes major actors in five films. SI S1.2.2 instead states that two films are connected if they have common actors.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The number of directors in the film dataset is reported inconsistently.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Main text p.3; SI S1.2.1, p.8</dd>
+    <dt>Analysis</dt><dd>Both statements describe the same 79,000-film analysis dataset but give director counts differing by 40.</dd>
+    <dt>Evidence</dt><dd>The main text reports 79k films by 4,337 directors, while SI S1.2.1 reports 79K films by 4,377 directors.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Lu Liu, Nima Dehmamy, Jillian Chown, C. Lee Giles, Dashun Wang</p>
+              <p>The paper contains two explicit internal inconsistencies concerning the film dataset and its embedding method.</p>
+              <p><a href="https://arxiv.org/abs/2103.01256v1">arXiv</a> · <a href="https://arxiv.org/pdf/2103.01256v1.pdf">PDF</a> ·
+              2103.01256v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:45:33+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,factual-error,statistical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1907.04103v1"><strong>Historical comparison of gender inequality in scientific careers across countries and disciplines</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">factual-error</span><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (5)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Several male-over-female percentage comparisons use the paper&#x27;s  female deficit as though it were the male surplus.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Main text pp. 4–5; Figure 2; SI §S3.2 and Table S2</dd>
+    <dt>Analysis</dt><dd>The paper defines gender gap as (female−male)/male. A negative 30.46% therefore means female impact is 30.46% below male impact, not that male impact is 30% above female impact.</dd>
+    <dt>Evidence</dt><dd>Table S2 reports male impact 252.35 and female impact 175.49. Male impact is (252.35−175.49)/175.49 = 43.80% greater than female impact, contradicting the stated 30%. Likewise, a −37.5% top-productivity gap implies female productivity is 0.625 times male productivity, so male productivity is 60% greater, not 37% greater. A −36.2% top-impact gap similarly corresponds to 56.7% more male impact, not 36%.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The stated cross-country range of female representation contradicts the country data.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Main text p.  4; Table S4</dd>
+    <dt>Analysis</dt><dd>The text presents Germany&#x27;s 28% as the low country value and Russia&#x27;s 50% as the upper value, but Table S4 contains countries outside both bounds.</dd>
+    <dt>Evidence</dt><dd>For Jordan, Table S4 reports 164 male and 27 female authors, giving 27/(164+27)=14.1%, below 28%. For Uzbekistan  it reports 10 male and 16 female authors, giving 16/(10+16)=61.5%, above 50%.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The claimed country exceptions for productivity and impact are contradicted by Table S4.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Main text pp. 4–5; Table S4</dd>
+    <dt>Analysis</dt><dd>The text says the male-favoring productivity disparity fails only in Cuba and Serbia and the impact disparity only in Iran and Serbia. The paper&#x27;s country table reports additional countries where female means exceed male means.</dd>
+    <dt>Evidence</dt><dd>Table S4 reports female productivity above male productivity in Cameroon (12.04 versus 7.99; +50.8%) and Costa Rica (10.96 versus 8.04; +36.4%), neither named as an exception. It reports female impact above male impact in Bangladesh (81.01 versus 74.43; +8.8%) and Cameroon (136.34 versus 69.10; +97.3%), also not named as exceptions.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The  male and female annual-productivity values are reversed in the main text.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Main text p.  7; Table S2</dd>
+    <dt>Analysis</dt><dd>The prose assigns 1.33 papers/year to women and 1.32 to men, while the summary table assigns them in the opposite direction.</dd>
+    <dt>Evidence</dt><dd>Table S2 reports female annual productivity 1.32 and male annual productivity 1.33, with a −0.88% female-minus-male gap. The main text instead states female 1.33 and male 1.32.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Table S7 reports means, errors, gaps, and significance tests for two zero-size samples.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Table S7, institute-rank bin 168–200</dd>
+    <dt>Analysis</dt><dd>A sample containing zero male and zero female authors cannot  have sample means, standard errors, or a Welch test.</dd>
+    <dt>Evidence</dt><dd>The 168–200 row gives both populations as 0 but reports male/female productivity means of 23.56 and 15.18, impact means of 386.04 and 234.18, and p-values as small as 1E-53.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Junming Huang, Alexander J. Gates, Roberta Sinatra, Albert-Laszlo Barabasi</p>
+              <p>The paper contains several explicit numerical and reporting contradictions, including reversed annual-productivity values and percentage comparisons using the wrong denominator.</p>
+              <p><a href="https://arxiv.org/abs/1907.04103v1">arXiv</a> · <a href="https://arxiv.org/pdf/1907.04103v1.pdf">PDF</a> ·
+              1907.04103v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:45:21+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="statistical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1806.05180v1"><strong>A Retrospective Analysis of the Fake News Challenge Stance Detection Task</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Athene’s FNC-ARC macro-F1 is reported as .340 instead of approximately .404, incorrectly making stackLSTM the best system by the paper’s preferred metric.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 6, Table 9, FNC-ARC results</dd>
+    <dt>Analysis</dt><dd>The paper defines macro-F1 as the average of the four class-wise F1 scores. Athene’s displayed scores cannot produce the reported value, even allowing for rounding. Correcting it also contradicts the table’s highlighting and the statement that stackLSTM yields the best FNC-ARC results under macro-F1.</dd>
+    <dt>Evidence</dt><dd>Athene: (.340 + .244 + .138 + .894) / 4 = 1.616 / 4 = .404, not .340. Values rounding to the displayed class scores imply a macro-F1 between .4035 and .4045, still above stackLSTM’s reported .401.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The macro-F1 for the BoW/BoC-only feature configuration is inconsistent with its class-wise scores.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 5.2, Table 4, “Only BoW/C” column</dd>
+    <dt>Analysis</dt><dd>Applying the paper’s stated macro-F1 definition to the four displayed class scores gives approximately .810. Rounding cannot account for the reported .796.</dd>
+    <dt>Evidence</dt><dd>(.772 +  .601 + .874 + .991) / 4 = 3.238 / 4 = .8095, which rounds to .810 rather than .796. Component rounding permits only approximately .8090–.8100.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Andreas Hanselowski, Avinesh PVS, Benjamin Schiller, Felix Caspelherr, Debanjan Chaudhuri, Christian M. Meyer, Iryna Gurevych</p>
+              <p>Two macro-F1 values are arithmetically inconsistent with the paper’s own class-wise scores; one changes the reported cross-domain winner.</p>
+              <p><a href="https://arxiv.org/abs/1806.05180v1">arXiv</a> · <a href="https://arxiv.org/pdf/1806.05180v1.pdf">PDF</a> ·
+              1806.05180v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:44:29+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="logical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1810.08810v1"><strong>The Frontiers of Fairness in Machine Learning</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">logical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Minimizing overall error need not fit the majority population when the groups cannot  both be fit optimally.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Page 2, Section 2.1, item 2, “Minimizing Average Error Fits Majority Populations”</dd>
+    <dt>Analysis</dt><dd>Group prevalence determines the weights in overall error, but not which group-optimal classifier wins; the magnitudes of the competing error reductions also matter. A minority group can therefore determine the overall optimum despite being much smaller.</dd>
+    <dt>Evidence</dt><dd>Let the majority have probability 0.9 and the minority 0.1. For the majority, let  (X,Y)=(0,0) with probability 0.99 and (1,0) with probability 0.01. For the minority, let (X,Y)=(1,1) always. Consider group-blind classifiers h0(x)=0 and h1(x)=x. No group-blind classifier can attain zero error in both groups because individuals with X=1 have conflicting labels across groups. h0 is majority-optimal, with majority error 0 and minority error 1, giving overall error 0.1. h1 is minority-optimal, with majority error 0.01 and minority error 0, giving overall error 0.9×0.01=0.009. Thus overall error minimization selects the minority-optimal classifier, and the minority has lower—not higher—error.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Alexandra Chouldechova, Aaron Roth</p>
+              <p>A central claim about average-error minimization necessarily favoring the majority population is false.</p>
+              <p><a href="https://arxiv.org/abs/1810.08810v1">arXiv</a> · <a href="https://arxiv.org/pdf/1810.08810v1.pdf">PDF</a> ·
+              1810.08810v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:44:07+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,factual-error,statistical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1811.00770v2"><strong>A Survey on Natural Language Processing for Fake News Detection</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">factual-error</span><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (3)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The paper incorrectly states that attention-LSTM has the best FEVER score for both verification and evidence collection.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 6.2, Table 4</dd>
+    <dt>Analysis</dt><dd>The table gives the best evidence-collection and verification scores to different models, and the highest-verification model is attentive convolution rather than attention-LSTM.</dd>
+    <dt>Evidence</dt><dd>Hanselowski ESIM-Att has evidence collection 0.647 and verification 0.684; TWOWINGOS has evidence collection 0.543 and the higher verification score 0.760. No attention-LSTM row is best on both.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>FAKENEWSNET is assigned incompatible annotation targets.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Sections 4.2 and 7.1.3</dd>
+    <dt>Analysis</dt><dd>One section presents FAKENEWSNET as predicting whether an entire article is true or fake, while another says it targets claims within an article rather than the entire article.</dd>
+    <dt>Evidence</dt><dd>Section 4.2 calls it an entire-article dataset. Section 7.1.3 says it is for claims in the article rather than for an entire article.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The stated 21% accuracy improvement for speaker2credit does not match Table 3.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 6.1, Table 3</dd>
+    <dt>Analysis</dt><dd>The corresponding results increase from 0.415 to 0.457, which is neither 21 percentage points nor a 21% relative improvement.</dd>
+    <dt>Evidence</dt><dd>0.457 - 0.415 = 0.042, or 4.2 percentage points; 0.042 / 0.415 = 10.12% relative improvement.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Ray Oshikawa, Jing Qian, William Yang Wang</p>
+              <p>Three demonstrable internal inconsistencies appear in the reported dataset characterization and experimental results.</p>
+              <p><a href="https://arxiv.org/abs/1811.00770v2">arXiv</a> · <a href="https://arxiv.org/pdf/1811.00770v2.pdf">PDF</a> ·
+              1811.00770v2</p>
+              <p class="meta">Reviewed 2026-07-26 06:43:54+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,factual-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1206.3664v1"><strong>Green and Gold Open Access Percentages and Growth, by Discipline</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">factual-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The paper incorrectly states that percent OA grew for every discipline between the two samples.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Overall OA Percentages, Figure 3 discussion; Tables 1 and 2</dd>
+    <dt>Analysis</dt><dd>The universal growth claim is incompatible with the paper&#x27;s own rounded averages for Health. The one-point difference cannot conceal an increase before rounding.</dd>
+    <dt>Evidence</dt><dd>Table 2 reports average Health OA of 18% for the 2009 sample, while Table 1 reports 17% for the 2011 sample. Nevertheless, the text states that percent OA has grown for all disciplines.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The paper describes 2005-2010 as five publication years.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Overall OA Percentages, sampling description</dd>
+    <dt>Analysis</dt><dd>Counting the stated inclusive range gives six years, and Table 1 separately lists all six.</dd>
+    <dt>Evidence</dt><dd>The listed years are 2005, 2006, 2007, 2008, 2009, and 2010: 2010 - 2005 + 1 = 6, not five.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Yassine Gargouri, Vincent Larivière, Yves Gingras, Les Carr, Stevan Harnad</p>
+              <p>Two explicit internal contradictions appear in the reported sampling period and discipline-level growth results.</p>
+              <p><a href="https://arxiv.org/abs/1206.3664v1">arXiv</a> · <a href="https://arxiv.org/pdf/1206.3664v1.pdf">PDF</a> ·
+              1206.3664v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:43:51+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1204.6441v1"><strong>&quot;I Wanted to Predict Elections with Twitter and all I got was this Lousy Paper&quot; -- A Balanced Survey on Election Prediction using Twitter Data</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge no-glaring-errors-found">No glaring errors found</span></td>
+    <td><span class="tag">no-errors-tagged</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No glaring errors were recorded.</p></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Daniel Gayo-Avello</p>
+              <p>No demonstrable internal contradiction, counterexample, invalid derivation, or arithmetic error met the required standard.</p>
+              <p><a href="https://arxiv.org/abs/1204.6441v1">arXiv</a> · <a href="https://arxiv.org/pdf/1204.6441v1.pdf">PDF</a> ·
+              1204.6441v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:43:00+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="factual-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1609.07236v1"><strong>On the (im)possibility of fairness</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">factual-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (3)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Theorem 4.2 falsely claims that every rich mechanism into a discrete decision space is unfair.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Theorem 4.2 and proof, Section 4, page 11</dd>
+    <dt>Analysis</dt><dd>The theorem lacks assumptions ensuring that distinct construct-space points occur  within the fairness threshold. Its proof also reverses the distortion inequality: observed distance  at most delta implies construct distance at most delta plus epsilon, not delta minus epsilon.</dd>
+    <dt>Evidence</dt><dd>Let CS=OS={a,b} with d(a,b)=1, let the observation map be the identity, and let DS={0,1} have the discrete metric. Set epsilon=0.1, delta=0.5, and delta&#x27;=0.5. Define f(a)=0 and f(b)=1. The WYSIWYG distortion is 0&lt;=0.1 and f is rich. For (delta-epsilon,delta&#x27;)=(0.4,0.5)-fairness, every pair at construct distance at most 0.4 consists of the same point, so its output distance is 0&lt;=0.5. Thus f is fair, contrary to Theorem 4.2.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The claimed lower bound rho_w&gt;=delta from random radius-delta perturbation is false.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Definition 3.4 discussion, page 7; Theorem 4.3 proof, page 12</dd>
+    <dt>Analysis</dt><dd>Perturbing points within radius delta does not force any positive change, much less a deterministic lower bound of delta. Therefore the denominator bound used to derive the nondiscrimination guarantee does not follow.</dd>
+    <dt>Evidence</dt><dd>Take X and Y to be identical two-point discrete metric spaces, partitioned into corresponding singleton groups, and choose 0&lt;delta&lt;1. Every radius-delta ball is a singleton, so the  prescribed perturbation leaves every point unchanged. Each corresponding singleton pair has Gromov-Wasserstein distance zero, hence rho_w=0, not rho_w&gt;=delta. The group-skew ratio remains undefined, directly refuting the earlier assertion that this perturbation always makes it well-defined and invalidating the denominator step in Theorem 4.3.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The displayed four-fifths ratio uses a negative-outcome probability while the text defines it as a ratio of positive-outcome probabilities.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 5.2, page 14</dd>
+    <dt>Analysis</dt><dd>The prose and formula define different quantities and generally cannot both describe the stated measure.</dd>
+    <dt>Evidence</dt><dd>The text says the denominator is the majority group&#x27;s probability of a positive classification, Pr[C=YES|G=1], but displays Pr[C=YES|G=0]/Pr[C=0|G=1]. For example, if the protected  positive rate is 0.4 and the majority positive rate is 0.8, the stated positive-rate ratio is 0.5 while the displayed formula gives 0.4/0.2=2.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Sorelle A. Friedler, Carlos Scheidegger, Suresh Venkatasubramanian</p>
+              <p>The central discrete-decision impossibility theorem has a direct counterexample, and the nondiscrimination bound relies on a false lower bound. A separate formula contradicts its accompanying definition.</p>
+              <p><a href="https://arxiv.org/abs/1609.07236v1">arXiv</a> · <a href="https://arxiv.org/pdf/1609.07236v1.pdf">PDF</a> ·
+              1609.07236v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:42:47+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,statistical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/2006.00885v3"><strong>CoAID: COVID-19 Healthcare Misinformation Dataset</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The stated loss is incompatible with the reported SVM baseline.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 5.2, baseline and implementation descriptions</dd>
+    <dt>Analysis</dt><dd>The paper identifies one baseline as a linear-kernel support vector machine, then states that cross-entropy loss is used for all methods. A linear SVM is defined by a maximum-margin hinge-loss objective; optimizing cross-entropy instead produces a different linear classifier, overlapping with the separately listed logistic-regression baseline. Both descriptions cannot characterize the same fitted model.</dd>
+    <dt>Evidence</dt><dd>The baseline description says, “feed the representations to a linear kernel SVM,” while the implementation paragraph says, “we use the cross-entropy loss for all methods.”</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The paper incorrectly attributes low recall to false positives.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Section 5.2, discussion following Table 4</dd>
+    <dt>Analysis</dt><dd>False positives can reduce precision and consequently F1, but they do not enter recall. Recall equals TP/(TP+FN), so low  recall must result from false negatives relative to true positives. Therefore the stated inference from many false positives to unsatisfactory recall does not follow.</dd>
+    <dt>Evidence</dt><dd>The paper states that models “generate many fake positive cases. Thus, the recall and F1 values are far from being satisfactory.” Holding TP and FN fixed while adding any number of false positives leaves recall unchanged.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Limeng Cui, Dongwon Lee</p>
+              <p>Two explicit methodological statements are internally invalid.</p>
+              <p><a href="https://arxiv.org/abs/2006.00885v3">arXiv</a> · <a href="https://arxiv.org/pdf/2006.00885v3.pdf">PDF</a> ·
+              2006.00885v3</p>
+              <p class="meta">Reviewed 2026-07-26 06:42:23+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="logical-error,mathematical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1811.10104v2"><strong>50 Years of Test (Un)fairness: Lessons for Machine Learning</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">logical-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (3)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Peterson and Novick&#x27;s conditional-probability criterion is incorrectly called sufficiency.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 3.1, “Equivalent Notions,” first bullet; Table 3</dd>
+    <dt>Analysis</dt><dd>The criterion is A ⊥ D | Y, which the paper  elsewhere identifies as separation, while sufficiency reverses the conditioned variables to A ⊥ Y |  D.</dd>
+    <dt>Evidence</dt><dd>Section 3.1 calls A ⊥ D | Y both “sufficiency” and “equalized odds.” Table 3 instead labels the same Peterson–Novick criterion “separation,” and Section 4.3 explicitly distinguishes separation A ⊥ R | Y from sufficiency A ⊥ Y | R. Both classifications cannot be correct.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Criterion (3) does not make errors from predicting Y using R uncorrelated with A.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 2.2, discussion following Darlington&#x27;s four criteria</dd>
+    <dt>Analysis</dt><dd>For standardized variables, the least-squares predictor is Ŷ=ρ_RY R, so Cov(A,Y−Ŷ)=ρ_AY−ρ_ARρ_RY. Zero error correlation therefore gives criterion (1), ρ_AR=ρ_AY/ρ_RY, not criterion (3), ρ_AR=ρ_AYρ_RY.</dd>
+    <dt>Evidence</dt><dd>Take a valid correlation matrix with ρ_AY=0.2, ρ_RY=0.5, and criterion-(3) value ρ_AR=0.1; its determinant is 0.72. Then Cov(A,Y−Ŷ)=0.2−0.1×0.5=0.15, not zero.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Darlington&#x27;s criterion (2) is not equivalent to independence even under a multivariate Gaussian distribution.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 3.1, “Equivalent Notions,” sixth bullet</dd>
+    <dt>Analysis</dt><dd>For jointly Gaussian A and R, independence requires ρ_AR=0. Criterion (2) instead requires ρ_AR=ρ_AY, which need not vanish. Table 3 also contradicts the prose by assigning criterion (2) no modern independence counterpart.</dd>
+    <dt>Evidence</dt><dd>A positive-definite Gaussian correlation matrix can have ρ_AR=ρ_AY=0.2 and ρ_RY=0.5; its determinant is 0.71. Criterion (2) holds, but A and R are dependent because ρ_AR≠0.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Ben Hutchinson, Margaret Mitchell</p>
+              <p>Three demonstrable errors occur in the paper&#x27;s central mapping of correlation-based criteria to modern fairness notions.</p>
+              <p><a href="https://arxiv.org/abs/1811.10104v2">arXiv</a> · <a href="https://arxiv.org/pdf/1811.10104v2.pdf">PDF</a> ·
+              1811.10104v2</p>
+              <p class="meta">Reviewed 2026-07-26 06:42:13+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="factual-error,logical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/physics/0407137v2"><strong>Citation Statistics From More Than a Century of Physical Review</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">factual-error</span><span class="tag">logical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (4)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Two different end-of-2003 citation totals are reported for the EPR paper.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section VI.A, page 7; Table I and accompanying discussion</dd>
+    <dt>Analysis</dt><dd>Table I states that its citation counts were updated through the end of 2003 and gives EPR 532 citations. The subsequent text gives 597 citations at the same date.</dd>
+    <dt>Evidence</dt><dd>Table I reports 532 citations. The text states 82 citations before 1990 plus 515 subsequently, explicitly totaling 597 at the end of 2003. Thus 532 and 597 are incompatible totals for the same paper and cutoff date.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The purported top-10 citation table contains eleven distinctly ranked papers.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Appendix A, Table II, page 10</dd>
+    <dt>Analysis</dt><dd>The table caption identifies a top-10 list, but eleven distinct articles appear. This cannot be explained by a tie because all eleven citation counts differ.</dd>
+    <dt>Evidence</dt><dd>The listed counts are 3227, 2460, 2079, 1781, 1364, 1306, 1259, 1178, 1055, 1045, and 1023. The table also assigns rank 8 twice despite the corresponding counts being 1178 and 1055.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Table II gives incompatible citation totals for its second-ranked article.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Appendix A, Table II caption and second row, page 10</dd>
+    <dt>Analysis</dt><dd>The caption and row refer to the same item but state different totals.</dd>
+    <dt>Evidence</dt><dd>The caption says item 2 has 120 affected citations “out of 2640 total,” while the item-2 row reports 2460 citations. Even treating 120 as an undercount does not reconcile them: 2460 + 120 = 2580, not 2640.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The conclusion that citation memory extends no more than about 20 years contradicts the paper&#x27;s explicit analysis beyond 20 years.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section V, pages 5–6; Section VII, page 9</dd>
+    <dt>Analysis</dt><dd>Section V describes a measurable long-time citation-memory distribution beyond 20 years. Section VII nevertheless states an upper limit of approximately 20 years.</dd>
+    <dt>Evidence</dt><dd>Section V reports that beyond the 2–20-year regime there is “a slower exponential memory decay of approximately 23 years for each decade drop” and discusses distributions extending much farther back. Section VII says “citation memory extends back no more than approximately 20 years.” Both claims cannot hold literally.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> S. Redner</p>
+              <p>The paper contains four explicit internal inconsistencies, including contradictory citation totals and a conclusion that conflicts with its own long-age data.</p>
+              <p><a href="https://arxiv.org/abs/physics/0407137v2">arXiv</a> · <a href="https://arxiv.org/pdf/physics/0407137v2.pdf">PDF</a> ·
+              physics/0407137v2</p>
+              <p class="meta">Reviewed 2026-07-26 06:42:11+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Economics"
+  data-error-types="experimental-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/2005.04630v1"><strong>Pandemic, Shutdown and Consumer Spending: Lessons from Scandinavian Policy Responses to COVID-19</strong></a></td>
+    <td>Economics</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The post-shutdown period has two incompatible start dates.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 4, p. 10; Figure A1 caption, p. 28</dd>
+    <dt>Analysis</dt><dd>Section 4 defines the post-shutdown period as 11 March–5 April, while Figure A1 defines the same Post period as 12 March–5 April. These cannot both be the sample underlying the reported pre/post estimates.</dd>
+    <dt>Evidence</dt><dd>The first interval contains 26 calendar days, including 11  March; the second contains 25 days and excludes 11 March. Therefore, one stated estimation-window definition is erroneous.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Asger Lau Andersen, Emil Toft Hansen, Niels Johannesen, Adam Sheridan</p>
+              <p>The paper contains one concrete inconsistency in the definition  of its post-shutdown estimation window.</p>
+              <p><a href="https://arxiv.org/abs/2005.04630v1">arXiv</a> · <a href="https://arxiv.org/pdf/2005.04630v1.pdf">PDF</a> ·
+              2005.04630v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:41:12+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1711.05144v5"><strong>Preventing Fairness Gerrymandering: Auditing and Learning for Subgroup Fairness</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (3)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Claim C.1 incorrectly loses a factor of two when transferring an Auditor best response between nearby distributions.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Appendix C, Claim C.1 and its use in Lemma 4.12, pages 32–33</dd>
+    <dt>Analysis</dt><dd>Uniform payoff error xi only guarantees a 2xi-approximate best response, not the claimed xi guarantee. The false claim is used directly in the Auditor-regret bound supporting Theorem 4.2.</dd>
+    <dt>Evidence</dt><dd>Take two negative examples, group g selecting the first, C=1, and gamma=0.05. Let hA=(1,0) and hB=(0,1). Then err(hA)=err(hB)=0.5; for hA, Phi-minus=0.20 and Phi-plus=-0.30; for hB these values are reversed. Let D put all mass on hA and let D-hat put masses 0.25 and 0.75 on hA and hB. For every lambda in Lambda, the payoff difference between D and D-hat is at most xi=0.375. D-hat&#x27;s unique best response is lambda-plus, whose payoff under D is 0.20. But D&#x27;s maximum payoff is 0.70 at lambda-minus, so Claim C.1 requires 0.70-0.375 &lt;= 0.20, i.e. 0.325 &lt;= 0.20, which is false.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Algorithm 2&#x27;s stated sample-size formula can prescribe zero samples  on an allowed problem instance, leaving its empirical distributions undefined.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Algorithm 2 (FairNR), page 19</dd>
+    <dt>Analysis</dt><dd>The sample size multiplies by d2 log n rather than retaining the positive log-confidence term additively. Consequently, the algorithm  is not defined for valid group classes of VC dimension zero.</dd>
+    <dt>Evidence</dt><dd>Let n=2 and G contain only the constant-one group, so d2=VCDIM(G)=0; let both examples be negative and let H contain the constant classifiers. CSC oracles are trivial and all stated assumptions hold. Algorithm 2 nevertheless sets m proportional to d2 log n, hence m=0. It then defines D-hat-t and its final output as empirical distributions over zero draws, which do not exist.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Appendix B bounds only the conjunction probability and therefore does not prove SP uniform convergence as claimed.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Theorem 2.11 and Appendix B, page 28</dd>
+    <dt>Analysis</dt><dd>The fairness quantity is |P(g)P(h)-P(hg)|. The proof controls only |P(hg)-P_S(hg)| and immediately concludes the theorem, without controlling the separate product P(g)P(h). That controlled term alone cannot bound the theorem&#x27;s left-hand side.</dd>
+    <dt>Evidence</dt><dd>Let the  population assign probability 1/4 to each of the four (h,g) label pairs. Then P(h)=P(g)=1/2, P(hg)=1/4, and the SP fairness quantity is zero. An empirical distribution with masses 1/4, 1/2, 1/4, and 0 on (1,1),(1,0),(0,1),(0,0) has P_S(hg)=1/4, so the sole term bounded in Appendix B is zero, while its fairness quantity is |(3/4)(1/2)-1/4|=1/8. Thus the asserted conclusion does not follow from the displayed bound.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Michael Kearns, Seth Neel, Aaron Roth, Zhiwei Steven Wu</p>
+              <p>Three demonstrable mathematical defects occur in the generalization and no-regret analyses.</p>
+              <p><a href="https://arxiv.org/abs/1711.05144v5">arXiv</a> · <a href="https://arxiv.org/pdf/1711.05144v5.pdf">PDF</a> ·
+              1711.05144v5</p>
+              <p class="meta">Reviewed 2026-07-26 06:41:06+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="factual-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1705.08807v3"><strong>When Will AI Exceed Human Performance? Evidence from AI Experts</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">factual-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The paper reports incompatible numbers of survey respondents.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Survey Method, p. 1; “Was our sample representative?”, p. 4; Table S3, p. 12</dd>
+    <dt>Analysis</dt><dd>The Survey Method states that 352 researchers responded to the invitation, whereas the representativeness analysis identifies 406 respondents and defines non-respondents as authors who did not respond to that invitation. No different respondent population is specified, so both totals cannot describe all invitation respondents.</dd>
+    <dt>Evidence</dt><dd>The paper states “A total of 352 researchers responded to our survey invitation,” but later states “respondents (n=406)” and Table S3 says “There were (n=406) respondents.” Moreover, 406/1634 = 24.85%, inconsistent with the reported 21% response rate.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The same career-progress question is reported  with two different response distributions.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>“Intelligence Explosion, Outcomes, AI Safety,” item 1, p. 3; Table S4, p. 13</dd>
+    <dt>Analysis</dt><dd>Both passages report answers to whether machine-learning progress was faster in the first or second half of respondents’ careers, but their percentages differ without any stated change of sample or calculation.</dd>
+    <dt>Evidence</dt><dd>The main text reports 67% for the second half and 10% for the first half. Table S4 reports 65% for the second half  and 11% for the first half.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Katja Grace, John Salvatier, Allan Dafoe, Baobao Zhang, Owain Evans</p>
+              <p>Two explicit internal inconsistencies appear in the reported survey counts and response percentages.</p>
+              <p><a href="https://arxiv.org/abs/1705.08807v3">arXiv</a> · <a href="https://arxiv.org/pdf/1705.08807v3.pdf">PDF</a> ·
+              1705.08807v3</p>
+              <p class="meta">Reviewed 2026-07-26 06:40:47+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1902.06673v1"><strong>Fake News Detection on Social Media using Geometric Deep Learning</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The reported best minimum cascade-size threshold  is 6 tweets, but the plotted maximum occurs at 9 tweets.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 4.1, Figure 8</dd>
+    <dt>Analysis</dt><dd>The caption explicitly identifies threshold 6 as best, while Figure 8&#x27;s underlying plotted means identify threshold 9 as best.</dd>
+    <dt>Evidence</dt><dd>Mean ROC AUC is 0.848459 at threshold 6 and  0.851279 at threshold 9. Thresholds 7, 8, and 10 also exceed the value at 6.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Approximately two hours of diffusion do not achieve above 90% mean ROC AUC as stated.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 4.2, Figure 10 (URL-wise results)</dd>
+    <dt>Analysis</dt><dd>The exact plotted mean remains below 0.90 at two hours and does not first exceed 0.90 until five hours.</dd>
+    <dt>Evidence</dt><dd>URL-wise mean ROC AUC is 0.898684 at 2 hours, 0.892185 at 3 hours, and 0.899441 at 4 hours. It first exceeds 0.90 at 5 hours, reaching 0.906860.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Federico Monti, Fabrizio Frasca, Davide Eynard, Damon Mannion, Michael M. Bronstein</p>
+              <p>Two explicit performance claims contradict the paper&#x27;s own plotted mean ROC AUC values.</p>
+              <p><a href="https://arxiv.org/abs/1902.06673v1">arXiv</a> · <a href="https://arxiv.org/pdf/1902.06673v1.pdf">PDF</a> ·
+              1902.06673v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:40:23+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1908.10063v1"><strong>FinBERT: Financial Sentiment Analysis with Pre-trained Language Models</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The reported distribution of classification failures contradicts the confusion matrix.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Page 8, Section 6.5, Figure 4</dd>
+    <dt>Analysis</dt><dd>The stated  73% share for positive-negative confusions cannot be obtained from the displayed matrix, even allowing for its two-decimal rounding. The text also assigns 5% to the same label pair in reverse order, although both directed matrix cells equal 0.01.</dd>
+    <dt>Evidence</dt><dd>The six off-diagonal entries sum  to 0.15. Positive-to-negative and negative-to-positive errors sum to 0.02, giving 0.02/0.15 = 13.3%, not 73%. If only one direction is intended, 0.01/0.15 = 6.7%.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The paper gives incompatible counts of the fine-tuning strategies evaluated.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Pages 7–8, Section 6.2 and Table 5</dd>
+    <dt>Analysis</dt><dd>Section 6.2 explicitly says that four settings are tried and enumerates four, while the corresponding results table reports five distinct settings.</dd>
+    <dt>Evidence</dt><dd>The prose lists None, STL, STL+GU, and all three.  Table 5 additionally contains STL+DFT, yielding five settings.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Dogu Araci</p>
+              <p>Two demonstrable internal inconsistencies occur in the experimental analysis.</p>
+              <p><a href="https://arxiv.org/abs/1908.10063v1">arXiv</a> · <a href="https://arxiv.org/pdf/1908.10063v1.pdf">PDF</a> ·
+              1908.10063v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:39:41+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="factual-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1306.4085v1"><strong>Blended Learning or E-learning?</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">factual-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The paper incorrectly claims that visual information and subtle emotions do not exist in online learning.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 7, “Face to face interaction still matters,” pp. 6–7</dd>
+    <dt>Analysis</dt><dd>The claim is absolute and supports the paper’s argument that face-to-face interaction cannot be replaced. However, the paper itself explicitly identifies video conferencing as an online-learning technology. An online class using video conferencing is therefore a concrete case within the paper’s own account of online learning that transmits visual information, including visible smiles and other facial expressions.</dd>
+    <dt>Evidence</dt><dd>Section 6 lists “video conferencing” among web-technology facilitators available in sole e-learning. Section 7 nevertheless states that visual information and subtle emotions such as smiles “do not exist in online learning.” A sole online course conducted by video conference satisfies the paper’s description of e-learning while containing precisely such visual information, directly falsifying the absolute claim.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Maryam Tayebinik, Marlia Puteh</p>
+              <p>One internally demonstrable error was found concerning visual communication in online learning.</p>
+              <p><a href="https://arxiv.org/abs/1306.4085v1">arXiv</a> · <a href="https://arxiv.org/pdf/1306.4085v1.pdf">PDF</a> ·
+              1306.4085v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:39:12+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,statistical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/cs/0612132v1"><strong>A New Era in Citation and Bibliometric Analyses: Web of Science, Scopus, and Google Scholar</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The stated percentages  of citations missed when using fewer databases use the wrong denominator.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Pages 16–20,  Figures 1–2</dd>
+    <dt>Analysis</dt><dd>A percentage increase over the smaller baseline is not the fraction of the  final union that the baseline misses. The paper&#x27;s figures provide the correct union-based percentages and directly contradict the prose.</dd>
+    <dt>Evidence</dt><dd>For WoS alone, 2,733−2,023=710 citations  are missed, so the missed fraction is 710/2,733=26.0%, not “more than one-third.” For Scopus alone,  it is 432/2,733=15.8%, not 18.8%. For WoS and Scopus without GS, it is 2,552/5,285=48.3%, not 93.4%. The reported 35.1%, 18.8%, and 93.4% instead divide additions by the smaller baseline.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>A Spearman correlation of −0.45 for the middle third of 15 faculty members cannot be significant at the 0.01 level.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Page 17, discussion of Table 5</dd>
+    <dt>Analysis</dt><dd>The middle third contains only five observations. The claimed significance does not follow from the reported coefficient and sample size.</dd>
+    <dt>Evidence</dt><dd>With n=5 and rho=−0.45, the usual  t approximation gives t=−0.45×sqrt(3/(1−0.45²))≈−0.87, corresponding to a two-sided p-value around 0.45, not below 0.01. Moreover, with only 5!=120 rank permutations, even a perfect correlation has minimum two-sided exact p=2/120≈0.0167.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Lokman I. Meho, Kiduk Yang</p>
+              <p>The paper repeatedly confuses percentage increases over a baseline with the percentage of the combined citation set that would be missed, and reports an impossible significance result for a five-person subgroup.</p>
+              <p><a href="https://arxiv.org/abs/cs/0612132v1">arXiv</a> · <a href="https://arxiv.org/pdf/cs/0612132v1.pdf">PDF</a> ·
+              cs/0612132v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:38:57+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1901.02672v1"><strong>Cyber Security Awareness Campaigns: Why do they fail to change behaviour?</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge no-glaring-errors-found">No glaring errors found</span></td>
+    <td><span class="tag">no-errors-tagged</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No glaring errors were recorded.</p></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Maria Bada, Angela M. Sasse, Jason R. C. Nurse</p>
+              <p>No demonstrable internal contradiction, counterexample, invalid derivation, or arithmetic error met the required high-confidence standard.</p>
+              <p><a href="https://arxiv.org/abs/1901.02672v1">arXiv</a> · <a href="https://arxiv.org/pdf/1901.02672v1.pdf">PDF</a> ·
+              1901.02672v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:38:24+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1705.00648v1"><strong>&quot;Liar, Liar Pants on Fire&quot;: A New Benchmark Dataset for Fake News Detection</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge no-glaring-errors-found">No glaring errors found</span></td>
+    <td><span class="tag">no-errors-tagged</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No glaring errors were recorded.</p></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> William Yang Wang</p>
+              <p>No demonstrable internal contradiction, counterexample, invalid derivation, or arithmetic error was identified.</p>
+              <p><a href="https://arxiv.org/abs/1705.00648v1">arXiv</a> · <a href="https://arxiv.org/pdf/1705.00648v1.pdf">PDF</a> ·
+              1705.00648v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:38:20+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,factual-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1908.02591v1"><strong>Anti-Money Laundering in Bitcoin: Experimenting with Graph Convolutional Networks for Financial Forensics</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">factual-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The paper gives incompatible accounts of whether node features use non-public data.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Abstract, page 1; Section 2.1, Graph Construction, page 2</dd>
+    <dt>Analysis</dt><dd>A feature based on non-public data cannot simultaneously be constructed using only publicly available information.</dd>
+    <dt>Evidence</dt><dd>The abstract describes the 166 node features as “including ones based on non-public data,” while Section 2.1 states: “Importantly, all features are constructed using only publicly available information.”</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Tables 1 and 2 report different results for the same GCN baseline.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 4, Tables 1 and 2, page 5</dd>
+    <dt>Analysis</dt><dd>Both tables report illicit-class and micro-averaged test metrics for GCN in the same experiment, without identifying a different split or configuration. Their GCN values cannot both be the reported result. Moreover, Table 2&#x27;s alleged GCN values exactly reproduce Table 1&#x27;s separately named Skip-GCN row, demonstrating a reporting or labeling error.</dd>
+    <dt>Evidence</dt><dd>Table 1 reports GCN precision 0.812, recall 0.512, F1 0.628, and micro-F1 0.961. Table 2 reports GCN precision 0.812, recall 0.623, F1 0.705, and micro-F1 0.966—the exact values assigned to Skip-GCN in Table 1.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Mark Weber, Giacomo Domeniconi, Jie Chen, Daniel Karl I. Weidele, Claudio Bellei, Tom Robinson, Charles E. Leiserson</p>
+              <p>Two demonstrable internal contradictions affect feature provenance and reported GCN results.</p>
+              <p><a href="https://arxiv.org/abs/1908.02591v1">arXiv</a> · <a href="https://arxiv.org/pdf/1908.02591v1.pdf">PDF</a> ·
+              1908.02591v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:37:51+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://arxiv.org/abs/physics/0508129v1"><strong>Transforming student learning with classroom communication systems</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge no-glaring-errors-found">No glaring errors found</span></td>
+    <td><span class="tag">no-errors-tagged</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No glaring errors were recorded.</p></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Ian D. Beatty</p>
+              <p>The paper contains no demonstrable internal contradiction, counterexample, invalid derivation, or arithmetic error under the specified criteria.</p>
+              <p><a href="https://arxiv.org/abs/physics/0508129v1">arXiv</a> · <a href="https://arxiv.org/pdf/physics/0508129v1.pdf">PDF</a> ·
+              physics/0508129v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:37:45+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="mathematical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1605.09096v6"><strong>Diachronic Word Embeddings Reveal Statistical Laws of Semantic Change</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The defined polysemy score cannot be logarithmically transformed or raised to the reported fractional powers.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Section 4, Equations (7), (10), and (11)</dd>
+    <dt>Analysis</dt><dd>Equation (10) defines d(w_i) as the negative of a nonnegative clustering coefficient, so d(w_i) is nonpositive. Equation (7) nevertheless uses log(d(w_i)), and Equation (11) raises d(w_i) to generally noninteger exponents between 0.08 and 0.53. Both operations are undefined over the reals for negative d, and log(0) is also undefined.</dd>
+    <dt>Evidence</dt><dd>The numerator and denominator in Equation (10) are nonnegative, with a leading minus sign; hence d(w_i)≤0. But the model requires log(d(w_i)), and the claimed law requires  d(w_i)^βd for βd∈[0.08,0.53]. Thus the stated definition cannot produce the real-valued regression and power law reported.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The regression coefficients are incorrectly identified as power-law exponents after standardizing the log-displacement outcome.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Section 4.1 and Equations (7)–(9)</dd>
+    <dt>Analysis</dt><dd>The paper says that log displacement is normalized to zero mean and unit variance before regression. A coefficient on log frequency in this standardized-outcome model is not directly the exponent of the unstandardized displacement power law.</dd>
+    <dt>Evidence</dt><dd>Let Y=log Δ and let the reported normalized outcome be Ỹ=(Y−μ)/s. If Equation (7) gives Ỹ=βf log f+βd log d+…, then Y=μ+sβf log f+sβd log d+…, so Δ∝f^(sβf)d^(sβd). Equations (8) and (9) instead use βf and βd themselves as the exponents, omitting the factor s. The reported ranges therefore cannot be interpreted as the claimed power-law exponents  without undoing the normalization.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> William L. Hamilton, Jure Leskovec, Dan Jurafsky</p>
+              <p>Two central mathematical inconsistencies make the stated scaling models invalid as written.</p>
+              <p><a href="https://arxiv.org/abs/1605.09096v6">arXiv</a> · <a href="https://arxiv.org/pdf/1605.09096v6.pdf">PDF</a> ·
+              1605.09096v6</p>
+              <p class="meta">Reviewed 2026-07-26 06:37:30+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,mathematical-error,statistical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1909.07208v2"><strong>MFCC-based Recurrent Neural Network for Automatic Clinical Depression Recognition and Assessment from Speech</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">mathematical-error</span><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (5)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The DAIC-WOZ data split is described inconsistently.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 4.1.1 and Figure 5 caption</dd>
+    <dt>Analysis</dt><dd>Both passages describe the study&#x27;s DAIC-WOZ partition, but give incompatible allocations.</dd>
+    <dt>Evidence</dt><dd>Section 4.1.1 specifies 80% training, 10% validation, and 10% testing. Figure 5 instead specifies 80% training and 20% validation, followed by a 90%/10% learning/testing split within the training set, equivalent to 72% learning, 8% testing, and 20% validation.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The transfer-learning confusion matrix is internally impossible.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Figure 7(b)</dd>
+    <dt>Analysis</dt><dd>The displayed cell counts do not equal the displayed row, column, or grand totals.</dd>
+    <dt>Evidence</dt><dd>The four cells are 93,176, 26,733, 63,658, and 14,127, summing to 197,694, not the displayed 140,394. The second row sums to 77,785 rather than 22,641, and the first column sums to 156,834 rather than 99,534. Moreover, 63,658/140,394 is 45.34%, not the displayed 4.53%.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The reported average gender-specific accuracy increase is incorrect.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 4.3.4 and Table 2</dd>
+    <dt>Analysis</dt><dd>Neither the percentage-point increase nor the relative increase equals the stated  33.8%.</dd>
+    <dt>Evidence</dt><dd>The mean of 85% and 83% is 84%. Against the stated baseline of 67.61%, this is an  increase of 16.39 percentage points or 24.24% relatively, not 33.8%.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The robustness discussion confuses depression recall with F1 score.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 4.3.5 and Table 7</dd>
+    <dt>Analysis</dt><dd>The narrative&#x27;s stated endpoint contradicts both its subtraction and the table.</dd>
+    <dt>Evidence</dt><dd>The transfer-learning depression F1 is 46%. A 19-point drop gives 27%, which is exactly the F1 reported in Table 7. The narrative instead says the F1 reaches 20%; 20% is the table&#x27;s recall, not its F1.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The claimed 9.75-fold RMSE advantage is miscalculated.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 4.3.7</dd>
+    <dt>Analysis</dt><dd>The ratio of the paper&#x27;s own RMSE values does not produce the claimed factor.</dd>
+    <dt>Evidence</dt><dd>Using the reported values, 1.46/0.168 = 8.69, not 9.75. The relative reduction expressed against 0.168 is 7.69, also not 9.75.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Emna Rejaibi, Ali Komaty, Fabrice Meriaudeau, Said Agrebi, Alice Othmani</p>
+              <p>The paper contains several explicit numerical contradictions and arithmetic errors.</p>
+              <p><a href="https://arxiv.org/abs/1909.07208v2">arXiv</a> · <a href="https://arxiv.org/pdf/1909.07208v2.pdf">PDF</a> ·
+              1909.07208v2</p>
+              <p class="meta">Reviewed 2026-07-26 06:37:14+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,factual-error,statistical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1809.01286v3"><strong>FakeNewsNet: A Data Repository with News Content, Social Context and Spatialtemporal Information for Studying Fake News on Social Media</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">factual-error</span><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (4)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The stated BuzzFeedNews total disagrees with its category counts.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 2, BuzzFeedNews description</dd>
+    <dt>Analysis</dt><dd>The three reported article categories sum to 1,727, not the stated total of  1,627.</dd>
+    <dt>Evidence</dt><dd>826 mainstream + 356 left-wing + 545 right-wing = 1,727, which differs from 1,627 by 100 articles.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The PolitiFact publisher breakdown accounts for only 231 of the stated 301 publishers.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 4, Assessing News Content</dd>
+    <dt>Analysis</dt><dd>Every publisher of fake news must have published either exactly one piece or at  least two pieces, so the two groups are exhaustive. Their counts do not equal the stated total.</dd>
+    <dt>Evidence</dt><dd>191 publishers with exactly one piece + 40 publishers with at least two pieces =  231, not 301; 70 publishers are unaccounted for.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The paper reverses the numerical ordering of the reported mean account-creation times.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 4, Measuring Social Context—User Profiles</dd>
+    <dt>Analysis</dt><dd>The text explicitly says 2214.09 is less than 2166.84, which is numerically false.</dd>
+    <dt>Evidence</dt><dd>2214.09 &gt; 2166.84 by 47.25, contrary to the paper’s statement that it is less.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The narrative incorrectly identifies logistic regression as having the best precision among news-content methods.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 4,  Fake News Detection Performance; Table 3</dd>
+    <dt>Analysis</dt><dd>CNN is explicitly one of the evaluated news-content methods and has greater precision than logistic regression on both datasets, so the stated ranking contradicts the table.</dd>
+    <dt>Evidence</dt><dd>PolitiFact precision: CNN 0.807 versus logistic regression 0.757. GossipCop precision: CNN 0.751 versus logistic regression 0.675.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Kai Shu, Deepak Mahudeswaran, Suhang Wang, Dongwon Lee, Huan Liu</p>
+              <p>Four demonstrable numerical contradictions appear in the paper’s dataset descriptions and experimental interpretation.</p>
+              <p><a href="https://arxiv.org/abs/1809.01286v3">arXiv</a> · <a href="https://arxiv.org/pdf/1809.01286v3.pdf">PDF</a> ·
+              1809.01286v3</p>
+              <p class="meta">Reviewed 2026-07-26 06:37:07+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Statistics"
+  data-error-types="experimental-error,logical-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1507.05259v5"><strong>Fairness Constraints: Mechanisms for Fair Classification</strong></a></td>
+    <td>Statistics</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">logical-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (5)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The stated nonlinear-SVM dual has the trivial zero classifier as its optimizer.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Appendix A, Equation (10)</dd>
+    <dt>Analysis</dt><dd>The objective has the wrong sign structure for an SVM dual. Under the paper&#x27;s own  kernel definition, every term in the objective is nonnegative, while the constraints permit alpha=0.</dd>
+    <dt>Evidence</dt><dd>Expanding the objective gives sum_i alpha_i + alpha^T YKY alpha + sum_i alpha_i^2/C. The paper defines K as a Gram matrix, so alpha^T YKY alpha is nonnegative; alpha_i&gt;=0 and C&gt;0 make the other terms nonnegative. Thus alpha=0 attains objective zero and every nonzero feasible alpha has strictly positive objective. Equation (10) therefore always returns the zero decision function, independently of the training data.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Satisfying the 100%-rule does not imply approximately zero decision-boundary covariance.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 3.1, Equations (2)-(3)</dd>
+    <dt>Analysis</dt><dd>Equal positive-class rates constrain only the signs of distances, whereas covariance also depends on their magnitudes.</dd>
+    <dt>Evidence</dt><dd>Take equally sized groups with z=0 distances {-1,1} and z=1 distances {-1,100}. Both groups have positive-class probability 1/2, satisfying the 100%-rule exactly. Yet z-bar=1/2 and  the empirical covariance is [(-1/2)(-1)+(-1/2)(1)+(1/2)(-1)+(1/2)(100)]/4=12.375, not zero. Replicating these observations produces arbitrarily large training sets with the same nonzero covariance.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The fine-grained logistic-loss constraint does not guarantee that an initially positive prediction remains positive.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 3.3, Equation (8) and the paragraph immediately following it</dd>
+    <dt>Analysis</dt><dd>The individual loss rewards probability assigned to the true label, not necessarily to the positive label. The claimed implication fails for false-positive predictions.</dd>
+    <dt>Evidence</dt><dd>Let y_i=-1 while the unconstrained classifier predicts positive with p(+1)=0.6 and p(-1)=0.4. With gamma_i=0, Equation (8) requires -log p_new(-1)&lt;=-log(0.4), or p_new(-1)&gt;=0.4. A  new classifier with p_new(-1)=0.9 and p_new(+1)=0.1 satisfies the constraint but changes the prediction from positive to negative.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>A decreasing CV score does not generally correspond to an increasing p%-rule.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Appendix B.2, final paragraph</dd>
+    <dt>Analysis</dt><dd>The CV score is an absolute difference, while the p%-rule is a ratio; their orderings are not equivalent.</dd>
+    <dt>Evidence</dt><dd>Positive rates (0.01,0.02) give CV=0.01 and p%-rule=50%. Rates (0.40,0.45) give CV=0.05 and p%-rule=88.9%. Thus the smaller CV score can have the smaller, rather than larger, p%-rule.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>One Gaussian distribution used for the nonlinear synthetic experiment has an impossible covariance matrix.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Appendix B.1, nonlinear synthetic-data definition</dd>
+    <dt>Analysis</dt><dd>A covariance matrix must be symmetric, but the stated matrix is not.</dd>
+    <dt>Evidence</dt><dd>The paper specifies N([4;-4],[[4,4],[2,5]]). Its off-diagonal entries are 4 and 2, contradicting Cov(X1,X2)=Cov(X2,X1). Consequently, the stated Gaussian distribution is undefined.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Muhammad Bilal Zafar, Isabel Valera, Manuel Gomez Rodriguez, Krishna P. Gummadi</p>
+              <p>Five demonstrable internal errors affect the nonlinear-SVM formulation and several claimed fairness guarantees.</p>
+              <p><a href="https://arxiv.org/abs/1507.05259v5">arXiv</a> · <a href="https://arxiv.org/pdf/1507.05259v5.pdf">PDF</a> ·
+              1507.05259v5</p>
+              <p class="meta">Reviewed 2026-07-26 06:37:02+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Statistics"
+  data-error-types="experimental-error,mathematical-error,statistical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/2009.13384v1"><strong>Transparency, Auditability and eXplainability of Machine Learning Models in Credit Scoring</strong></a></td>
+    <td>Statistics</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">mathematical-error</span><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (4)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Spline logistic  regression is incorrectly claimed to have the best training-set performance.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 4.1.1, pages 11–12, Figure 4</dd>
+    <dt>Analysis</dt><dd>The text says logistic regression with spline transformations produced the best results on both training and test data. Figure 4 instead places randomForest at approximately 1.00 training AUC and ranger near 0.98, while the best spline model is  near 0.81.</dd>
+    <dt>Evidence</dt><dd>Because larger AUC is better, the plotted random-forest training AUCs exceed the spline model&#x27;s training AUC. The textual claim and Figure 4 cannot both be correct.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The paper reports a 16-variable scorecard, but its purported complete specification contains only 14 variables.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 3.2.1, page 9; Appendix Table 1, pages 23–24</dd>
+    <dt>Analysis</dt><dd>Section 3.2.1 states that the resulting scorecard has 16 variables and is given in the appendix. The appendix contains only 14 variable blocks after the intercept; Figure 5 likewise lists 14.</dd>
+    <dt>Evidence</dt><dd>The appendix lists ExternalRiskEstimate, AverageMInFile, NetFractionRevolvingBurden, PercentTradesNeverDelq, MSinceMostRecentInqexcl7days, NoValidMSinceMostRecentInqexcl7days, MSinceMostRecentDelq, NumSatisfactoryTrades, NumBank2NatlTradesWHighUtilization, MSinceOldestTradeOpen, PercentInstallTrades, NumRevolvingTradesWBalance, NumInqLast6M, and MaxDelq2PublicRecLast12M: 14 variables, not 16.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The reported population shares for PercentTradesNeverDelq are impossible.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Appendix Table 1, PercentTradesNeverDelq rows</dd>
+    <dt>Analysis</dt><dd>The four intervals are mutually exclusive and exhaustive, so their population shares must sum to the table&#x27;s stated total population of 1.00.</dd>
+    <dt>Evidence</dt><dd>The reported shares sum to 0.204 + 0.131 + 0.308 + 0.534 = 1.177, exceeding the total population by 0.177; three-decimal rounding cannot explain this discrepancy.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The stated completeness equation for SHAP and iBreakDown omits the baseline term required by the paper&#x27;s own example.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 4.2.2, equation on page 17; Figure 11, page 18</dd>
+    <dt>Analysis</dt><dd>The equation asserts that variable attributions  alone sum to the model response. Figure 11 separately includes an intercept of 0.471, demonstrating  that the response is instead the baseline plus the variable contributions.</dd>
+    <dt>Evidence</dt><dd>The displayed variable contributions total approximately 0.096, whereas the reported prediction is 0.569. Only after adding the 0.471 intercept does the total approach the prediction, subject to displayed rounding. Thus the paper&#x27;s equation fθ(x)=Σiδi(θ,x) is false for its own example; it requires a baseline term.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Michael Bücker, Gero Szepannek, Alicja Gosiewska, Przemyslaw Biecek</p>
+              <p>Four demonstrable internal errors affect the reported model comparison, scorecard specification, and attribution formula.</p>
+              <p><a href="https://arxiv.org/abs/2009.13384v1">arXiv</a> · <a href="https://arxiv.org/pdf/2009.13384v1.pdf">PDF</a> ·
+              2009.13384v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:36:29+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/cs/9908014v1"><strong>An Introduction to Collective Intelligence</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (4)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Theorem 2(ii)&#x27;s guarantee that effect-set WLU is factored fails for permitted discrete states.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 4.3.3, Theorem 2(ii), pages 53–54</dd>
+    <dt>Analysis</dt><dd>The effect set is defined using nonzero derivatives, but the paper explicitly permits discrete unary states evaluated at hypercube vertices. A finite state change can affect a future component even when its derivative vanishes at every allowed vertex, causing WLU to omit an actual effect.</dd>
+    <dt>Evidence</dt><dd>Let one node have allowed state x in {0,1} at time 0 and deterministic future state y=h(x)=3x^2-2x^3. This is a smooth Euclidean extension with h(0)=0, h(1)=1, but h&#x27;(0)=h&#x27;(1)=0. Thus the effect set contains x itself but omits y. Set G(x,y)=y. Clamping  the stated effect set changes x to 0 but leaves y unchanged, so WLU=G(x,y)-G(0,y)=0 for both allowed worldlines. Moving from x=0 to x=1 leaves WLU unchanged while G rises from 0 to 1, violating  the sign equality defining factoredness in Equation (4).</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>A Nash equilibrium of a factored system need not be a local maximum of world utility.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 4.3.2, immediately after Equation (5), page 50</dd>
+    <dt>Analysis</dt><dd>Factoredness constrains unilateral changes only, whereas an ordinary local maximum must also resist simultaneous nearby changes by multiple nodes.</dd>
+    <dt>Evidence</dt><dd>Take two real-valued nodes with identity dynamics and set g1=g2=G=xy. This team game is factored by the paper&#x27;s definition. At (x,y)=(0,0), either node&#x27;s utility remains zero under every unilateral deviation, so (0,0) is a Nash equilibrium. Nevertheless, every neighborhood contains (epsilon,epsilon), where G=epsilon^2&gt;0=G(0,0). Therefore (0,0) is not a local maximum of G.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Theorem 1&#x27;s positive-derivative characterization excludes valid factored utilities.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 4.3.2, Theorem 1 and Equation (6), pages 51–52</dd>
+    <dt>Analysis</dt><dd>Strict preservation of utility ordering does not imply that the representing function has a strictly positive derivative at every value, and the proof never establishes that condition.</dd>
+    <dt>Evidence</dt><dd>Consider one real-valued node with identity dynamics, G(x)=x, and g(x)=x^3. Since x cubed is strictly increasing, sign(g(x)-g(x&#x27;)) equals sign(G(x)-G(x&#x27;)) for every pair, so the system is factored. Because G ranges over all real numbers, Equation (6) forces Phi(G)=G^3. But its derivative at G=0 is zero, contradicting Theorem 1&#x27;s requirement that the derivative be greater than zero at every associated G value.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The reported learnability ratio of approximately 11 does not follow from the displayed formula and experiment parameters.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 4.4.1, learnability calculation following Theorem 3, page 61</dd>
+    <dt>Analysis</dt><dd>Direct substitution into the paper&#x27;s displayed ratio gives about 22.86, not 11.</dd>
+    <dt>Evidence</dt><dd>Using the stated N=168 and c=6 gives |sqrt(7)(N-7c)/((N-7c)(1-exp(1/c))+7exp(1/c))|  = |sqrt(7)*126/(126(1-exp(1/6))+7exp(1/6))| approximately 22.86.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> David H. Wolpert, Kagan Tumer</p>
+              <p>Four demonstrable mathematical errors were found in the central  framework and one numerical illustration.</p>
+              <p><a href="https://arxiv.org/abs/cs/9908014v1">arXiv</a> · <a href="https://arxiv.org/pdf/cs/9908014v1.pdf">PDF</a> ·
+              cs/9908014v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:35:33+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,logical-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1806.00749v3"><strong>TI-CNN: Convolutional Neural Networks for Fake News Detection</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">logical-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (6)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Equation 9 is not the negative log-likelihood implied by Equation 8.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Section V-E, Equations 8–9</dd>
+    <dt>Analysis</dt><dd>Taking the negative logarithm of Equation 8 requires negating the target score and adding the log-sum-exp term. Equation 9 reverses both signs and also uses the target index τ for every summand instead of the summation index i.</dd>
+    <dt>Evidence</dt><dd>Equation 8 gives p(τ|X,θ)=exp(sτ)/Σ_i exp(si), so −log p=−sτ+log Σ_i exp(si). Equation 9 instead gives sτ−log Σ_i exp(sτ). For two zero scores, the correct loss is log 2, whereas  Equation 9 evaluates to −log 2.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The stated visual-branch architecture conflicts with Table III.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section VI-B, Image branch; Table III</dd>
+    <dt>Analysis</dt><dd>The prose and architecture table specify incompatible convolution sizes and explicit-feature layer widths for the same model.</dd>
+    <dt>Evidence</dt><dd>The prose states that all visual convolution filters are 3×3 and that the visual explicit branch has 100 neurons. Table III instead lists 2×2 Conv(32) layers and Dense 128. The textual explicit branch likewise has 100 neurons in the  prose but Dense 128 in Table III.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The batch-size conclusions are opposite to Figure 6(b).</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section VI-D, batch-size sensitivity analysis; Figure 6(b)</dd>
+    <dt>Analysis</dt><dd>The reported trend and selected optimum cannot both agree with the plotted results.</dd>
+    <dt>Evidence</dt><dd>The text says F1 drops as batch size increases from 32 to 128 and identifies 32 and 64 as best. Figure 6(b) shows F1 rising from about 0.81 at 32 to about 0.92 at 128, with 128 visibly best among those plotted settings.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The hidden-dimension conclusions contradict Figure 6(c).</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section VI-D, hidden-layer-dimension sensitivity analysis; Figure 6(c)</dd>
+    <dt>Analysis</dt><dd>The claimed optimum and tested range do not match the plotted experiment.</dd>
+    <dt>Evidence</dt><dd>The text says 128 is best and performance drops at 256. Figure 6(c) contains no 256 setting; it ends at 128, shows the highest F1 at 64, and shows a substantial drop at  128.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The word-embedding sensitivity discussion makes mutually incompatible claims about recall.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section VI-D, word-embedding-dimension sensitivity analysis; Figure 6(a)</dd>
+    <dt>Analysis</dt><dd>Recall cannot both decrease over the stated interval and grow throughout it.</dd>
+    <dt>Evidence</dt><dd>One sentence says both precision and recall decrease from embedding dimension 100 to 350; the next says recall grows all the time as dimension increases. Figure 6(a) supports increasing recall, not decreasing recall.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Equation 1 does not have the stated sequence dimension.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section V-A, Equation 1 and Table I</dd>
+    <dt>Analysis</dt><dd>The displayed concatenation contains one more word vector than the declared n-word representation.</dd>
+    <dt>Evidence</dt><dd>Equation 1 defines X_i,1:n as x_i,1⊕x_i,1⊕x_i,2⊕…⊕x_i,n, duplicating x_i,1 and therefore concatenating n+1 vectors. Table I and the surrounding text declare an n×k representation containing n words.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Yang Yang, Lei Zheng, Jiawei Zhang, Qingcai Cui, Zhoujun Li, Philip S. Yu</p>
+              <p>The paper contains a mathematically invalid loss derivation and  several direct contradictions between its model/sensitivity descriptions and reported figures or tables.</p>
+              <p><a href="https://arxiv.org/abs/1806.00749v3">arXiv</a> · <a href="https://arxiv.org/pdf/1806.00749v3.pdf">PDF</a> ·
+              1806.00749v3</p>
+              <p class="meta">Reviewed 2026-07-26 06:34:50+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="mathematical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1712.03586v3"><strong>Fairness in Machine Learning: Lessons from Political Philosophy</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Unequal base rates do not make accuracy equity mathematically incompatible with equal false-positive rates.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Page 8, Section 3.3, final paragraph</dd>
+    <dt>Analysis</dt><dd>The paper defines accuracy equity as equal overall accuracy across groups and then claims that unequal base rates make it mathematically impossible to achieve alongside equalized  false-positive rates. These conditions can coexist because true-positive rates may differ between groups.</dd>
+    <dt>Evidence</dt><dd>Consider 100 subjects per group. Group A has 20 positives and 80 negatives: TP=10, FN=10, FP=8, TN=72. Group B has 80 positives and 20 negatives: TP=64, FN=16, FP=2, TN=18. The  base rates differ (20% versus 80%), but both false-positive rates equal 10% (8/80 and 2/20), and both accuracies equal 82% ((10+72)/100 and (64+18)/100). This directly violates the asserted impossibility.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Reuben Binns</p>
+              <p>One explicit mathematical impossibility claim is disproved by a concrete counterexample.</p>
+              <p><a href="https://arxiv.org/abs/1712.03586v3">arXiv</a> · <a href="https://arxiv.org/pdf/1712.03586v3.pdf">PDF</a> ·
+              1712.03586v3</p>
+              <p class="meta">Reviewed 2026-07-26 06:34:29+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="logical-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1902.10275v3"><strong>Towards Efficient Data Valuation Based on the Shapley Value</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">logical-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (4)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Theorem 4 applies a sparse-recovery bound to the wrong vector.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Section 4.3, Algorithm 2, Theorem 4, and supplementary equations (27) and (33)</dd>
+    <dt>Analysis</dt><dd>Algorithm 2 minimizes the l1 norm of the centered vector Δs and reconstructs s as  the uniform vector plus Δs. A compressive-sensing guarantee for this optimization therefore depends  on the best K-term approximation error of Δs, not of s. The proof substitutes σ_K(s) without establishing any relationship between the two quantities.</dd>
+    <dt>Evidence</dt><dd>Let N&gt;=3, K=1, and s=(1,0,...,0), which is the Shapley vector of the monotone utility U(S)=1 when player 1 is present and 0 otherwise. Then σ_1(s)=0. But the algorithm centers at  bar{s}=1/N, so Δs=((N-1)/N,-1/N,...,-1/N), for which σ_1(Δs)=(N-1)/N&gt;0. Thus the σ_K(s) term in equation (33) cannot follow from sparse recovery of Δs.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Theorem 6 gives a false necessary condition for additivity of the largest-subset attribution scheme.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 4.5, Theorem 6 and its supplementary proof</dd>
+    <dt>Analysis</dt><dd>The proof asserts that additivity holds if and only if the three normalization constants are equal. This fails when the two marginal-contribution vectors are linearly dependent.</dd>
+    <dt>Evidence</dt><dd>Take I={1,2}. Define U(empty)=0, U({1})=U({2})=1, U(I)=2, and V(empty)=0, V({1})=V({2})=2, V(I)=3. The largest-subset marginal vector is (1,1) for both utilities. Hence hat{s}(U)=(1,1), hat{s}(V)=(1.5,1.5), and hat{s}(U+V)=(2.5,2.5), so additivity holds. But the theorem&#x27;s required equality fails: V(I)sum_i ΔU_i=32=6, whereas U(I)sum_i ΔV_i=22=4.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The stated fairness/null-player property is not satisfied by the Shapley value.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 3, Fairness property (2) and the subsequent uniqueness claim</dd>
+    <dt>Analysis</dt><dd>The paper states that s_i=0 whenever U(S union {i})=0 for every S excluding i, then claims that the Shapley value uniquely satisfies the listed properties. The stated condition does not imply zero marginal contribution because U(S) may be nonzero.</dd>
+    <dt>Evidence</dt><dd>Let I={1,2}, U(empty)=0, U({1})=0, U({2})=1, and U({1,2})=0. For player 1, U(S union {1})=0 for both eligible subsets S=empty and S={2}, satisfying the paper&#x27;s condition. Equation  (1), however, gives s_1=(1/2)(0-0)+(1/2)(0-1)=-1/2, not zero.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The stratified Shapley decomposition has an off-by-one index and includes an impossible subset size.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 4.5, formula s_i=(1/N) sum from k=1 to N of E[X_i^k]</dd>
+    <dt>Analysis</dt><dd>Equation (1) averages marginal contributions over subsets of the other N-1 users,  whose sizes range from 0 through N-1. Section 4.5 instead sums from 1 through N while defining X_i^k using a size-k subset sampled with probability 1/binomial(N-1,k).</dd>
+    <dt>Evidence</dt><dd>For N=2, the Section 4.5 formula requires a size-2 subset of the single user other than i and divides by binomial(1,2)=0, while omitting the empty-subset contribution. Equation (1) instead gives the two valid strata k=0 and k=1.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Ruoxi Jia, David Dao, Boxin Wang, Frances Ann Hubis, Nick Hynes, Nezihe Merve Gurel, Bo Li, Ce Zhang, Dawn Song, Costas Spanos</p>
+              <p>Four demonstrable internal mathematical errors were found, including an unsupported compressive-sensing bound and a false theorem.</p>
+              <p><a href="https://arxiv.org/abs/1902.10275v3">arXiv</a> · <a href="https://arxiv.org/pdf/1902.10275v3.pdf">PDF</a> ·
+              1902.10275v3</p>
+              <p class="meta">Reviewed 2026-07-26 06:34:25+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="mathematical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1301.6707v1"><strong>Attention-Sensitive Alerting</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The expected-cost formula uses mismatched attentional-state indices.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Page 307, Section 3, Equation (1)</dd>
+    <dt>Analysis</dt><dd>The paper sums over attentional  states Fj but writes the cost as C0(Ai,Fi), which is independent of the summation index j. Consequently, the expression cannot average state-dependent interruption costs as claimed.</dd>
+    <dt>Evidence</dt><dd>As written, ECA = sum_j C0(Ai,Fi)p(Fj|Ea) = C0(Ai,Fi) sum_j p(Fj|Ea) = C0(Ai,Fi). Since the probabilities sum to one, uncertainty over attentional state has no effect. The  required state-dependent expectation would instead use C0(Ai,Fj) inside the sum.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Eric J. Horvitz, Andy Jacobs, David Hovel</p>
+              <p>Equation (1) does not compute the stated expected interruption cost because its cost term is indexed by a fixed state rather than the summed state.</p>
+              <p><a href="https://arxiv.org/abs/1301.6707v1">arXiv</a> · <a href="https://arxiv.org/pdf/1301.6707v1.pdf">PDF</a> ·
+              1301.6707v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:34:07+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="logical-error,mathematical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1808.00023v3"><strong>The Measure and Mismeasure of Fairness</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">logical-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (5)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Equation (14) does not encode counterfactual predictive parity.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Appendix B, Theorem 21 Part 3, Eq. (14), pp. 47–48</dd>
+    <dt>Analysis</dt><dd>The denominator Pr(A=a,D=0) is incorrectly replaced by Pr(Y(1)=y,D=0). Consequently, the proposed linear constraints are not equivalent to the stated fairness condition.</dd>
+    <dt>Evidence</dt><dd>Let Pr(A=a0)=0.8, Pr(A=a1)=0.2, let Y(1) be an independent fair Bernoulli variable, and take d=0. Counterfactual predictive parity holds because Y(1) is independent of A given D=0, with C_y=0.5. For a0, however, Eq. (14) requires 0.4=0.5×0.5=0.25. Moreover, its constraints require C_y=0.8 for a0 and C_y=0.2 for a1, so no common C_y exists.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The budget-exhaustion equation used to prove Proposition 19 is incorrect.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Appendix H.2, proof of Proposition 19, p. 103</dd>
+    <dt>Analysis</dt><dd>The displayed equation omits group probabilities and has the wrong coefficient on the budget, so the zero set used  in the subsequent Sard-theorem argument is not the required set of budget-exhausting policies.</dd>
+    <dt>Evidence</dt><dd>Writing Fi(ti)=Pr(r(X)&lt;ti|A=ai) and pi=Pr(A=ai), a threshold policy has E[D]=1−p0F0(t0)−p1F1(t1). Budget exhaustion therefore requires p0F0(t0)+p1F1(t1)=1−b. The paper instead asserts F0(t0)+F1(t1)=2−b. Even for equal group probabilities, the correct equation is F0+F1=2−2b.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The Jacobian used in the Sard-theorem proof of Proposition  19 is not the Jacobian of the defined function.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Appendix H.2, “Full rank,” pp. 104–105</dd>
+    <dt>Analysis</dt><dd>Derivatives with respect to beta-distribution parameters ignore differentiation  of the normalizing beta function. The ensuing rank argument therefore concerns incorrect columns.</dd>
+    <dt>Evidence</dt><dd>For F(t;α,β)=I_t(α,β)/B(α,β), the quotient rule gives ∂αF=(∂αI_t)/B−F·∂α log B. The paper lists only E[log(X)1{X&lt;t}]=(∂αI_t)/B, omitting the second term. The analogous β derivatives are also incomplete.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The proof of Lemma 83 derives the opposite CDF ordering from its conclusion.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Appendix H.1, Lemma 83, pp. 102–103</dd>
+    <dt>Analysis</dt><dd>The paper’s own definition of stochastic dominance is incompatible with the inequality reached in the lemma’s proof.</dd>
+    <dt>Evidence</dt><dd>Definition 79 states Y≤stX exactly when FX(s)≤FY(s). The proof defines G=FX−FY, concludes G(s)&gt;0 and hence FX(s)&gt;FY(s), but immediately declares Y&lt;stX. That declaration requires FX(s)&lt;FY(s), the opposite inequality.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Corollary 70 does not follow from Theorem 17 by embedding Y as Y(0)=Y(1).</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Appendix F.5, Corollary 70, pp. 87–88</dd>
+    <dt>Analysis</dt><dd>Prevalence or shyness in an ambient distribution space is not generally preserved when pulled back to a lower-dimensional embedded subspace. The identity of the composed maps establishes only a set-theoretic correspondence, not the required genericity result.</dd>
+    <dt>Evidence</dt><dd>In finite dimensions, the x-axis is  Lebesgue-null in R², but its preimage under the embedding x↦(x,0) is all of R. Thus an ambient null  or shy exceptional set may contain the entire embedded subspace. The paper supplies no argument excluding this possibility for distributions satisfying Y(0)=Y(1).</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Sam Corbett-Davies, Johann D. Gaebler, Hamed Nilforoshan, Ravi Shroff, Sharad Goel</p>
+              <p>Several appendix arguments contain demonstrable mathematical errors that invalidate the stated derivations.</p>
+              <p><a href="https://arxiv.org/abs/1808.00023v3">arXiv</a> · <a href="https://arxiv.org/pdf/1808.00023v3.pdf">PDF</a> ·
+              1808.00023v3</p>
+              <p class="meta">Reviewed 2026-07-26 06:33:35+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,factual-error,statistical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/2101.04271v4"><strong>What Do We Mean by &quot;Accessibility Research&quot;? A Literature Survey of Accessibility Papers in CHI and ASSETS from 1994 to 2019</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">factual-error</span><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (3)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Table 4&#x27;s subgroup means are incompatible with the reported overall mean.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 4.2.3, page 12, Table 4</dd>
+    <dt>Analysis</dt><dd>The paper assigns participant groups to distinct categories, so subgroup participant totals cannot exceed the overall total across the same 451 papers. Two subgroup rows alone already do.</dd>
+    <dt>Evidence</dt><dd>The overall mean implies 830.1 × 451 = 374,375.1 participants. The crowdworker and BLV rows imply 27,500.0 × 13 + 88.8 × 208 = 375,970.4 participants, already 1,595.3 more than the overall total before any other subgroup is included. One-decimal rounding cannot explain this gap.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>An explicitly out-of-scope journal article is counted as a paper in the CHI/ASSETS corpus.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Sections 3.1 and 4.1.3; reference 42</dd>
+    <dt>Analysis</dt><dd>The method limits the dataset to short and long technical papers at CHI and ASSETS, but the results count WeAllWalk as one of the dataset contributions. The bibliography identifies WeAllWalk as an ACM  Transactions on Accessible Computing journal article, not a CHI or ASSETS paper.</dd>
+    <dt>Evidence</dt><dd>Section 3.1 states that the final dataset includes “only short and long technical papers at ASSETS and CHI.” Section 4.1.3 identifies WeAllWalk [42] as one of the seven dataset contributions in that corpus, while reference 42 lists its venue as ACM Transactions on Accessible Computing 11(1).</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The stated conference schedule yields 22 ASSETS offerings by 2020, not 21.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 2.1, page 3, footnote 3</dd>
+    <dt>Analysis</dt><dd>The count follows directly from the schedule given in the same footnote.</dd>
+    <dt>Evidence</dt><dd>Biennial conferences from 1994 through 2004 give 6 offerings; annual conferences from 2005 through 2020 give 16 more. Thus 6 + 16 = 22, contradicting the footnote&#x27;s claim that ASSETS 2020 was the 21st offering.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Kelly Mack, Emma McDonnell, Dhruv Jain, Lucy Lu Wang, Jon E. Froehlich, Leah Findlater</p>
+              <p>The paper contains two major internal inconsistencies and one minor counting error.</p>
+              <p><a href="https://arxiv.org/abs/2101.04271v4">arXiv</a> · <a href="https://arxiv.org/pdf/2101.04271v4.pdf">PDF</a> ·
+              2101.04271v4</p>
+              <p class="meta">Reviewed 2026-07-26 06:33:09+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="statistical-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1206.4327v1"><strong>Social Influence in Social Advertising: Evidence from Field Experiments</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">statistical-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The prose and Equation (1) specify different interaction terms.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 6.3.2, Equation (1)</dd>
+    <dt>Analysis</dt><dd>The prose states that the model interacts the social-cue indicator with both tie strength and total communication count. Equation (1), presented as the model&#x27;s specific definition, contains the cue-by-tie-strength interaction but not the cue-by-communication interaction. It instead contains a communication-by-tie-strength interaction. These cannot both describe the stated model.</dd>
+    <dt>Evidence</dt><dd>The prose requires terms Df(W) and Dq(C). Equation (1) contains D*f(W) and q(C)f(W), with no Dq(C) term. Thus either the prose or the displayed model is incorrect.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Eytan Bakshy, Dean Eckles, Rong Yan, Itamar Rosenn</p>
+              <p>One explicit inconsistency appears in the reported statistical model.</p>
+              <p><a href="https://arxiv.org/abs/1206.4327v1">arXiv</a> · <a href="https://arxiv.org/pdf/1206.4327v1.pdf">PDF</a> ·
+              1206.4327v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:32:13+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Economics"
+  data-error-types="mathematical-error,statistical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/2107.02637v8"><strong>Difference-in-Differences with a Continuous Treatment</strong></a></td>
+    <td>Economics</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Theorem 3.2(b)&#x27;s derivative decomposition does not follow from its assumptions.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Page 10, Theorem 3.2(b)</dd>
+    <dt>Analysis</dt><dd>Assumption 4(a) requires differentiability only of the observed conditional mean. It does not impose the joint regularity needed to differentiate the treatment-effect function along its diagonal. The stated equality can therefore fail even when every derivative appearing in it exists.</dd>
+    <dt>Evidence</dt><dd>Let c=3/2, let D have positive mass at zero and otherwise be uniform on (1,2), and set all period-one outcomes to zero. Define H(u,v)=u^3/(u^2+v^2), with H(0,0)=0, and Y2(a)=H(a-c,D-c)-H(-c,D-c). Then Y2(0)=0, so PT holds. The observed mean is m(d)=(d-c)/2+c^3/(c^2+(d-c)^2), which is differentiable as required. At d=c, m&#x27;(c)=1/2, while ACRT(c|c)=1 and the stated selection derivative is 0. Theorem 3.2(b) therefore asserts 1/2=1.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The discrete-treatment ACRT estimator incorrectly subtracts the regression intercept for the first positive dose.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Pages 18-20, Equations (4.1) and (4.7)</dd>
+    <dt>Analysis</dt><dd>In regression (4.1), beta_0 is the untreated group&#x27;s mean outcome change, whereas  beta_j is the difference from that mean and hence estimates ATT(d_j). Thus ACRT(d_1) is beta_1/(d_1-d_0), not (beta_1-beta_0)/(d_1-d_0). The same error enters Equation (4.7).</dd>
+    <dt>Evidence</dt><dd>Take D in {0,1,2} with positive probabilities, Y1=0, and Y2(d)=5+d for every unit. SPT holds. Regression (4.1) gives beta_0=5, beta_1=1, and beta_2=2. The true ACRT(1) is (Y2(1)-Y2(0))/(1-0)=1, but the paper&#x27;s formula gives (beta_1-beta_0)/(1-0)=-4.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Brantly Callaway, Andrew Goodman-Bacon, Pedro H. C. Sant&#x27;Anna</p>
+              <p>Two major, demonstrable errors affect the continuous-response decomposition and the proposed discrete-treatment estimator.</p>
+              <p><a href="https://arxiv.org/abs/2107.02637v8">arXiv</a> · <a href="https://arxiv.org/pdf/2107.02637v8.pdf">PDF</a> ·
+              2107.02637v8</p>
+              <p class="meta">Reviewed 2026-07-26 06:31:49+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,statistical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1708.07104v1"><strong>Automatic Detection of Fake News</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (4)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The paper incorrectly identifies punctuation features as the most accurate Celebrity  model.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 5, Computational Models for Fake News Detection; Table 4</dd>
+    <dt>Analysis</dt><dd>The narrative&#x27;s model ranking directly conflicts with the reported accuracies.</dd>
+    <dt>Evidence</dt><dd>The text says the Celebrity dataset&#x27;s most accurate model uses Punctuation features, but Table 4 reports accuracy 0.70 for Punctuation and 0.73 for All Features.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The reported average length of crowdsourced fake news is inconsistent with the total  word count.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 3.1, Building a Crowdsourced Dataset</dd>
+    <dt>Analysis</dt><dd>Dividing the stated total by the stated number of articles does not produce the reported average.</dd>
+    <dt>Evidence</dt><dd>The dataset contains 31,990 words across 240 fake articles, so the average is 31,990 / 240 = 133.29 words, not 132 words.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The learning curves do not show the claimed steady improvement outside the stated exception.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 5, Learning Curves; Figures 1 and 2</dd>
+    <dt>Analysis</dt><dd>The text singles out Celebrity Readability as the exception, but several other plotted series decrease as training data increases.</dd>
+    <dt>Evidence</dt><dd>FakeNewsAMT Readability falls from 0.75 at 20% to 0.71 at 40%; Celebrity LIWC falls from 0.55 to 0.52; Celebrity All Features falls from 0.66 to 0.61 and then 0.58. These contradict the claim that all other curves show steady improvement.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The text misreports the Technology-domain readability accuracy.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 5, Cross-domain Analyses; Table 6</dd>
+    <dt>Analysis</dt><dd>The prose and table give different values for the same reported result.</dd>
+    <dt>Evidence</dt><dd>The prose says Technology and Politics both achieve 0.91 accuracy with Readability, whereas Table 6 reports 0.90 for Technology and 0.91 for Politics.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Verónica Pérez-Rosas, Bennett Kleinberg, Alexandra Lefevre, Rada Mihalcea</p>
+              <p>The paper contains several explicit inconsistencies between  its narrative, tables, figures, and dataset arithmetic.</p>
+              <p><a href="https://arxiv.org/abs/1708.07104v1">arXiv</a> · <a href="https://arxiv.org/pdf/1708.07104v1.pdf">PDF</a> ·
+              1708.07104v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:31:21+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1205.4251v2"><strong>Scientific Utopia: II. Restructuring incentives and practices to promote truth over publishability</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge no-glaring-errors-found">No glaring errors found</span></td>
+    <td><span class="tag">no-errors-tagged</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No glaring errors were recorded.</p></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Brian A. Nosek, Jeffrey R. Spies, Matt Motyl</p>
+              <p>No demonstrable internal contradiction, counterexample, invalid derivation, or arithmetic error met the required standard.</p>
+              <p><a href="https://arxiv.org/abs/1205.4251v2">arXiv</a> · <a href="https://arxiv.org/pdf/1205.4251v2.pdf">PDF</a> ·
+              1205.4251v2</p>
+              <p class="meta">Reviewed 2026-07-26 06:31:03+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="statistical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/cs/0606079v2"><strong>Ten-Year Cross-Disciplinary Comparison of the Growth of Open Access and How it Increases Research Citation Impact</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (3)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The reported d&#x27;=2.45 and bias=0.52 are not validly estimable from the described stratified sample.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Section 3, Signal detection analysis of the robot’s accuracy</dd>
+    <dt>Analysis</dt><dd>The authors sampled 100 articles called OA and 100 called NOA, thereby conditioning on the robot&#x27;s classification. Such a sample estimates predictive values, not the hit and false-alarm rates conditional on true status that d&#x27; requires. Treating its cross-tabulated counts as an unstratified confusion matrix is invalid, especially when the paper states that the population classes occur in roughly a 10:1 ratio.</dd>
+    <dt>Evidence</dt><dd>The called-OA sample contains 81 hits and 19 false alarms; the called-NOA sample contains 94 correct rejections and 6 misses. The reported d&#x27; results from using 81/(81+6) as the hit  rate and 19/(19+94) as the false-alarm rate, but the equal sampling of predicted classes changes both denominators. Population sampling weights are required before those rates can be computed.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Two correlations in Table 2 are incorrectly declared statistically significant.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Table 2</dd>
+    <dt>Analysis</dt><dd>For a Pearson correlation with N=12, neither r=0.10 nor r=-0.36 can yield p&lt;0.05.</dd>
+    <dt>Evidence</dt><dd>Using t=r*sqrt((N-2)/(1-r^2)) with 10 degrees of freedom gives t=0.318 for r=0.10  (two-sided p approximately 0.757; one-sided p approximately 0.378) and |t|=1.220 for r=-0.36 (two-sided p approximately 0.250; one-sided p approximately 0.125). Both contradict the table&#x27;s p&lt;0.05 entries.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The abstract&#x27;s assertion that every citation-range correlation exceeds 0.90 contradicts Table 3.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Abstract and Table 3</dd>
+    <dt>Analysis</dt><dd>The two reported values cannot both satisfy the stated threshold.</dd>
+    <dt>Evidence</dt><dd>The abstract states r&gt;0.90 within every citation range, while Table 3 reports r=0.87 for the 16+ citations range.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> C. Hajjem, S. Harnad, Y. Gingras</p>
+              <p>The paper contains an invalid signal-detection calculation,  impossible significance values, and one explicit contradiction.</p>
+              <p><a href="https://arxiv.org/abs/cs/0606079v2">arXiv</a> · <a href="https://arxiv.org/pdf/cs/0606079v2.pdf">PDF</a> ·
+              cs/0606079v2</p>
+              <p class="meta">Reviewed 2026-07-26 06:30:22+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Physics and Astronomy"
+  data-error-types="logical-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/physics/9909033v1"><strong>Publication Bias (The &quot;File-Drawer Problem&quot;) in Scientific Inference</strong></a></td>
+    <td>Physics and Astronomy</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">logical-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (4)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Equation (18) omits the  normalization by the total publication probability.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Section 4.2, Equations (16)–(18)</dd>
+    <dt>Analysis</dt><dd>The published mean must divide the selected first moment by Equation (17). Equation (18) instead retains the cutoff-model denominator from Equation (14), making it wrong for intermediate values of S0.</dd>
+    <dt>Evidence</dt><dd>Writing Q=0.5 erfc(Z0/sqrt(2)) and phi(Z0)=exp(-Z0^2/2)/sqrt(2pi), the selected first moment is (1-S0)phi(Z0), while the published fraction is S0+(1-S0)Q. Thus Zbar_pub=(1-S0)phi(Z0)/[S0+(1-S0)Q]. For Z0=0 and S0=0.5, the correct value is 0.199471/0.75=0.265962, whereas Equation (18) gives 0.398942.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The stated standardization does not produce a unit-variance normal variable.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Section 2, Equations (1)–(2)</dd>
+    <dt>Analysis</dt><dd>The paper explicitly calls sigma the variance but divides by sigma rather than its square root.</dd>
+    <dt>Evidence</dt><dd>Under the stated assumption Var(x)=sigma, Var[(x-mu)/sigma]=sigma/sigma^2=1/sigma, not 1. Equation (2) follows only if sigma denotes the standard deviation, contrary to the preceding definition, or if the denominator  is sqrt(sigma).</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Unpublished studies need not bias a literature-based combination.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Abstract; Section 5, third conclusion</dd>
+    <dt>Analysis</dt><dd>The claim that unbiased  combination requires essentially every study to be published is contradicted by an allowed constant  selection function.</dd>
+    <dt>Evidence</dt><dd>Set S(Z)=1/2 in Equations (8)–(11). Half the studies are unpublished, so N_filed=N/2, but publication is independent of results and Zbar_pub=integral[Z G(Z)/2]dZ/(N/2)=0 by symmetry. This is an unbiased published sample despite many unpublished studies.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Publication bias does not necessarily make the file drawer&#x27;s mean Z nonzero.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 3, discussion surrounding Equations (3)–(5)</dd>
+    <dt>Analysis</dt><dd>The paper infers that setting the filed mean to zero is inherently incompatible with publication bias. Dependence on results can instead be symmetric, producing a selected distribution with exactly zero mean.</dd>
+    <dt>Evidence</dt><dd>Let S(Z)=1 when |Z|&gt;=a and S(Z)=0 otherwise for any a&gt;0. Publication probability depends on the result, satisfying the paper&#x27;s definition of publication bias, while filed studies have |Z|&lt;a and conditional mean integral[-a,a] Z phi(Z)dZ/Pr(|Z|&lt;a)=0. The paper later acknowledges this two-sided case but does not qualify its earlier universal inference.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Jeffrey D. Scargle</p>
+              <p>The paper contains an incorrect conditional-mean formula and several claims contradicted by its own selection model.</p>
+              <p><a href="https://arxiv.org/abs/physics/9909033v1">arXiv</a> · <a href="https://arxiv.org/pdf/physics/9909033v1.pdf">PDF</a> ·
+              physics/9909033v1</p>
+              <p class="meta">Reviewed 2026-07-26 06:29:51+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1708.01967v3"><strong>Fake News Detection on Social Media: A Data Mining Perspective</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The stated BuzzFeedNews article total does not equal the sum of its categories.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 4.1, BuzzFeedNews dataset paragraph</dd>
+    <dt>Analysis</dt><dd>The paper gives one total and three exhaustive category counts whose arithmetic produces a different total.</dd>
+    <dt>Evidence</dt><dd>The paper states 1,627 articles: 826 mainstream, 356 left-wing, and 545 right-wing. However, 826 + 356 + 545 = 1,727, not 1,627.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Kai Shu, Amy Sliva, Suhang Wang, Jiliang Tang, Huan Liu</p>
+              <p>One clear internal arithmetic error appears in the dataset description.</p>
+              <p><a href="https://arxiv.org/abs/1708.01967v3">arXiv</a> · <a href="https://arxiv.org/pdf/1708.01967v3.pdf">PDF</a> ·
+              1708.01967v3</p>
+              <p class="meta">Reviewed 2026-07-26 06:29:36+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Statistics"
+  data-error-types="experimental-error,logical-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1610.08452v2"><strong>Fairness Beyond Disparate Treatment &amp; Disparate Impact: Learning Classification without Disparate Mistreatment</strong></a></td>
+    <td>Statistics</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">logical-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (4)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Equal false-positive rates need not produce covariance near zero, and zero covariance need not produce equal false-positive rates.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 4, Equations (9), (11), and (13)</dd>
+    <dt>Analysis</dt><dd>The proxy depends on misclassified points&#x27; margin magnitudes, whereas FPR depends only on their count. Thus the claimed connection between equal rates and near-zero covariance fails under the paper&#x27;s own  linear-classifier assumptions.</dd>
+    <dt>Evidence</dt><dd>Let d_theta(x)=x and let all labels be y=-1. For z=0 use x={M,-1}; for z=1 use x={1,-1}. Each group has FPR 1/2, while Eq. (11) gives g={-M,0} and {-1,0}. With z-bar=1/2, Cov(z,g)=(M-1)/8, arbitrarily large as M grows, contradicting the claim after Eq. (12). Conversely, use z=0: x={2,-1} and z=1: x={1,1}. Then FPRs are 1/2 and 1, but g={-2,0} and {-1,-1}, yielding Cov(z,g)=0; hence Eq. (13) with c=0 can admit unequal FPRs.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The paper incorrectly states that g_theta is convex in theta.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 4, Equations (10)-(12) and derivation from (16) to (17)</dd>
+    <dt>Analysis</dt><dd>A pointwise minimum of two affine functions is concave, not convex. The stated convexity justification  for the DCCP formulation is therefore invalid, although a difference-of-convex representation may still be constructed by changing signs appropriately.</dd>
+    <dt>Evidence</dt><dd>Take d_theta(x)=theta with x=1 and y=1. Equation (10) becomes g(theta)=min(0,theta). Then g(-1)=-1, g(1)=0, and g(0)=0. Convexity would require g(0)&lt;=½g(-1)+½g(1)=-1/2, which is false.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>One synthetic-data distribution is undefined because its stated covariance matrix is not symmetric.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Section 5.1.1, synthetic setting 1</dd>
+    <dt>Analysis</dt><dd>Every covariance matrix is symmetric. Consequently, the specified bivariate normal distribution does not exist as written, so that synthetic experiment cannot have been generated from all four stated distributions.</dd>
+    <dt>Evidence</dt><dd>The paper specifies p(x|z=0,y=-1)=N([1,1],[3,3;1,3]). Its purported covariance has Sigma_12=3 and Sigma_21=1, but covariance requires Sigma_12=Cov(X1,X2)=Cov(X2,X1)=Sigma_21.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The baseline algorithm&#x27;s loop cannot implement its stated fairness stopping rule.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Figure 5, baseline method</dd>
+    <dt>Analysis</dt><dd>The  pseudocode computes D_FP only before the loop and never recomputes it after changing the classifier. Its signed loop test also excludes negative disparities. Therefore the displayed algorithm can either run forever or immediately return an unfair classifier.</dd>
+    <dt>Evidence</dt><dd>If the initial D_FP=0.10 and epsilon=0.01, the loop condition remains true forever because only C and theta  are updated, not D_FP. If D_FP=-0.10, the algorithm selects s=1 but skips the loop because -0.10&gt;0.01 is false, returning without reducing the disparity.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Muhammad Bilal Zafar, Isabel Valera, Manuel Gomez Rodriguez, Krishna P. Gummadi</p>
+              <p>The paper contains demonstrable errors in its fairness proxy, convexity argument, synthetic-data specification, and baseline pseudocode.</p>
+              <p><a href="https://arxiv.org/abs/1610.08452v2">arXiv</a> · <a href="https://arxiv.org/pdf/1610.08452v2.pdf">PDF</a> ·
+              1610.08452v2</p>
+              <p class="meta">Reviewed 2026-07-26 06:29:36+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Quantitative Biology"
   data-error-types="experimental-error,mathematical-error,statistical-error" data-severities="major,minor">
   <tr>
     <td><a href="https://arxiv.org/abs/q-bio/0309028v1"><strong>Analysis of Dynamic Brain Imaging Data</strong></a></td>

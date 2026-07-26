@@ -11,6 +11,7 @@ import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
+from html.parser import HTMLParser
 from pathlib import Path, PurePosixPath
 
 USER_AGENT = "arxiv-doublecheck/0.1 (+https://github.com/)"
@@ -92,16 +93,29 @@ def normalize_arxiv_id(value: str) -> str:
 
 
 def fetch_metadata(arxiv_id: str, timeout: int = 30) -> PaperMetadata:
+    try:
+        return _fetch_api_metadata(arxiv_id, timeout)
+    except ArxivError as api_error:
+        try:
+            return _fetch_html_metadata(arxiv_id, timeout)
+        except ArxivError as html_error:
+            raise ArxivError(
+                f"could not fetch arXiv metadata: API: {api_error}; "
+                f"paper page: {html_error}"
+            ) from html_error
+
+
+def _fetch_api_metadata(arxiv_id: str, timeout: int) -> PaperMetadata:
     query = urllib.parse.urlencode({"id_list": arxiv_id})
     request = urllib.request.Request(
         f"https://export.arxiv.org/api/query?{query}",
         headers={"User-Agent": USER_AGENT},
     )
     try:
-        with _urlopen(request, timeout=timeout) as response:
+        with _urlopen(request, timeout=timeout, max_attempts=1) as response:
             body = _read_limited(response, 5 * 1024 * 1024)
     except (urllib.error.URLError, TimeoutError) as exc:
-        raise ArxivError(f"could not fetch arXiv metadata: {exc}") from exc
+        raise ArxivError(str(exc)) from exc
 
     try:
         root = ET.fromstring(body)
@@ -143,6 +157,59 @@ def fetch_metadata(arxiv_id: str, timeout: int = 30) -> PaperMetadata:
         published=_required_text(entry, "atom:published", atom),
         updated=_required_text(entry, "atom:updated", atom),
         primary_category=category,
+    )
+
+
+def _fetch_html_metadata(arxiv_id: str, timeout: int) -> PaperMetadata:
+    request = urllib.request.Request(
+        f"https://arxiv.org/abs/{arxiv_id}",
+        headers={"User-Agent": USER_AGENT},
+    )
+    try:
+        with _urlopen(request, timeout=timeout) as response:
+            body = _read_limited(response, 5 * 1024 * 1024)
+    except (urllib.error.URLError, TimeoutError) as exc:
+        raise ArxivError(str(exc)) from exc
+    return _parse_html_metadata(body.decode("utf-8", errors="replace"), arxiv_id)
+
+
+def _parse_html_metadata(document: str, requested_id: str) -> PaperMetadata:
+    parser = _ArxivHtmlMetadataParser()
+    parser.feed(document)
+    title = parser.first("citation_title")
+    summary = parser.first("citation_abstract")
+    published = _html_date(parser.first("citation_date"))
+    updated = _html_date(
+        parser.first("citation_online_date", required=False)
+        or parser.first("citation_date")
+    )
+    authors = tuple(
+        _citation_author(author)
+        for author in parser.values.get("citation_author", ())
+    )
+    if not authors:
+        raise ArxivError("paper page is missing authors")
+
+    if VERSION_RE.search(requested_id):
+        versioned_id = requested_id
+    else:
+        escaped_id = re.escape(requested_id)
+        versions = [
+            int(version)
+            for version in re.findall(rf"{escaped_id}v(\d+)", document)
+        ]
+        versioned_id = (
+            f"{requested_id}v{max(versions)}" if versions else requested_id
+        )
+
+    return PaperMetadata(
+        arxiv_id=versioned_id,
+        title=_collapse_whitespace(title),
+        authors=authors,
+        summary=_collapse_whitespace(summary),
+        published=published,
+        updated=updated,
+        primary_category=parser.primary_category or "unknown",
     )
 
 
@@ -204,9 +271,13 @@ def _download(url: str, destination: Path, timeout: int) -> None:
     destination.write_bytes(payload)
 
 
-def _urlopen(request: urllib.request.Request, timeout: int) -> object:
+def _urlopen(
+    request: urllib.request.Request,
+    timeout: int,
+    max_attempts: int = MAX_REQUEST_ATTEMPTS,
+) -> object:
     global _last_request_started
-    for attempt in range(MAX_REQUEST_ATTEMPTS):
+    for attempt in range(max_attempts):
         with _REQUEST_LOCK:
             wait_seconds = (
                 _last_request_started
@@ -221,7 +292,7 @@ def _urlopen(request: urllib.request.Request, timeout: int) -> object:
         except urllib.error.HTTPError as exc:
             if (
                 exc.code not in RETRYABLE_HTTP_STATUS
-                or attempt == MAX_REQUEST_ATTEMPTS - 1
+                or attempt == max_attempts - 1
             ):
                 raise
             retry_after = exc.headers.get("Retry-After") if exc.headers else None
@@ -233,7 +304,7 @@ def _urlopen(request: urllib.request.Request, timeout: int) -> object:
                 retry_seconds = 0
             time.sleep(max(retry_seconds, min(15 * (2**attempt), 120)))
         except (urllib.error.URLError, TimeoutError):
-            if attempt == MAX_REQUEST_ATTEMPTS - 1:
+            if attempt == max_attempts - 1:
                 raise
             time.sleep(min(15 * (2**attempt), 120))
     raise AssertionError("unreachable")
@@ -300,6 +371,62 @@ def _required_text(
 
 def _collapse_whitespace(value: str) -> str:
     return " ".join(value.split())
+
+
+def _html_date(value: str) -> str:
+    normalized = value.replace("/", "-")
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", normalized):
+        raise ArxivError(f"paper page returned an invalid date: {value}")
+    return f"{normalized}T00:00:00Z"
+
+
+def _citation_author(value: str) -> str:
+    if "," not in value:
+        return _collapse_whitespace(value)
+    family_name, given_names = value.split(",", 1)
+    return _collapse_whitespace(f"{given_names} {family_name}")
+
+
+class _ArxivHtmlMetadataParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.values: dict[str, list[str]] = {}
+        self.primary_category = ""
+        self._in_primary_category = False
+
+    def handle_starttag(
+        self,
+        tag: str,
+        attrs: list[tuple[str, str | None]],
+    ) -> None:
+        attributes = dict(attrs)
+        if tag == "meta":
+            name = attributes.get("name", "")
+            content = attributes.get("content")
+            if name.startswith("citation_") and content:
+                self.values.setdefault(name, []).append(content)
+        if tag == "span":
+            classes = (attributes.get("class") or "").split()
+            self._in_primary_category = "primary-subject" in classes
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag == "span":
+            self._in_primary_category = False
+
+    def handle_data(self, data: str) -> None:
+        if not self._in_primary_category:
+            return
+        match = re.search(r"\(([^()]+)\)", data)
+        if match:
+            self.primary_category = match.group(1)
+
+    def first(self, name: str, required: bool = True) -> str:
+        values = self.values.get(name)
+        if values:
+            return values[0]
+        if required:
+            raise ArxivError(f"paper page is missing {name}")
+        return ""
 
 
 def field_for_category(category: str) -> str:

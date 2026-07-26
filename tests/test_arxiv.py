@@ -7,6 +7,7 @@ from unittest.mock import patch
 from doublecheck.arxiv import (
     ArxivError,
     PaperMetadata,
+    _parse_html_metadata,
     _read_limited,
     _urlopen,
     download_and_extract_source,
@@ -81,6 +82,22 @@ class NormalizeArxivIdTests(unittest.TestCase):
             field_for_category("astro-ph.CO"),
             "Physics and Astronomy",
         )
+
+    def test_parses_arxiv_html_metadata_fallback(self) -> None:
+        document = """
+        <meta name="citation_title" content="A Paper">
+        <meta name="citation_author" content="Noether, Emmy">
+        <meta name="citation_date" content="2025/01/02">
+        <meta name="citation_online_date" content="2025/02/03">
+        <meta name="citation_abstract" content="An abstract.">
+        <span class="primary-subject">Optimization (math.OC)</span>
+        <a href="/abs/2501.12345v3">v3</a>
+        """
+        metadata = _parse_html_metadata(document, "2501.12345")
+        self.assertEqual(metadata.arxiv_id, "2501.12345v3")
+        self.assertEqual(metadata.authors, ("Emmy Noether",))
+        self.assertEqual(metadata.primary_category, "math.OC")
+        self.assertEqual(metadata.updated, "2025-02-03T00:00:00Z")
 
     @patch("doublecheck.arxiv.MIN_REQUEST_INTERVAL_SECONDS", 0)
     @patch("doublecheck.arxiv.time.sleep")

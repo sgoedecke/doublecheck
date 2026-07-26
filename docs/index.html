@@ -7,17 +7,25 @@
   <title>arXiv Double-Check</title>
   <style>
     :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
-    body { max-width: 58rem; margin: 0 auto; padding: 2rem 1rem 4rem; line-height: 1.55; }
-    header { margin-bottom: 2rem; }
+    body { max-width: 62rem; margin: 0 auto; padding: 2rem 1rem 4rem; line-height: 1.55; }
+    header { margin-bottom: 2rem; border-bottom: 1px solid #8885; }
     h1, h2, h3 { line-height: 1.2; }
-    article { border-top: 1px solid #8888; padding: 1.5rem 0; }
+    article { border: 1px solid #8885; border-radius: .65rem; margin: 1rem 0;
+      padding: 1.25rem; }
+    article h3 { margin-top: 0; }
     .meta { color: #777; }
+    .status { margin: .5rem 0 1rem; }
     .badge, .tag { display: inline-block; border: 1px solid #8888; border-radius: 1rem;
       padding: .12rem .55rem; margin: .15rem .2rem .15rem 0; font-size: .85rem; }
     .errors-found { border-color: #b33; color: #b33; }
     .no-glaring-errors-found { border-color: #287a3c; color: #287a3c; }
     .inconclusive { border-color: #9a6a00; color: #9a6a00; }
     details { margin: .7rem 0; }
+    summary { cursor: pointer; }
+    .findings-body, .details-body { border-left: 2px solid #8884; margin: .65rem 0 0 .45rem;
+      padding-left: 1rem; }
+    .finding { margin: .7rem 0; }
+    .details-body p:first-child { margin-top: 0; }
     dt { font-weight: 650; margin-top: .5rem; }
     dd { margin-left: 0; }
     code { background: #8882; padding: .1rem .25rem; }
@@ -33,15 +41,14 @@
     <h2>Reviewed papers</h2>
     <article>
   <h3><a href="https://arxiv.org/abs/1810.04805v2">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</a></h3>
-  <p class="meta">Jacob Devlin, Ming-Wei Chang, Kenton Lee, Kristina Toutanova</p>
-  <p>
+  <p class="status">
     <span class="badge errors-found">Glaring errors found</span>
     <span class="tag">mathematical-error</span>
   </p>
-  <p>One concrete arithmetic inconsistency was identified in the stated estimate of pre-training corpus epochs.</p>
-  <details>
+  <details class="findings">
     <summary>Findings (1)</summary>
-    <details>
+    <div class="findings-body">
+      <details class="finding">
   <summary><strong>The claimed approximately 40 corpus epochs conflicts with the stated sequence-length schedule.</strong> (minor, high confidence)</summary>
   <dl>
     <dt>Tag</dt><dd>mathematical-error</dd>
@@ -51,24 +58,32 @@
     <dt>Evidence</dt><dd>The stated schedule processes at most 1,000,000 * 256 * (0.9 * 128 + 0.1 * 512) = 42.5984 billion token slots. Relative to the stated 3.3 billion-word corpus, that is about 12.9 passes, not 40; tokenization differences are not large enough to close the gap.</dd>
   </dl>
 </details>
+    </div>
   </details>
-  <details><summary>Review limitations</summary><ul><li>This arithmetic issue concerns the paper&#x27;s descriptive epoch estimate, not the reported downstream results.</li></ul></details>
-  <p class="meta">
-    <a href="https://arxiv.org/pdf/1810.04805v2.pdf">PDF</a> · arXiv 1810.04805v2 ·
-    reviewed 2026-07-25 12:21:00+00:00 UTC · gpt-5.6-sol (high)
-  </p>
+  <details class="paper-details">
+    <summary>Paper details</summary>
+    <div class="details-body">
+      <p><strong>Authors:</strong> Jacob Devlin, Ming-Wei Chang, Kenton Lee, Kristina Toutanova</p>
+      <p>One concrete arithmetic inconsistency was identified in the stated estimate of pre-training corpus epochs.</p>
+      <p>
+        <a href="https://arxiv.org/abs/1810.04805v2">arXiv</a> · <a href="https://arxiv.org/pdf/1810.04805v2.pdf">PDF</a> ·
+        1810.04805v2
+      </p>
+      <p class="meta">Reviewed 2026-07-25 12:21:00+00:00 UTC · gpt-5.6-sol (high)</p>
+      <h4>Review limitations</h4><ul><li>This arithmetic issue concerns the paper&#x27;s descriptive epoch estimate, not the reported downstream results.</li></ul>
+    </div>
+  </details>
 </article>
 <article>
   <h3><a href="https://arxiv.org/abs/1706.03762v7">Attention Is All You Need</a></h3>
-  <p class="meta">Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin</p>
-  <p>
+  <p class="status">
     <span class="badge errors-found">Glaring errors found</span>
     <span class="tag">factual-error</span>
   </p>
-  <p>One concrete internal error was identified: the paper reports two different English-French BLEU scores for the same headline model.</p>
-  <details>
+  <details class="findings">
     <summary>Findings (1)</summary>
-    <details>
+    <div class="findings-body">
+      <details class="finding">
   <summary><strong>The English-French headline score is internally inconsistent.</strong> (minor, high confidence)</summary>
   <dl>
     <dt>Tag</dt><dd>factual-error</dd>
@@ -78,12 +93,21 @@
     <dt>Evidence</dt><dd>The abstract and Table 2 report 41.8 BLEU, while Section 6.1 reports 41.0 BLEU for the English-French big model.</dd>
   </dl>
 </details>
+    </div>
   </details>
-  <details><summary>Review limitations</summary><ul><li>This discrepancy may be a typographical error and does not undermine the paper&#x27;s central architecture or results.</li></ul></details>
-  <p class="meta">
-    <a href="https://arxiv.org/pdf/1706.03762v7.pdf">PDF</a> · arXiv 1706.03762v7 ·
-    reviewed 2026-07-25 12:18:44+00:00 UTC · gpt-5.6-sol (high)
-  </p>
+  <details class="paper-details">
+    <summary>Paper details</summary>
+    <div class="details-body">
+      <p><strong>Authors:</strong> Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin</p>
+      <p>One concrete internal error was identified: the paper reports two different English-French BLEU scores for the same headline model.</p>
+      <p>
+        <a href="https://arxiv.org/abs/1706.03762v7">arXiv</a> · <a href="https://arxiv.org/pdf/1706.03762v7.pdf">PDF</a> ·
+        1706.03762v7
+      </p>
+      <p class="meta">Reviewed 2026-07-25 12:18:44+00:00 UTC · gpt-5.6-sol (high)</p>
+      <h4>Review limitations</h4><ul><li>This discrepancy may be a typographical error and does not undermine the paper&#x27;s central architecture or results.</li></ul>
+    </div>
+  </details>
 </article>
   </main>
 </body>

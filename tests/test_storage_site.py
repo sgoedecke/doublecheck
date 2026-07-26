@@ -85,6 +85,17 @@ class StorageAndSiteTests(unittest.TestCase):
             self.assertIn("counterexample", rendered)
             self.assertIn("Unsafe &lt;Title&gt;", rendered)
             self.assertNotIn("Unsafe <Title>", rendered)
+            self.assertIn('<details class="paper-details">', rendered)
+            self.assertIn("<summary>Paper details</summary>", rendered)
+            self.assertIn('<div class="findings-body">', rendered)
+            self.assertIn(
+                ".findings-body, .details-body { border-left:",
+                rendered,
+            )
+            self.assertGreater(
+                rendered.index("<strong>Authors:</strong>"),
+                rendered.index("<summary>Paper details</summary>"),
+            )
             self.assertTrue((output.parent / ".nojekyll").exists())
 
     def test_csv_rejects_invalid_verdict(self) -> None:

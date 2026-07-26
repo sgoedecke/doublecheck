@@ -126,6 +126,13 @@ An LLM review can miss errors or invent plausible-sounding objections. Every
 finding should be independently checked; a clean result is not evidence that a
 paper is correct.
 
+## Related work
+
+[To Err Is Human: Systematic Quantification of Errors in Published AI Papers via LLM Analysis](https://arxiv.org/abs/2512.05925)
+is related; this project differs because it is not restricted to AI papers,
+invites external contributors, and uses an
+[agentic harness instead of a pipeline](https://www.seangoedecke.com/build-agents-not-pipelines/).
+
 ## Tests
 
 ```sh

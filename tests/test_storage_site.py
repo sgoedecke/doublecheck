@@ -77,6 +77,12 @@ class StorageAndSiteTests(unittest.TestCase):
             upsert_record(csv_path, make_record(arxiv_id="2501.12345v2"))
             self.assertEqual(len(load_records(csv_path)), 2)
 
+    def test_upsert_creates_cross_process_lock_file(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            csv_path = Path(temporary) / "reviews.csv"
+            upsert_record(csv_path, make_record())
+            self.assertTrue((csv_path.parent / ".reviews.csv.lock").exists())
+
     def test_site_renders_tags_and_escapes_paper_data(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             output = Path(temporary) / "docs" / "index.html"

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import fcntl
 import json
 import os
 import tempfile
@@ -208,15 +209,22 @@ def load_records(path: Path) -> list[ReviewRecord]:
 
 
 def upsert_record(path: Path, record: ReviewRecord) -> None:
-    records = load_records(path)
-    by_id = {item.arxiv_id: item for item in records}
-    by_id[record.arxiv_id] = record
-    ordered = sorted(
-        by_id.values(),
-        key=lambda item: (item.reviewed_at, item.arxiv_id),
-        reverse=True,
-    )
-    write_records(path, ordered)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    lock_path = path.parent / f".{path.name}.lock"
+    with lock_path.open("a+", encoding="utf-8") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        try:
+            records = load_records(path)
+            by_id = {item.arxiv_id: item for item in records}
+            by_id[record.arxiv_id] = record
+            ordered = sorted(
+                by_id.values(),
+                key=lambda item: (item.reviewed_at, item.arxiv_id),
+                reverse=True,
+            )
+            write_records(path, ordered)
+        finally:
+            fcntl.flock(lock, fcntl.LOCK_UN)
 
 
 def write_records(path: Path, records: Iterable[ReviewRecord]) -> None:

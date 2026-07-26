@@ -175,7 +175,7 @@ def download_and_extract_source(
     destination.mkdir(parents=True, exist_ok=True)
     try:
         return _extract_tar(payload, destination)
-    except tarfile.ReadError:
+    except (tarfile.TarError, EOFError):
         pass
 
     try:
@@ -185,7 +185,7 @@ def download_and_extract_source(
 
     try:
         return _extract_tar(decompressed, destination)
-    except tarfile.ReadError:
+    except (tarfile.TarError, EOFError):
         if b"\x00" in decompressed[:4096]:
             return SourceExtraction(False, 0, "source payload was not a supported archive")
         target = destination / "main.tex"

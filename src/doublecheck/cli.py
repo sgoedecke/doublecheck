@@ -17,6 +17,7 @@ from doublecheck.review import (
     DEFAULT_MODEL,
     EFFORTS,
     ReviewError,
+    ReviewParseError,
     extract_pdf_text,
     run_copilot_review,
 )
@@ -108,15 +109,25 @@ def _review(args: argparse.Namespace) -> int:
             f"Reviewing with {args.model} at {args.effort} effort...",
             file=sys.stderr,
         )
-        result = run_copilot_review(
-            metadata=metadata,
-            paper_text_path=paper_text_path,
-            source=source,
-            workspace=workspace,
-            model=args.model,
-            effort=args.effort,
-            timeout_seconds=args.timeout,
-        )
+        try:
+            result = run_copilot_review(
+                metadata=metadata,
+                paper_text_path=paper_text_path,
+                source=source,
+                workspace=workspace,
+                model=args.model,
+                effort=args.effort,
+                timeout_seconds=args.timeout,
+            )
+        except ReviewParseError as exc:
+            pending_path = _save_pending_review(
+                args.csv,
+                metadata.arxiv_id,
+                exc.raw_response,
+            )
+            raise ReviewError(
+                f"{exc}; full response saved to {pending_path}"
+            ) from exc
 
     record = ReviewRecord.from_review(
         metadata=metadata,
@@ -147,3 +158,16 @@ def _positive_int(value: str) -> int:
     if parsed <= 0:
         raise argparse.ArgumentTypeError("must be greater than zero")
     return parsed
+
+
+def _save_pending_review(
+    csv_path: Path,
+    arxiv_id: str,
+    raw_response: str,
+) -> Path:
+    pending_directory = csv_path.parent / "pending"
+    pending_directory.mkdir(parents=True, exist_ok=True)
+    safe_id = arxiv_id.replace("/", "_")
+    output = pending_directory / f"{safe_id}.txt"
+    output.write_text(raw_response, encoding="utf-8")
+    return output

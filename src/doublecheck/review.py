@@ -38,6 +38,12 @@ class ReviewError(RuntimeError):
     pass
 
 
+class ReviewParseError(ReviewError):
+    def __init__(self, message: str, raw_response: str) -> None:
+        super().__init__(message)
+        self.raw_response = raw_response
+
+
 @dataclass(frozen=True)
 class ReviewResult:
     verdict: str
@@ -101,8 +107,9 @@ def run_copilot_review(
         return parse_review_response(completed.stdout)
     except ReviewError as exc:
         response_excerpt = completed.stdout.strip()[:4000]
-        raise ReviewError(
-            f"{exc}; Copilot response began: {response_excerpt}"
+        raise ReviewParseError(
+            f"{exc}; Copilot response began: {response_excerpt}",
+            completed.stdout,
         ) from exc
 
 

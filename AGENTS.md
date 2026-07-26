@@ -40,6 +40,12 @@ Use the repository defaults: `gpt-5.6-sol` with high reasoning effort. A review
 may take several minutes. Transient arXiv source failures are acceptable because
 the pipeline can review the extracted PDF text alone.
 
+JSON parsing is only the automated fast path. If a completed model response
+cannot be parsed, read the raw response saved under `data/pending/`, adjudicate
+its proposed findings against the standard below, and use the project storage
+helpers to write the normalized review into `data/reviews.csv`. Do not rerun an
+expensive review solely because its formatting was imperfect.
+
 ## Finding standard
 
 Only retain high-confidence, demonstrable internal errors established from the

@@ -5,6 +5,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 from doublecheck.arxiv import PaperMetadata, SourceExtraction
+from doublecheck.cli import _save_pending_review
 from doublecheck.review import (
     ReviewError,
     build_copilot_command,
@@ -147,6 +148,19 @@ class ParseReviewResponseTests(unittest.TestCase):
                     Path(temporary) / "paper.pdf",
                     Path(temporary) / "paper.txt",
                 )
+
+    def test_saves_unparsed_review_for_agent_adjudication(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            output = _save_pending_review(
+                Path(temporary) / "reviews.csv",
+                "math/0303109v1",
+                "unstructured review",
+            )
+            self.assertEqual(output.name, "math_0303109v1.txt")
+            self.assertEqual(
+                output.read_text(encoding="utf-8"),
+                "unstructured review",
+            )
 
 
 if __name__ == "__main__":

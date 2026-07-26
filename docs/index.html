@@ -56,23 +56,303 @@
   <main>
     <div class="filters" aria-label="Review filters">
       <label>Field
-        <select id="field-filter"><option value="">All fields</option><option value="Computer Science">Computer Science</option></select>
+        <select id="field-filter"><option value="">All fields</option><option value="Computer Science">Computer Science</option><option value="Statistics">Statistics</option></select>
       </label>
       <label>Error type
-        <select id="error-filter"><option value="">All error types</option><option value="experimental-error">Experimental Error</option><option value="factual-error">Factual Error</option><option value="logical-error">Logical Error</option><option value="mathematical-error">Mathematical Error</option></select>
+        <select id="error-filter"><option value="">All error types</option><option value="experimental-error">Experimental Error</option><option value="factual-error">Factual Error</option><option value="logical-error">Logical Error</option><option value="mathematical-error">Mathematical Error</option><option value="statistical-error">Statistical Error</option></select>
       </label>
       <label>Severity
         <select id="severity-filter"><option value="">All severities</option><option value="major">Major</option><option value="minor">Minor</option><option value="none">None</option></select>
       </label>
       <button type="button" id="clear-filters">Clear filters</button>
     </div>
-    <p id="result-count">10 papers</p>
+    <p id="result-count">15 papers</p>
     <div class="table-wrap">
       <table>
         <thead>
           <tr><th>Paper</th><th>Field</th><th>Verdict</th><th>Error type</th><th>Severity</th></tr>
         </thead>
         <tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,factual-error,statistical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/2005.11401v4"><strong>Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">factual-error</span><span class="tag">statistical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (4)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The paper gives incompatible descriptions of the FEVER classifier.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 3.4, page 4; Appendix E, page 18</dd>
+    <dt>Analysis</dt><dd>The main text describes labels as generated output tokens, whereas the appendix describes a hidden-state classifier producing class probabilities. These are distinct prediction procedures for the same reported experiment.</dd>
+    <dt>Evidence</dt><dd>Section 3.4 says class labels are mapped to single output tokens and trained using claim-class pairs. Appendix E instead says the model first regenerates the claim, classifies using its final hidden state, and marginalizes class probabilities across documents.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The prose and table report different rates for both systems being factual.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 4.3, page 5; Table 4, page 7</dd>
+    <dt>Analysis</dt><dd>Both passages describe the same Jeopardy human evaluation outcome but give incompatible percentages.</dd>
+    <dt>Evidence</dt><dd>Section 4.3 states that both RAG and BART were factual in 17% of cases. Table 4 reports 11.7% for Both good; 17.7% is instead assigned to Both poor.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The specificity percentages in Table 4 omit seven percentage points.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>statistical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Table 4, page 7</dd>
+    <dt>Analysis</dt><dd>The listed categories cover the comparative outcomes plus no-majority cases, yet their percentages do not total 100%. One-decimal rounding cannot explain the discrepancy.</dd>
+    <dt>Evidence</dt><dd>16.8% + 37.4% + 11.8% + 6.9% + 20.1% = 93.0%, whereas the factuality column totals 100.0%.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The appendix counts a frozen document encoder as trainable parameters.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 2.4, page 3; Appendix G, pages 18-19</dd>
+    <dt>Analysis</dt><dd>The paper states that only the query encoder and BART generator are fine-tuned, so the stated component sizes yield 516M trainable parameters, not 626M.</dd>
+    <dt>Evidence</dt><dd>The trainable components are the 110M query encoder and 406M BART generator: 110M + 406M = 516M. The 626M total also includes the 110M document encoder, which the paper says is not trained.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Küttler, Mike Lewis, Wen-tau Yih, Tim Rocktäschel, Sebastian Riedel, Douwe Kiela</p>
+              <p>Four demonstrable internal inconsistencies affect the FEVER method description, human-evaluation results, and parameter count.</p>
+              <p><a href="https://arxiv.org/abs/2005.11401v4">arXiv</a> · <a href="https://arxiv.org/pdf/2005.11401v4.pdf">PDF</a> ·
+              2005.11401v4</p>
+              <p class="meta">Reviewed 2026-07-26 03:01:43+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Statistics"
+  data-error-types="mathematical-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1312.6114v11"><strong>Auto-Encoding Variational Bayes</strong></a></td>
+    <td>Statistics</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The paper incorrectly states that maximizing mutual information is equivalent to maximizing conditional entropy.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Page 6, Section 4, lines 327-332</dd>
+    <dt>Analysis</dt><dd>For a fixed data distribution, I(X;Z)=H(X)-H(X|Z), so maximizing mutual information requires minimizing, not maximizing, H(X|Z). The expected conditional log-likelihood lower-bounds -H(X|Z), not H(X|Z). This is a definite sign error, although it does not affect the paper&#x27;s principal derivations.</dd>
+    <dt>Evidence</dt><dd>Let X be a fair binary variable. If Z=X, then I(X;Z)=1 bit and H(X|Z)=0. If Z is independent of X, then I(X;Z)=0 while H(X|Z)=1 bit. Thus maximizing conditional entropy favors the representation with lower mutual information, directly contradicting the stated equivalence.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Diederik P. Kingma, Max Welling</p>
+              <p>One demonstrable sign error appears in the related-work discussion; the central SGVB and AEVB derivations show no glaring internal error.</p>
+              <p><a href="https://arxiv.org/abs/1312.6114v11">arXiv</a> · <a href="https://arxiv.org/pdf/1312.6114v11.pdf">PDF</a> ·
+              1312.6114v11</p>
+              <p class="meta">Reviewed 2026-07-26 02:42:35+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,mathematical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1207.0580v1"><strong>Improving neural networks by preventing co-adaptation of feature detectors</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (3)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The momentum equation implements the reverse of the stated schedule.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Appendix A.1, page 8, momentum schedule equation</dd>
+    <dt>Analysis</dt><dd>The prose says momentum increases linearly from 0.5 to 0.99 over 500 epochs, but the displayed equation starts at 0.99 and decreases toward 0.5.</dd>
+    <dt>Evidence</dt><dd>The equation is p^t=(t/T)p_i+(1-t/T)p_f for t&lt;T, with p_i=0.5 and p_f=0.99. Therefore p^0=0.99 and p^t approaches 0.5 as t approaches 500, exactly opposite to the stated schedule.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The CIFAR-10 architecture is described incompatibly in the main text and appendix.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>CIFAR-10 discussion, page 4; Appendix G, page 17</dd>
+    <dt>Analysis</dt><dd>The descriptions disagree about both the pooling operations and whether the non-dropout model contains the locally connected layer.</dd>
+    <dt>Evidence</dt><dd>The main text describes three max-pooling layers followed by a locally connected layer for the 16.6% model. Appendix G says only the first pooling layer uses max pooling, the other two use average pooling, and the non-dropout model connects the third pooling layer directly to softmax; the locally connected layer is added only to the dropout model.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The ImageNet baseline and dropout architectures are described incompatibly.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>ImageNet discussion, page 4; Appendix H, pages 17–18</dd>
+    <dt>Analysis</dt><dd>The main text assigns two globally connected layers to the non-dropout baseline, whereas the appendix explicitly says those layers are absent from that model. It also disagrees about which layers receive dropout.</dd>
+    <dt>Evidence</dt><dd>The main text attributes 48.6% error to a network with five convolutional layers followed by two globally connected layers and says dropout in the sixth hidden layer produces 42.4%.  Appendix H says the dropout model has both globally connected layers with dropout in both, while the non-dropout model omits both layers.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Geoffrey E. Hinton, Nitish Srivastava, Alex Krizhevsky, Ilya Sutskever, Ruslan R. Salakhutdinov</p>
+              <p>The paper contains a reversed momentum schedule equation and contradictory descriptions of the CIFAR-10 and ImageNet architectures.</p>
+              <p><a href="https://arxiv.org/abs/1207.0580v1">arXiv</a> · <a href="https://arxiv.org/pdf/1207.0580v1.pdf">PDF</a> ·
+              1207.0580v1</p>
+              <p class="meta">Reviewed 2026-07-26 02:39:28+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1502.03167v3"><strong>Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Batch Normalization is not invariant to an arbitrary scalar rescaling as claimed.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 3.3, page 5, displayed equations beginning BN(Wu) = BN((aW)u)</dd>
+    <dt>Analysis</dt><dd>The claimed equality contradicts Algorithm 1&#x27;s definition. Consequently, the stated Jacobian equalities and conclusion that parameter scale does not affect gradient propagation do not follow exactly.</dd>
+    <dt>Evidence</dt><dd>Set gamma=1, beta=0 and let Wu over a batch be (-1,1). For a=-1,  Algorithm 1 gives BN(Wu)=(-1,1)/sqrt(1+epsilon), whereas BN((aW)u)=(1,-1)/sqrt(1+epsilon), so they are unequal. Even restricting a to positive values does not rescue the exact claim when epsilon&gt;0: for a=2, the outputs are (-1,1)/sqrt(1+epsilon) and (-2,2)/sqrt(4+epsilon), respectively.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The stated output depths of Inception modules 4c and 4d disagree with their listed branch widths.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Appendix, Figure 5, page 11, rows inception (4c) and inception (4d)</dd>
+    <dt>Analysis</dt><dd>The table describes concatenated Inception branches, so output depth is the sum of the branch output widths; reduction widths are not outputs. The listed values do  not sum to the stated depth.</dd>
+    <dt>Evidence</dt><dd>For 4c, the output branches have widths 160, 160, 160, and 128, totaling 608 rather than the stated 576. For 4d, they have widths 96, 192, 192, and 128, again totaling 608 rather than 576.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Sergey Ioffe, Christian Szegedy</p>
+              <p>Two demonstrable internal errors were found: an incorrect scale-invariance identity and inconsistent channel arithmetic in the architecture table.</p>
+              <p><a href="https://arxiv.org/abs/1502.03167v3">arXiv</a> · <a href="https://arxiv.org/pdf/1502.03167v3.pdf">PDF</a> ·
+              1502.03167v3</p>
+              <p class="meta">Reviewed 2026-07-26 02:37:42+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Statistics"
+  data-error-types="logical-error,mathematical-error" data-severities="major">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1406.2661v1"><strong>Generative Adversarial Networks</strong></a></td>
+    <td>Statistics</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">logical-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The minimax game does not have a unique solution in the space of arbitrary functions  G and D.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Abstract; Section 4.1, Proposition 1 and Theorem 1</dd>
+    <dt>Analysis</dt><dd>The abstract claims a unique functional solution, but Theorem 1 establishes uniqueness only of the generated distribution pg. Distinct generators can induce the same optimal distribution. Proposition 1 also states that D need not be defined outside the union of the two distributions&#x27; supports, contradicting the claim that the unique solution has D equal to 1/2 everywhere.</dd>
+    <dt>Evidence</dt><dd>Let z be uniform on [0,1] and pdata be uniform on [0,1]. Both G1(z)=z and G2(z)=1-z are distinct functions inducing pg=pdata, and both attain C(G)=-log 4 with D=1/2 on the support. Moreover, D may take arbitrary values outside [0,1] without affecting the objective. Hence multiple functional pairs (G,D) solve the game.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Merely improving the criterion at each sufficiently small update does not imply that  pg converges to pdata.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>counterexample</dd>
+    <dt>Location</dt><dd>Section 4.2, Proposition 2 and its proof</dd>
+    <dt>Analysis</dt><dd>The proof incorrectly infers convergence from convexity, a unique optimum, and sufficiently small improving updates. Convergence additionally requires conditions such as a suitable nonsummable step-size schedule. Arbitrarily small, strictly improving gradient steps can have finite total displacement and stop short of the optimum.</dd>
+    <dt>Evidence</dt><dd>Take a two-point space with pdata(1)=1/2 and pg,n(1)=qn, where qn=0.8+10^-6*2^-n.  For q&gt;1/2, the virtual criterion has derivative C&#x27;(q)=log(q(1.5-q)/((0.5+q)(1-q)))&gt;0. Thus every update qn+1&lt;qn strictly improves C and can be written as a positive gradient-descent step; the updates are arbitrarily small and D may be optimized exactly at every step. Nevertheless qn converges to 0.8 rather than 0.5, so pg does not converge to pdata.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, Yoshua Bengio</p>
+              <p>The paper contains a false uniqueness claim and an invalid convergence proposition.</p>
+              <p><a href="https://arxiv.org/abs/1406.2661v1">arXiv</a> · <a href="https://arxiv.org/pdf/1406.2661v1.pdf">PDF</a> ·
+              1406.2661v1</p>
+              <p class="meta">Reviewed 2026-07-26 02:34:58+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
   data-error-types="logical-error" data-severities="minor">
   <tr>
     <td><a href="https://arxiv.org/abs/1409.3215v3"><strong>Sequence to Sequence Learning with Neural Networks</strong></a></td>

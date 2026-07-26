@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable
 
-from doublecheck.arxiv import PaperMetadata
+from doublecheck.arxiv import PaperMetadata, field_for_category
 from doublecheck.review import (
     CATEGORIES,
     EFFORTS,
@@ -23,6 +23,7 @@ FIELDNAMES = (
     "arxiv_id",
     "title",
     "authors",
+    "field",
     "version",
     "arxiv_url",
     "pdf_url",
@@ -48,6 +49,7 @@ class ReviewRecord:
     arxiv_id: str
     title: str
     authors: tuple[str, ...]
+    field: str
     version: int
     arxiv_url: str
     pdf_url: str
@@ -76,6 +78,7 @@ class ReviewRecord:
             arxiv_id=metadata.arxiv_id,
             title=metadata.title,
             authors=metadata.authors,
+            field=field_for_category(metadata.primary_category),
             version=metadata.version,
             arxiv_url=metadata.abstract_url,
             pdf_url=metadata.pdf_url,
@@ -93,7 +96,11 @@ class ReviewRecord:
 
     @classmethod
     def from_row(cls, row: dict[str, str]) -> "ReviewRecord":
-        missing = [field for field in FIELDNAMES if field not in row]
+        missing = [
+            field
+            for field in FIELDNAMES
+            if field != "field" and field not in row
+        ]
         if missing:
             raise StorageError(f"CSV is missing fields: {', '.join(missing)}")
         try:
@@ -120,6 +127,9 @@ class ReviewRecord:
             ) from exc
         if version < 1:
             raise StorageError("version must be greater than zero")
+        field = row.get("field") or "Other"
+        if not field.strip():
+            raise StorageError("field must be a non-empty string")
         if row["verdict"] not in VERDICTS:
             raise StorageError(f"invalid verdict: {row['verdict']}")
         if row["effort"] not in EFFORTS:
@@ -144,6 +154,7 @@ class ReviewRecord:
             arxiv_id=row["arxiv_id"],
             title=row["title"],
             authors=authors,
+            field=field,
             version=version,
             arxiv_url=row["arxiv_url"],
             pdf_url=row["pdf_url"],
@@ -164,6 +175,7 @@ class ReviewRecord:
             "arxiv_id": self.arxiv_id,
             "title": self.title,
             "authors": json.dumps(self.authors),
+            "field": self.field,
             "version": str(self.version),
             "arxiv_url": self.arxiv_url,
             "pdf_url": self.pdf_url,
@@ -185,7 +197,10 @@ def load_records(path: Path) -> list[ReviewRecord]:
         return []
     with path.open(newline="", encoding="utf-8") as handle:
         reader = csv.DictReader(handle)
-        if reader.fieldnames != list(FIELDNAMES):
+        legacy_fieldnames = [
+            field for field in FIELDNAMES if field != "field"
+        ]
+        if reader.fieldnames not in (list(FIELDNAMES), legacy_fieldnames):
             raise StorageError(
                 "CSV header does not match the expected review schema"
             )

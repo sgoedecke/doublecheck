@@ -9,6 +9,7 @@ from doublecheck.arxiv import (
     PaperMetadata,
     _read_limited,
     download_and_extract_source,
+    field_for_category,
     normalize_arxiv_id,
 )
 
@@ -69,6 +70,14 @@ class NormalizeArxivIdTests(unittest.TestCase):
             )
         self.assertFalse(result.available)
         self.assertIn("HTTP 429", result.note)
+
+    def test_maps_arxiv_categories_to_broad_fields(self) -> None:
+        self.assertEqual(field_for_category("cs.CL"), "Computer Science")
+        self.assertEqual(field_for_category("math.AG"), "Mathematics")
+        self.assertEqual(
+            field_for_category("astro-ph.CO"),
+            "Physics and Astronomy",
+        )
 
 
 if __name__ == "__main__":

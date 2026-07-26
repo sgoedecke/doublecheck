@@ -397,6 +397,16 @@ def validate_finding(value: object, index: int) -> dict[str, str]:
 
 def _required_string(value: dict[str, Any], key: str) -> str:
     item = value.get(key)
+    if item is None:
+        item = next(
+            (
+                candidate
+                for candidate_key, candidate in value.items()
+                if isinstance(candidate_key, str)
+                and "".join(candidate_key.split()) == key
+            ),
+            None,
+        )
     if not isinstance(item, str) or not item.strip():
         raise ReviewError(f"{key} must be a non-empty string")
     return item.strip()

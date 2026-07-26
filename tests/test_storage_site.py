@@ -29,6 +29,7 @@ def make_record(
         summary="Abstract",
         published="2025-01-01T00:00:00Z",
         updated="2025-01-02T00:00:00Z",
+        primary_category="math.OC",
     )
     review = ReviewResult(
         verdict="errors-found",
@@ -88,6 +89,11 @@ class StorageAndSiteTests(unittest.TestCase):
             self.assertIn('<details class="paper-details">', rendered)
             self.assertIn("<summary>Paper details</summary>", rendered)
             self.assertIn('<div class="findings-body">', rendered)
+            self.assertIn('<table>', rendered)
+            self.assertIn('id="field-filter"', rendered)
+            self.assertIn('id="error-filter"', rendered)
+            self.assertIn('id="severity-filter"', rendered)
+            self.assertIn('data-field="Mathematics"', rendered)
             self.assertIn(
                 ".findings-body, .details-body { border-left:",
                 rendered,

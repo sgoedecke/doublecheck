@@ -38,6 +38,7 @@ class PaperMetadata:
     summary: str
     published: str
     updated: str
+    primary_category: str = "unknown"
 
     @property
     def version(self) -> int:
@@ -106,6 +107,10 @@ def fetch_metadata(arxiv_id: str, timeout: int = 30) -> PaperMetadata:
         raise ArxivError("arXiv returned invalid metadata XML") from exc
 
     atom = {"atom": "http://www.w3.org/2005/Atom"}
+    namespaces = {
+        **atom,
+        "arxiv": "http://arxiv.org/schemas/atom",
+    }
     entry = root.find("atom:entry", atom)
     if entry is None:
         raise ArxivError(f"arXiv paper not found: {arxiv_id}")
@@ -118,6 +123,16 @@ def fetch_metadata(arxiv_id: str, timeout: int = 30) -> PaperMetadata:
         for name in entry.findall("atom:author/atom:name", atom)
         if (name.text or "").strip()
     )
+    primary_category = entry.find("arxiv:primary_category", namespaces)
+    if primary_category is not None:
+        category = primary_category.attrib.get("term", "unknown")
+    else:
+        fallback_category = entry.find("atom:category", atom)
+        category = (
+            fallback_category.attrib.get("term", "unknown")
+            if fallback_category is not None
+            else "unknown"
+        )
     return PaperMetadata(
         arxiv_id=identifier,
         title=title,
@@ -125,6 +140,7 @@ def fetch_metadata(arxiv_id: str, timeout: int = 30) -> PaperMetadata:
         summary=summary,
         published=_required_text(entry, "atom:published", atom),
         updated=_required_text(entry, "atom:updated", atom),
+        primary_category=category,
     )
 
 
@@ -259,3 +275,38 @@ def _required_text(
 
 def _collapse_whitespace(value: str) -> str:
     return " ".join(value.split())
+
+
+def field_for_category(category: str) -> str:
+    if category.startswith("cs."):
+        return "Computer Science"
+    if category.startswith("math."):
+        return "Mathematics"
+    if category.startswith("stat."):
+        return "Statistics"
+    if category.startswith("q-bio."):
+        return "Quantitative Biology"
+    if category.startswith("q-fin."):
+        return "Quantitative Finance"
+    if category.startswith("econ."):
+        return "Economics"
+    if category.startswith("eess."):
+        return "Electrical Engineering"
+    if category == "astro-ph" or category.startswith("astro-ph."):
+        return "Physics and Astronomy"
+    if category == "cond-mat" or category.startswith("cond-mat."):
+        return "Physics and Astronomy"
+    if category == "physics" or category.startswith("physics."):
+        return "Physics and Astronomy"
+    if category in {
+        "gr-qc",
+        "hep-ex",
+        "hep-lat",
+        "hep-ph",
+        "hep-th",
+        "nucl-ex",
+        "nucl-th",
+        "quant-ph",
+    }:
+        return "Physics and Astronomy"
+    return "Other"

@@ -91,9 +91,9 @@ ID and version already present in the CSV.
 
 ## Review data
 
-The CSV stores paper metadata, verdict, summary, model configuration, findings,
-limitations, and normalized problem tags. Structured values are JSON-encoded
-inside their CSV fields.
+The CSV stores paper metadata, broad arXiv-derived field, verdict, summary,
+model configuration, findings, limitations, and normalized problem tags.
+Structured values are JSON-encoded inside their CSV fields.
 
 Error tags are selected from:
 

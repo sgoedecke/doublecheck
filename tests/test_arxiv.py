@@ -76,13 +76,17 @@ class NormalizeArxivIdTests(unittest.TestCase):
                 with TemporaryDirectory() as temporary, patch(
                     "doublecheck.arxiv._urlopen",
                     side_effect=error,
-                ):
+                ) as urlopen:
                     result = download_and_extract_source(
                         metadata,
                         Path(temporary) / "source",
                     )
                 self.assertFalse(result.available)
                 self.assertIn(f"HTTP {status}", result.note)
+                self.assertEqual(
+                    urlopen.call_args.kwargs["max_attempts"],
+                    1,
+                )
 
     def test_maps_arxiv_categories_to_broad_fields(self) -> None:
         self.assertEqual(field_for_category("cs.CL"), "Computer Science")

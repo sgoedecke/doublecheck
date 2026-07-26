@@ -227,12 +227,16 @@ def download_pdf(metadata: PaperMetadata, destination: Path, timeout: int = 60) 
 def download_and_extract_source(
     metadata: PaperMetadata,
     destination: Path,
-    timeout: int = 60,
+    timeout: int = 30,
 ) -> SourceExtraction:
     url = f"https://export.arxiv.org/e-print/{metadata.arxiv_id}"
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     try:
-        with _urlopen(request, timeout=timeout) as response:
+        with _urlopen(
+            request,
+            timeout=timeout,
+            max_attempts=1,
+        ) as response:
             payload = _read_limited(response, MAX_DOWNLOAD_BYTES)
     except urllib.error.HTTPError as exc:
         if 300 <= exc.code <= 399 or exc.code in {403, 404, 429} or 500 <= exc.code <= 599:

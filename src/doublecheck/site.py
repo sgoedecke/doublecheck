@@ -57,7 +57,8 @@ def build_site(records: list[ReviewRecord], output: Path) -> None:
 <body>
   <header>
     <h1>arXiv Double-Check</h1>
-    <p>LLM-assisted audits for demonstrable internal errors.</p>
+    <p>LLM-assisted audits for open scientific papers.</p>
+    <p><a href="https://github.com/sgoedecke/doublecheck">Contributions welcome on GitHub.</a></p>
   </header>
   <main>
     <h2>Reviewed papers</h2>

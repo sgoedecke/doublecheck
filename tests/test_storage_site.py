@@ -98,6 +98,14 @@ class StorageAndSiteTests(unittest.TestCase):
             )
             self.assertNotIn("Review limitations", rendered)
             self.assertNotIn("Not machine-checked.", rendered)
+            self.assertIn(
+                "LLM-assisted audits for open scientific papers.",
+                rendered,
+            )
+            self.assertIn(
+                'href="https://github.com/sgoedecke/doublecheck"',
+                rendered,
+            )
             self.assertTrue((output.parent / ".nojekyll").exists())
 
     def test_csv_rejects_invalid_verdict(self) -> None:

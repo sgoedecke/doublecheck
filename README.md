@@ -6,6 +6,22 @@ rebuilds a minimal static index for GitHub Pages.
 
 The default reviewer is `gpt-5.6-sol` with high reasoning effort.
 
+## Vision
+
+The goal is a central, public database of LLM-assisted audits for research
+papers. A review belongs in the database whether it finds an error or not:
+clean audits make the corpus useful, while concrete findings give readers a
+specific claim to verify.
+
+The corpus should span disciplines and include both highly cited landmark
+papers and moderately cited work that is less likely to receive sustained
+scrutiny. arXiv provides the stable paper identifiers and source artifacts;
+the static site makes the accumulated reviews easy to browse.
+
+Contributions are designed to be agent-friendly. You should be able to point a
+capable coding agent at this repository and ask it to contribute paper reviews.
+Repository-specific instructions are in [`AGENTS.md`](AGENTS.md).
+
 ## Requirements
 
 - Python 3.9 or newer
@@ -51,6 +67,27 @@ Rebuild the site without running a review:
 ```sh
 doublecheck build
 ```
+
+## Contribute reviews
+
+Contributions that add papers are welcome. A focused review PR should:
+
+1. choose one or more arXiv papers that are not already in
+   `data/reviews.csv`, preferably improving the corpus's disciplinary and
+   citation-range coverage;
+2. run `doublecheck review <arxiv-id>` for each paper, sequentially;
+3. inspect every proposed finding and remove anything that does not meet the
+   strict, demonstrable-error standard below;
+4. run the tests and regenerate the static site;
+5. commit the resulting `data/reviews.csv` and `docs/index.html` changes; and
+6. explain the paper-selection rationale and summarize any findings in the PR.
+
+Reviews with `no-glaring-errors-found` are valid and useful contributions. Do
+not manufacture a finding to make a review seem more interesting.
+
+Use the latest arXiv version unless there is a reason to audit a historically
+important earlier version. Avoid duplicate work by checking both the base arXiv
+ID and version already present in the CSV.
 
 ## Review data
 

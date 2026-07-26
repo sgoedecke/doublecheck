@@ -66,13 +66,418 @@
       </label>
       <button type="button" id="clear-filters">Clear filters</button>
     </div>
-    <p id="result-count">15 papers</p>
+    <p id="result-count">22 papers</p>
     <div class="table-wrap">
       <table>
         <thead>
           <tr><th>Paper</th><th>Field</th><th>Verdict</th><th>Error type</th><th>Severity</th></tr>
         </thead>
         <tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,logical-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1910.10683v4"><strong>Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">logical-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (6)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The  reported results for adapter layers with d=2048 conflict between the main table and appendix.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Table 10, page 29; Table 16, page 57</dd>
+    <dt>Analysis</dt><dd>Both rows identify the same  d=2048 adapter experiment, but all seven condensed metrics differ. Therefore at least one table is erroneous.</dd>
+    <dt>Evidence</dt><dd>Table 10 reports GLUE/CNNDM/SQuAD/SGLUE/EnDe/EnFr/EnRo as 81.51/16.62/79.47/63.03/19.83/27.50/22.63, exactly duplicating its d=128 row. Table 16 reports the d=2048 experiment as 82.62/18.30/79.40/68.61/25.64/36.92/26.93.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The WNLI preprocessing example searches for a pronoun in a sentence that contains no such pronoun.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>logical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Appendix B, page 44</dd>
+    <dt>Analysis</dt><dd>The stated preprocessing step cannot operate on the example under the paper&#x27;s own premise/hypothesis assignments.</dd>
+    <dt>Evidence</dt><dd>The paper calls “The demonstrators feared violence.” the premise and then says it finds pronouns in the premise, identifying “they” in this example. That sentence contains no “they”; “they” occurs only in the sentence the paper calls the hypothesis.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The assertion that denoising always outperforms language-model pre-training is false in the paper&#x27;s own results.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 3.2.4 and Table 2, page 19</dd>
+    <dt>Analysis</dt><dd>Several matched architecture comparisons favor the language-model objective, directly refuting the universal claim.</dd>
+    <dt>Evidence</dt><dd>For the decoder-only language model, the language-model objective scores 56.51 on SuperGLUE and 25.23 on EnDe, versus 55.02 and 25.09 with denoising. Language-model pre-training also exceeds denoising on EnFr for the shared encoder-decoder (39.17 versus 39.03) and six-layer encoder-decoder (38.42 versus 38.40).</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>T5-11B did not perform best among model-size variants on every task.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 3.7 and Table 14, pages 38–39</dd>
+    <dt>Analysis</dt><dd>One reported task has a strictly higher score from a smaller variant.</dd>
+    <dt>Evidence</dt><dd>On WMT English-to-Romanian, T5-3B scores 28.2 BLEU while T5-11B scores 28.1, contradicting the statement that T5-11B performed best “across all tasks.”</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Unfiltered C4 is not the worst-performing data set on every reported task.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 3.4.1 and Table 8, page 26</dd>
+    <dt>Analysis</dt><dd>The universal ranking stated in the text has an explicit exception in the adjacent table.</dd>
+    <dt>Evidence</dt><dd>Unfiltered C4 scores 68.04 on SuperGLUE, while Wikipedia scores 68.01. Thus Wikipedia, not unfiltered C4, is worst  on that reported benchmark.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The stated inverse-square-root learning-rate schedule is incorrectly described as exponential decay.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 3.1.2, page 11</dd>
+    <dt>Analysis</dt><dd>After warm-up, the displayed formula gives polynomial decay proportional to n^(-1/2), not exponential decay.</dd>
+    <dt>Evidence</dt><dd>The paper specifies 1/sqrt(max(n,k)). For n&gt;k this is 1/sqrt(n), whose successive ratios vary with n; an exponentially decaying schedule has a constant multiplicative ratio or form proportional to exp(-cn).</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, Wei Li, Peter J. Liu</p>
+              <p>The paper contains one major result-reporting inconsistency and  five explicit contradictions with its own formulas, examples, or tables.</p>
+              <p><a href="https://arxiv.org/abs/1910.10683v4">arXiv</a> · <a href="https://arxiv.org/pdf/1910.10683v4.pdf">PDF</a> ·
+              1910.10683v4</p>
+              <p class="meta">Reviewed 2026-07-26 03:37:23+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1409.4842v1"><strong>Going Deeper with Convolutions</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Table 1 substantially undercounts the first convolution&#x27;s parameters and operations.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Page 5, Table 1, first convolution row</dd>
+    <dt>Analysis</dt><dd>The stated RGB input, 7×7 convolution, 64 output channels, and 112×112 output determine the counts unambiguously. They disagree with the table&#x27;s 2.7K parameters and 34M operations.</dd>
+    <dt>Evidence</dt><dd>A dense 7×7 convolution from 3 RGB channels to 64 channels has 7×7×3×64 = 9,408 weights, not 2.7K. Applied at 112×112 positions, it requires 9,408×112×112 = 118,013,952 multiply-adds, not 34M.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The final row of Table 3 gives the wrong improvement relative to the base error.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Page 8, Table 3, 7-model/144-crop row</dd>
+    <dt>Analysis</dt><dd>The table explicitly defines 10.07% as the base and reports 6.67% for this configuration, so the percentage-point difference is directly computable.</dd>
+    <dt>Evidence</dt><dd>6.67% − 10.07% = −3.40 percentage points, whereas the table reports −3.45%.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelov, Dumitru Erhan, Vincent Vanhoucke, Andrew Rabinovich</p>
+              <p>Two demonstrable arithmetic errors occur in the reported architecture and classification tables.</p>
+              <p><a href="https://arxiv.org/abs/1409.4842v1">arXiv</a> · <a href="https://arxiv.org/pdf/1409.4842v1.pdf">PDF</a> ·
+              1409.4842v1</p>
+              <p class="meta">Reviewed 2026-07-26 03:33:57+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="mathematical-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/1707.06347v2"><strong>Proximal Policy Optimization Algorithms</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>Equations (10) and (11) give incorrect terminal exponents for their reward and TD-residual sequences.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Section 5, Equations (10) and (11)</dd>
+    <dt>Analysis</dt><dd>Each sequence advances its exponent by one per timestep, so the term indexed T-1 must have exponent T-t-1, not T-t+1. The printed endpoint conflicts with the equations&#x27; own first two terms.</dd>
+    <dt>Evidence</dt><dd>Set t=T-2 and gamma=1/2. Equation (10) explicitly assigns r_{T-1} coefficient gamma=1/2, while its endpoint expression assigns gamma^(T-t+1)=gamma^3=1/8. Likewise, Equation (11) assigns delta_{T-1} coefficient gammalambda through its second term but (gammalambda)^3 through its endpoint. These cannot both describe the same sequence.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, Oleg Klimov</p>
+              <p>The finite-horizon advantage formulas contain a demonstrable exponent-indexing error.</p>
+              <p><a href="https://arxiv.org/abs/1707.06347v2">arXiv</a> · <a href="https://arxiv.org/pdf/1707.06347v2.pdf">PDF</a> ·
+              1707.06347v2</p>
+              <p class="meta">Reviewed 2026-07-26 03:31:41+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,mathematical-error" data-severities="major,minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/2112.10752v2"><strong>High-Resolution Image Synthesis with Latent Diffusion Models</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">major</span><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (3)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The ELBO incorrectly treats the final reconstruction step as an ordinary posterior KL term.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Appendix B, equations (9), (11), and (13), pages 15–16</dd>
+    <dt>Analysis</dt><dd>Equation (9) sums posterior KL terms through t=1. At t=1, however, x_{t-1}=x0 is the observed datum, so q(x0|x1,x0) is a point mass rather than the nondegenerate Gaussian required by the subsequent KL-to-MSE derivation. Accordingly, equation (13)&#x27;s t=1 weight is undefined or infinite. This endpoint must instead be handled as a separate reconstruction likelihood term.</dd>
+    <dt>Evidence</dt><dd>For the uncorrupted endpoint, alpha_0=1 and sigma_0=0. Thus equation (11)&#x27;s posterior variance at t=1 is proportional to sigma_0^2=0, while equation (13) contains SNR(0)-SNR(1), with SNR(0)=alpha_0^2/sigma_0^2=infinity. Therefore the t=1 KL cannot equal the finite squared-error term asserted in equation (13).</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The image-guidance update has the opposite sign from the conditional score correction.</strong> (major, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>invalid-derivation</dd>
+    <dt>Location</dt><dd>Appendix C, equation (16), page 18</dd>
+    <dt>Analysis</dt><dd>Equation (16) adds the likelihood gradient to the predicted noise. Noise prediction has the opposite sign from score prediction, so conditioning requires subtracting this gradient from epsilon, not adding it.</dd>
+    <dt>Evidence</dt><dd>From equations (4) and (14), the score corresponding to epsilon prediction is -epsilon_theta/sigma_t. Conditional guidance requires score_cond=score_uncond+grad log p_Phi(y|z_t).  Hence -epsilon_hat/sigma_t=-epsilon_theta/sigma_t+grad log p_Phi, giving epsilon_hat=epsilon_theta-sigma_t grad log p_Phi. Equation (16) instead uses a plus sign with sigma_t=sqrt(1-alpha_t^2), reversing the guidance direction.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The reported overall training compute for the LSUN-Bedrooms LDM is smaller than its generator compute.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Appendix F, Table 18, LSUN-Bedrooms LDM-4 row</dd>
+    <dt>Analysis</dt><dd>The table defines overall compute from generator and classifier compute. This row  reports no classifier compute, so its overall compute must equal its generator compute.</dd>
+    <dt>Evidence</dt><dd>Generator compute is 60 V100-days and classifier compute is absent, yielding 60+0=60 V100-days. The reported overall compute is 55 V100-days.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, Björn Ommer</p>
+              <p>The appendix contains two demonstrable diffusion derivation  errors, and one compute total is arithmetically inconsistent.</p>
+              <p><a href="https://arxiv.org/abs/2112.10752v2">arXiv</a> · <a href="https://arxiv.org/pdf/2112.10752v2.pdf">PDF</a> ·
+              2112.10752v2</p>
+              <p class="meta">Reviewed 2026-07-26 03:29:16+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://arxiv.org/abs/2006.11239v2"><strong>Denoising Diffusion Probabilistic Models</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge no-glaring-errors-found">No glaring errors found</span></td>
+    <td><span class="tag">no-errors-tagged</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No glaring errors were recorded.</p></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Jonathan Ho, Ajay Jain, Pieter Abbeel</p>
+              <p>No demonstrable internal contradiction, counterexample, invalid derivation, or arithmetic error met the required high-confidence standard.</p>
+              <p><a href="https://arxiv.org/abs/2006.11239v2">arXiv</a> · <a href="https://arxiv.org/pdf/2006.11239v2.pdf">PDF</a> ·
+              2006.11239v2</p>
+              <p class="meta">Reviewed 2026-07-26 03:24:43+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,factual-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/2103.00020v1"><strong>Learning Transferable Visual Models From Natural Language Supervision</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">factual-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (4)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The text encoder&#x27;s vocabulary size is reported inconsistently.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 2.4, page 5; Table 18, page 48</dd>
+    <dt>Analysis</dt><dd>Both locations purport to specify the text encoder vocabulary size but give different values.</dd>
+    <dt>Evidence</dt><dd>Section 2.4 states a vocabulary size of 49,152, whereas Table 18 reports 49,408. These values differ by 256 and cannot both be the stated vocabulary size.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>The reported Country211 training-set size is inconsistent with its construction.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Appendix A.1, page 37; Table 9, page 39</dd>
+    <dt>Analysis</dt><dd>The stated sampling procedure fixes the training-set size, so the discrepancy follows directly by multiplication.</dd>
+    <dt>Evidence</dt><dd>Country211 has 211 categories with 200 training photos per category, implying 211 × 200 = 42,200 training photos. Table 9 instead reports 43,200. Its test size, 211 × 100 = 21,100, is reported correctly.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Food-101 is assigned two different class counts.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Table 9, page 39; Figure 21, page 42</dd>
+    <dt>Analysis</dt><dd>The table and prediction visualization explicitly give incompatible classifier cardinalities.</dd>
+    <dt>Evidence</dt><dd>Table 9 reports 102 classes for Food-101, while Figure 21 reports a Food101 prediction rank out of 101 classes. The listed split sizes also equal 101 × 750 = 75,750 and 101 × 250 = 25,250.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>FER2013 is assigned two different class counts.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>factual-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Table 9, page 39; Figure 21, page 42</dd>
+    <dt>Analysis</dt><dd>The dataset summary and prediction visualization explicitly disagree about the number of classes.</dd>
+    <dt>Evidence</dt><dd>Table 9 reports 8 classes for Facial Emotion Recognition 2013, whereas Figure 21 gives a FER2013 prediction rank of 5/7, indicating a seven-class classifier.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, Gretchen Krueger, Ilya Sutskever</p>
+              <p>Four clear internal numerical inconsistencies appear in the model and dataset descriptions.</p>
+              <p><a href="https://arxiv.org/abs/2103.00020v1">arXiv</a> · <a href="https://arxiv.org/pdf/2103.00020v1.pdf">PDF</a> ·
+              2103.00020v1</p>
+              <p class="meta">Reviewed 2026-07-26 03:22:38+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
+  data-error-types="experimental-error,mathematical-error" data-severities="minor">
+  <tr>
+    <td><a href="https://arxiv.org/abs/2203.15556v1"><strong>Training Compute-Optimal Large Language Models</strong></a></td>
+    <td>Computer Science</td>
+    <td><span class="badge errors-found">Glaring errors found</span></td>
+    <td><span class="tag">experimental-error</span><span class="tag">mathematical-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="paper-review-row">
+    <td colspan="5">
+      <details>
+        <summary>Review details</summary>
+        <div class="details-body">
+          <details class="findings">
+            <summary>Findings (2)</summary>
+            <div class="findings-body"><details class="finding">
+  <summary><strong>The Approach 3 compute value for a 175-billion-parameter model is too small by a factor of ten.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>mathematical-error</dd>
+    <dt>Evidence type</dt><dd>arithmetic-error</dd>
+    <dt>Location</dt><dd>Appendix D.3, Table A3</dd>
+    <dt>Analysis</dt><dd>The row conflicts with the paper&#x27;s stated approximation C = 6ND and its own parameter and token values.</dd>
+    <dt>Evidence</dt><dd>For N = 175 billion and D = 12.0 trillion, C = 6 × 175×10^9 × 12×10^12 = 1.26×10^25 FLOPs, not the reported 1.26×10^24 FLOPs.</dd>
+  </dl>
+</details>
+<details class="finding">
+  <summary><strong>Gopher&#x27;s five-shot Natural Questions accuracy is reported inconsistently.</strong> (minor, high confidence)</summary>
+  <dl>
+    <dt>Tag</dt><dd>experimental-error</dd>
+    <dt>Evidence type</dt><dd>direct-contradiction</dd>
+    <dt>Location</dt><dd>Section 4.2.6 and Table 9</dd>
+    <dt>Analysis</dt><dd>The prose and table give incompatible values for the same model, benchmark, and five-shot setting.</dd>
+    <dt>Evidence</dt><dd>Section 4.2.6 states that Gopher achieved 21% five-shot accuracy, whereas Table 9  reports 24.5%. The 3.5-point difference cannot be explained by rounding.</dd>
+  </dl>
+</details></div>
+          </details>
+          <details class="paper-details">
+            <summary>Paper details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, Elena Buchatskaya, Trevor Cai, Eliza Rutherford, Diego de Las Casas, Lisa Anne Hendricks, Johannes Welbl, Aidan Clark, Tom Hennigan, Eric Noland, Katie Millican, George van den Driessche, Bogdan Damoc, Aurelia Guy, Simon Osindero, Karen Simonyan, Erich Elsen, Jack W. Rae, Oriol Vinyals, Laurent Sifre</p>
+              <p>Two localized numerical errors were found; neither invalidates the paper&#x27;s central scaling result.</p>
+              <p><a href="https://arxiv.org/abs/2203.15556v1">arXiv</a> · <a href="https://arxiv.org/pdf/2203.15556v1.pdf">PDF</a> ·
+              2203.15556v1</p>
+              <p class="meta">Reviewed 2026-07-26 03:19:35+00:00 UTC · gpt-5.6-sol (high)</p>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="paper-entry" data-field="Computer Science"
   data-error-types="experimental-error,factual-error,statistical-error" data-severities="major,minor">
   <tr>
     <td><a href="https://arxiv.org/abs/2005.11401v4"><strong>Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</strong></a></td>

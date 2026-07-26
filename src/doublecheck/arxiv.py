@@ -131,7 +131,9 @@ def _fetch_api_metadata(arxiv_id: str, timeout: int) -> PaperMetadata:
     if entry is None:
         raise ArxivError(f"arXiv paper not found: {arxiv_id}")
 
-    identifier = _required_text(entry, "atom:id", atom).rsplit("/", 1)[-1]
+    identifier = _arxiv_id_from_entry_url(
+        _required_text(entry, "atom:id", atom)
+    )
     title = _collapse_whitespace(_required_text(entry, "atom:title", atom))
     summary = _collapse_whitespace(_required_text(entry, "atom:summary", atom))
     authors = tuple(
@@ -371,6 +373,14 @@ def _required_text(
 
 def _collapse_whitespace(value: str) -> str:
     return " ".join(value.split())
+
+
+def _arxiv_id_from_entry_url(value: str) -> str:
+    path = urllib.parse.unquote(urllib.parse.urlparse(value).path)
+    marker = "/abs/"
+    if marker not in path:
+        raise ArxivError(f"arXiv metadata returned an invalid identifier: {value}")
+    return path.split(marker, 1)[1]
 
 
 def _html_date(value: str) -> str:

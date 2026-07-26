@@ -7,6 +7,7 @@ from unittest.mock import patch
 from doublecheck.arxiv import (
     ArxivError,
     PaperMetadata,
+    _arxiv_id_from_entry_url,
     _parse_html_metadata,
     _read_limited,
     _urlopen,
@@ -24,6 +25,14 @@ class NormalizeArxivIdTests(unittest.TestCase):
         self.assertEqual(
             normalize_arxiv_id("math.GT/0309136v1"),
             "math.GT/0309136v1",
+        )
+
+    def test_preserves_legacy_category_in_entry_url(self) -> None:
+        self.assertEqual(
+            _arxiv_id_from_entry_url(
+                "http://arxiv.org/abs/hep-th/9711200v3"
+            ),
+            "hep-th/9711200v3",
         )
 
     def test_extracts_identifier_from_pdf_url(self) -> None:

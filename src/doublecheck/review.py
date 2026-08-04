@@ -4,6 +4,7 @@ import json
 import re
 import shutil
 import subprocess
+import sys
 from dataclasses import dataclass
 from html.parser import HTMLParser
 from pathlib import Path
@@ -123,8 +124,9 @@ def build_copilot_command(
     prompt: str,
     model: str,
     effort: str,
+    allow_web: bool = False,
 ) -> list[str]:
-    return [
+    command = [
         executable,
         "-C",
         str(workspace),
@@ -149,6 +151,32 @@ def build_copilot_command(
         "--no-remote-export",
         "--disallow-temp-dir",
     ]
+    if allow_web:
+        command.extend(
+            [
+                "--additional-mcp-config",
+                json.dumps(
+                    {
+                        "mcpServers": {
+                            "safe-web": {
+                                "type": "local",
+                                "command": sys.executable,
+                                "args": [
+                                    "-m",
+                                    "doublecheck.webmcp",
+                                    "--audit-log",
+                                    str(workspace / "web-audit.jsonl"),
+                                    "--submission-path",
+                                    str(workspace / "factcheck-submission.json"),
+                                ],
+                                "tools": ["*"],
+                            }
+                        }
+                    }
+                ),
+            ]
+        )
+    return command
 
 
 def extract_pdf_text(

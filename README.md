@@ -6,6 +6,10 @@ rebuilds a minimal static index for GitHub Pages.
 
 The default reviewer is `gpt-5.6-sol` with high reasoning effort.
 
+The same package also fact-checks open web articles using a web-enabled agent
+whose network access is restricted to a local public-internet search/fetch
+gateway.
+
 ## Vision
 
 The goal is a central, public database of LLM-assisted audits for research
@@ -67,6 +71,36 @@ Rebuild the site without running a review:
 ```sh
 doublecheck build
 ```
+
+## Fact-check an article
+
+```sh
+doublecheck factcheck https://example.com/news/article
+```
+
+The command extracts readable article text, runs a web-research agent, stores
+the result in `data/factchecks.csv`, and rebuilds
+`docs/news/index.html`, published at `/news/`.
+
+Article fact checks intentionally use a very narrow standard. Findings must be
+obvious discrete errors—such as a wrong number, date, identity, location,
+quotation, or official record—and must be contradicted by an authoritative
+primary source or two independent reputable sources. The checker excludes
+opinions, framing, omissions, political arguments, disputed labels, causal
+interpretation, and anything that reasonably admits multiple interpretations.
+
+The article and evidence pages are untrusted input. Copilot cannot use its
+direct URL, shell, or write tools. Web research is provided by a local MCP
+gateway that blocks private networks and DNS rebinding, limits requests and
+response sizes, and only returns public HTTP(S) text.
+
+Rebuild only the article fact-check index with:
+
+```sh
+doublecheck build-news
+```
+
+`doublecheck build-factchecks` remains available as a compatibility alias.
 
 ## Contribute reviews
 

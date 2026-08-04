@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LLM-assisted checks of discrete facts in open articles.">
+  <title>Double-Check: News Fact Checks</title>
+  <style>
+    :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
+    body { max-width: 72rem; margin: 0 auto; padding: 2rem 1rem 4rem; line-height: 1.55; }
+    header { margin-bottom: 2rem; border-bottom: 1px solid #8885; }
+    h1, h2, h3 { line-height: 1.2; }
+    .meta { color: #777; }
+    .badge, .tag { display: inline-block; border: 1px solid #8888; border-radius: 1rem;
+      padding: .12rem .55rem; margin: .15rem .2rem .15rem 0; font-size: .85rem; }
+    .errors-found { border-color: #b33; color: #b33; }
+    .no-obvious-errors-found { border-color: #287a3c; color: #287a3c; }
+    .inconclusive { border-color: #9a6a00; color: #9a6a00; }
+    details { margin: .7rem 0; }
+    summary { cursor: pointer; }
+    .details-body, .findings-body { border-left: 2px solid #8884; margin: .65rem 0 0 .45rem;
+      padding-left: 1rem; }
+    .filters { align-items: end; display: grid; gap: .75rem; grid-template-columns:
+      repeat(3, minmax(10rem, 1fr)) auto; margin: 1.5rem 0 1rem; }
+    .filters label { display: grid; font-size: .85rem; font-weight: 650; gap: .25rem; }
+    select, button { background: Canvas; border: 1px solid #8888; border-radius: .35rem;
+      color: CanvasText; font: inherit; padding: .45rem .55rem; }
+    button { cursor: pointer; }
+    .table-wrap { overflow-x: auto; }
+    table { border-collapse: collapse; min-width: 62rem; width: 100%; }
+    th, td { border-bottom: 1px solid #8885; padding: .75rem; text-align: left;
+      vertical-align: top; }
+    th { font-size: .85rem; }
+    tbody.article-entry:hover > tr:first-child { background: #8881; }
+    .article-detail-row td { padding: 0 .75rem .75rem; }
+    .article-entry[hidden] { display: none; }
+    dt { font-weight: 650; margin-top: .5rem; }
+    dd { margin-left: 0; }
+    blockquote { border-left: 3px solid #8885; margin-left: 0; padding-left: 1rem; }
+    a { color: inherit; }
+    @media (max-width: 48rem) {
+      .filters { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Double-Check: News Fact Checks</h1>
+    <p>LLM-assisted checks of obvious, discrete facts in news and other open articles.
+    <a href="../">Scientific paper audits</a> ·
+    <a href="https://github.com/sgoedecke/doublecheck">Contributions welcome on GitHub.</a></p>
+  </header>
+  <main>
+    <div class="filters" aria-label="Fact-check filters">
+      <label>Publisher
+        <select id="publisher-filter"><option value="">All publishers</option><option value="Andrea Grandi">Andrea Grandi</option><option value="LocalAI">Localai</option><option value="NASA">Nasa</option><option value="SenderLedger">Senderledger</option><option value="The JetBrains Blog">The Jetbrains Blog</option><option value="The Pudding">The Pudding</option><option value="abc.net.au">Abc.Net.Au</option><option value="euronews">Euronews</option><option value="npopov.com">Npopov.Com</option><option value="rfc-editor.org">Rfc Editor.Org</option><option value="stackoverflow.blog">Stackoverflow.Blog</option></select>
+      </label>
+      <label>Error type
+        <select id="error-filter"><option value="">All error types</option><option value="number-error">Number Error</option><option value="official-record-error">Official Record Error</option></select>
+      </label>
+      <label>Severity
+        <select id="severity-filter"><option value="">All severities</option><option value="major">Major</option><option value="minor">Minor</option><option value="none">None</option></select>
+      </label>
+      <button type="button" id="clear-filters">Clear filters</button>
+    </div>
+    <p id="result-count">11 articles</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Article</th><th>Publisher</th><th>Verdict</th><th>Error type</th><th>Severity</th></tr>
+        </thead>
+        <tbody class="article-entry" data-publisher="abc.net.au"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://www.abc.net.au/news/2026-07-28/how-norway-s-salmon-industry-became-a-global-behemoth/106949872"><strong>Salmon farming transformed Norway. Now it&#x27;s facing the consequences</strong></a></td>
+    <td>abc.net.au</td>
+    <td><span class="badge no-obvious-errors-found">No errors found</span></td>
+    <td><span class="meta">None</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="article-detail-row">
+    <td colspan="5">
+      <details>
+        <summary>Fact-check details</summary>
+        <div class="details-body">
+          <p>A representative review of the article’s discrete claims—including Norway’s salmon-production scale and 2025 growth, export prominence, farm stocking scale, and major aquaculture impacts—found no clear factual error meeting the required high-confidence standard. Some broad historical or causal wording was not suitable for an error finding because it depends on interpretation rather than a decisively contradicted discrete fact.</p>
+          <details>
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No obvious factual errors were recorded.</p></div>
+          </details>
+          <details>
+            <summary>Article and research details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> https://www.abc.net.au/news/naomi-selvaratnam/9380022, https://www.abc.net.au/news/ali-russell/12507754, Naomi Selvaratnam, Ali Russell</p>
+              <p><strong>Published:</strong> 2026-07-27T18:50:05+00:00</p>
+              <p class="meta">Checked 2026-08-03 11:09:14+00:00 UTC ·
+              gpt-5.6-sol (high)</p>
+              <p><strong>Sources consulted:</strong></p><ul><li><a href="https://www.fiskeridir.no/english/aquaculture/statistics-for-aquaculture/atlantic-salmon-and-rainbow-trout">Atlantic salmon and rainbow trout</a> — Norwegian Directorate of Fisheries</li><li><a href="https://www.ssb.no/en/statbank1/table/03024">03024: Export of salmon, fresh and frozen, fish-farm bred</a> — Statistics Norway</li><li><a href="https://www.ssb.no/en/statbank1/table/08801">08801: External trade in goods, by commodity number (HS) and country</a> — Statistics Norway</li><li><a href="https://en.seafood.no/news-and-media/news-archive/">News archive</a> — Norwegian Seafood Council</li><li><a href="https://www.hi.no/en/hi/temasider/aquaculture">Aquaculture</a> — Institute of Marine Research</li></ul>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="article-entry" data-publisher="rfc-editor.org"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://www.rfc-editor.org/rfc/rfc9851.html"><strong>RFC 9851: TLS 1.2 is in Feature Freeze</strong></a></td>
+    <td>rfc-editor.org</td>
+    <td><span class="badge no-obvious-errors-found">No errors found</span></td>
+    <td><span class="meta">None</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="article-detail-row">
+    <td colspan="5">
+      <details>
+        <summary>Fact-check details</summary>
+        <div class="details-body">
+          <p>A representative review found no obvious, high-confidence factual errors. Primary records confirm RFC 9851&#x27;s July 2026 metadata and authorship, RFC 9846&#x27;s TLS 1.3 identification, NIST&#x27;s 2016 post-quantum standardization timeline and August 2024 publication of FIPS 203–205, the January 2023 activation of the PQUIP working group, and the cited April 2016 IETF discussion.</p>
+          <details>
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No obvious factual errors were recorded.</p></div>
+          </details>
+          <details>
+            <summary>Article and research details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Rich Salz, Nimrod Aviram</p>
+              <p><strong>Published:</strong> Not listed</p>
+              <p class="meta">Checked 2026-08-03 11:05:48+00:00 UTC ·
+              gpt-5.6-sol (high)</p>
+              <p><strong>Sources consulted:</strong></p><ul><li><a href="https://www.rfc-editor.org/info/rfc9851/">RFC 9851: TLS 1.2 is in Feature Freeze</a> — RFC Editor</li><li><a href="https://datatracker.ietf.org/doc/rfc9851/">RFC 9851 - TLS 1.2 is in Feature Freeze</a> — IETF Datatracker</li><li><a href="https://www.rfc-editor.org/rfc/rfc9846.html">RFC 9846: The Transport Layer Security (TLS) Protocol Version 1.3</a> — RFC Editor</li><li><a href="https://csrc.nist.gov/projects/post-quantum-cryptography/workshops-and-timeline">Post-Quantum Cryptography: Workshops and Timeline</a> — National Institute of Standards and Technology</li><li><a href="https://csrc.nist.gov/projects/post-quantum-cryptography/post-quantum-cryptography-standardization">Post-Quantum Cryptography Standardization Process</a> — National Institute of Standards and Technology</li><li><a href="https://csrc.nist.gov/pubs/fips/203/final">FIPS 203, Module-Lattice-Based Key-Encapsulation Mechanism Standard</a> — National Institute of Standards and Technology</li><li><a href="https://csrc.nist.gov/pubs/fips/204/final">FIPS 204, Module-Lattice-Based Digital Signature Standard</a> — National Institute of Standards and Technology</li><li><a href="https://csrc.nist.gov/pubs/fips/205/final">FIPS 205, Stateless Hash-Based Digital Signature Standard</a> — National Institute of Standards and Technology</li><li><a href="https://datatracker.ietf.org/wg/pquip/history/">Post-Quantum Use In Protocols (pquip): Group history</a> — IETF Datatracker</li><li><a href="https://www.ietf.org/proceedings/95/slides/slides-95-cfrg-4.pdf">Post Quantum Secure Cryptography Discussion</a> — Internet Engineering Task Force</li><li><a href="https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml">Transport Layer Security (TLS) Parameters</a> — Internet Assigned Numbers Authority</li></ul>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="article-entry" data-publisher="The Pudding"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://pudding.cool/2026/07/essential-words"><strong>How the Words We Teach English Language Learners Changed</strong></a></td>
+    <td>The Pudding</td>
+    <td><span class="badge no-obvious-errors-found">No errors found</span></td>
+    <td><span class="meta">None</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="article-detail-row">
+    <td colspan="5">
+      <details>
+        <summary>Fact-check details</summary>
+        <div class="details-body">
+          <p>Representative checks of the article’s core factual claims found no obvious, high-confidence errors. The official NGSL project confirms the 2023 release, 2,809-word size, learner focus, and greater-than-90% general-text coverage; Lancaster University confirms USAS uses 21 major discourse fields; the cited Brysbaert study confirms the roughly 40,000-item concreteness dataset; and the source used for the older GSL confirms its 2,284-item size. Searches of institutional and scholarly records did not yield decisive qualifying evidence against the sampled historical claims.</p>
+          <details>
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No obvious factual errors were recorded.</p></div>
+          </details>
+          <details>
+            <summary>Article and research details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> The Pudding</p>
+              <p><strong>Published:</strong> Not listed</p>
+              <p class="meta">Checked 2026-08-03 11:02:41+00:00 UTC ·
+              gpt-5.6-sol (high)</p>
+              <p><strong>Sources consulted:</strong></p><ul><li><a href="https://www.newgeneralservicelist.com/new-general-service-list">New General Service List 1.2</a> — New General Service List Project</li><li><a href="https://www.newgeneralservicelist.com/">New General Service List Project</a> — New General Service List Project</li><li><a href="https://ucrel.lancs.ac.uk/usas/">UCREL Semantic Analysis System (USAS)</a> — Lancaster University</li><li><a href="https://link.springer.com/article/10.3758/s13428-013-0403-5">Concreteness ratings for 40 thousand generally known English word lemmas</a> — Behavior Research Methods / Springer Nature</li><li><a href="https://simple.wiktionary.org/wiki/Wiktionary:General_Service_List">Wiktionary:General Service List</a> — Simple English Wiktionary</li><li><a href="https://www.census.gov/library/publications/1958/demo/p60-027.html">Income of Families and Persons in the United States: 1956</a> — U.S. Census Bureau</li></ul>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="article-entry" data-publisher="euronews"
+  data-error-types="official-record-error" data-severities="major">
+  <tr>
+    <td><a href="https://www.euronews.com/my-europe/2026/08/02/ai-generated-label-becomes-mandatory-in-the-eu-for-companies"><strong>AI-generated label becomes mandatory in the EU</strong></a></td>
+    <td>euronews</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">official-record-error</span></td>
+    <td><span class="tag">major</span></td>
+  </tr>
+  <tr class="article-detail-row">
+    <td colspan="5">
+      <details>
+        <summary>Fact-check details</summary>
+        <div class="details-body">
+          <p>The article correctly identifies the 2 August 2026 start date and several covered uses, but it materially overstates the law by saying every AI-generated image or text must carry a user-facing label. The official EU guidance distinguishes universal machine-readable marking by providers from visible disclosure duties that apply to deepfakes and certain public-interest text.</p>
+          <details>
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details>
+  <summary><strong>Article 50 does not require a visible label on every AI-generated image or text. Providers must add machine-readable marks to AI-generated or manipulated outputs; deployers must visibly disclose deepfakes and AI-generated public-interest text lacking human review or editorial responsibility.</strong>
+  (major)</summary>
+  <dl>
+    <dt>Article claim</dt><dd><blockquote>when an image or text has been created using AI, there must be a label saying so</blockquote></dd>
+    <dt>Location</dt><dd>Opening explanation of the rules, paragraph beginning “The EU&#x27;s comprehensive AI law enters into force in stages”</dd>
+    <dt>Error type</dt><dd>official-record-error</dd>
+    <dt>Analysis</dt><dd>The European Commission’s official Article 50 guidance expressly separates providers’ machine-readable marking duty from deployers’ disclosure duty. Its exhaustive summary of deployer disclosures covers deepfakes and a limited class of public-interest text, not every AI-generated image or text. The article’s blanket user-facing-label claim therefore materially expands the official rule.</dd>
+    <dt>Evidence</dt><dd><ul><li><a href="https://digital-strategy.ec.europa.eu/en/policies/guidelines-transparency-ai-generated-content">Guidelines on transparency obligations for providers and deployers of certain AI systems</a> — European Commission<blockquote>Providers must: ... Add machine-readable marks to enable the detection of AI-generated or manipulated content. Deployers ... must inform individuals when they are exposed to ... Deepfakes [and] Text publications on matters of public interest without human review or editorial control.</blockquote></li><li><a href="https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content">Code of Practice on Transparency of AI-generated Content</a> — European Commission<blockquote>Section 1: Providers - Rules for marking and detection of AI-generated and manipulated content. Section 2: Deployers - Rules for labelling of deepfakes and AI-generated and manipulated text.</blockquote></li></ul></dd>
+  </dl>
+</details></div>
+          </details>
+          <details>
+            <summary>Article and research details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Gael Camba</p>
+              <p><strong>Published:</strong> 2026-08-02 10:21:08 +02:00</p>
+              <p class="meta">Checked 2026-08-03 11:00:57+00:00 UTC ·
+              gpt-5.6-sol (high)</p>
+              <p><strong>Sources consulted:</strong></p><ul><li><a href="https://digital-strategy.ec.europa.eu/en/policies/guidelines-transparency-ai-generated-content">Guidelines on transparency obligations for providers and deployers of certain AI systems</a> — European Commission</li><li><a href="https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content">Code of Practice on Transparency of AI-generated Content</a> — European Commission</li><li><a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50">Article 50: Transparency obligations for providers and deployers of certain AI systems</a> — European Commission AI Act Service Desk</li><li><a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng">Regulation (EU) 2024/1689 (Artificial Intelligence Act)</a> — EUR-Lex</li><li><a href="https://news.google.com/search?q=%22AI-generated%20label%22%20EU%20August%202026&amp;hl=en-US&amp;gl=US&amp;ceid=US%3Aen">Google News search results for EU AI-generated labeling coverage</a> — Google News</li></ul>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="article-entry" data-publisher="npopov.com"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://www.npopov.com/2012/06/15/The-true-power-of-regular-expressions.html"><strong>The true power of regular expressions</strong></a></td>
+    <td>npopov.com</td>
+    <td><span class="badge no-obvious-errors-found">No errors found</span></td>
+    <td><span class="meta">None</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="article-detail-row">
+    <td colspan="5">
+      <details>
+        <summary>Fact-check details</summary>
+        <div class="details-body">
+          <p>A representative review of the article&#x27;s claims about PCRE recursion and subpatterns, XML/HTML parsing, formal-language expressiveness, and backreference-matching complexity found no obvious high-confidence factual error meeting the strict evidence standard. Some statements are informal or broad, but the consulted sources did not decisively contradict them in a way suitable for a retained finding.</p>
+          <details>
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No obvious factual errors were recorded.</p></div>
+          </details>
+          <details>
+            <summary>Article and research details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Not listed</p>
+              <p><strong>Published:</strong> Not listed</p>
+              <p class="meta">Checked 2026-08-03 11:00:47+00:00 UTC ·
+              gpt-5.6-sol (high)</p>
+              <p><strong>Sources consulted:</strong></p><ul><li><a href="https://www.pcre.org/current/doc/html/pcre2pattern.html">pcre2pattern specification</a> — PCRE2 Project</li><li><a href="https://www.php.net/manual/en/regexp.reference.recursive.php">PHP: Recursive patterns - Manual</a> — PHP Documentation Group</li><li><a href="https://www.php.net/manual/en/regexp.reference.subpatterns.php">PHP: Subpatterns - Manual</a> — PHP Documentation Group</li><li><a href="https://www.w3.org/TR/xml/">Extensible Markup Language (XML) 1.0 (Fifth Edition)</a> — World Wide Web Consortium (W3C)</li><li><a href="https://html.spec.whatwg.org/multipage/parsing.html">HTML Standard: Parsing HTML documents</a> — WHATWG</li><li><a href="https://arxiv.org/abs/1903.05896">Regular Expressions with Backreferences: Polynomial-Time Matching Techniques</a> — arXiv</li><li><a href="https://swtch.com/~rsc/regexp/regexp1.html">Regular Expression Matching Can Be Simple And Fast</a> — Russ Cox</li></ul>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="article-entry" data-publisher="Andrea Grandi"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://www.andreagrandi.it/posts/why-book-corners-wont-sync-contributions-back-to-openstreetmap/"><strong>Why Book Corners won&#x27;t sync contributions back to OpenStreetMap</strong></a></td>
+    <td>Andrea Grandi</td>
+    <td><span class="badge no-obvious-errors-found">No errors found</span></td>
+    <td><span class="meta">None</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="article-detail-row">
+    <td colspan="5">
+      <details>
+        <summary>Fact-check details</summary>
+        <div class="details-body">
+          <p>The article’s claims about OpenStreetMap import, automated-edit, licensing, and public-bookcase rules were checked against OpenStreetMap Foundation and community documentation; no obvious factual error met the strict threshold.</p>
+          <details>
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No obvious factual errors were recorded.</p></div>
+          </details>
+          <details>
+            <summary>Article and research details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Not listed</p>
+              <p><strong>Published:</strong> 2026-07-31T00:00:00+00:00</p>
+              <p class="meta">Checked 2026-08-03 10:56:05+00:00 UTC ·
+              gpt-5.6-sol (high)</p>
+              <p><strong>Sources consulted:</strong></p><ul><li><a href="https://bookcorners.org/about/">Book Corners About</a> — Book Corners</li><li><a href="https://www.openstreetmap.org/copyright">OpenStreetMap Copyright and License</a> — OpenStreetMap Foundation</li><li><a href="https://wiki.openstreetmap.org/wiki/Import/Guidelines">Import Guidelines</a> — OpenStreetMap Wiki</li><li><a href="https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct">Automated Edits Code of Conduct</a> — OpenStreetMap Wiki</li></ul>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="article-entry" data-publisher="stackoverflow.blog"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://stackoverflow.blog/2026/07/29/developers-are-attached-to-tools-because-tools-encode-trust/"><strong>Developers are attached to tools because tools encode trust - Stack Overflow</strong></a></td>
+    <td>stackoverflow.blog</td>
+    <td><span class="badge no-obvious-errors-found">No errors found</span></td>
+    <td><span class="meta">None</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="article-detail-row">
+    <td colspan="5">
+      <details>
+        <summary>Fact-check details</summary>
+        <div class="details-body">
+          <p>Representative survey figures, organization descriptions, and named examples were checked against the Stack Overflow survey and official organization pages; no obvious factual error met the strict threshold.</p>
+          <details>
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No obvious factual errors were recorded.</p></div>
+          </details>
+          <details>
+            <summary>Article and research details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Not listed</p>
+              <p><strong>Published:</strong> Not listed</p>
+              <p class="meta">Checked 2026-08-03 10:56:05+00:00 UTC ·
+              gpt-5.6-sol (high)</p>
+              <p><strong>Sources consulted:</strong></p><ul><li><a href="https://survey.stackoverflow.co/2025/">2025 Developer Survey</a> — Stack Overflow</li><li><a href="https://slack.com/intl/en-au/about">About Slack</a> — Slack</li><li><a href="https://www.cloudflare.com/about-overview/">About Cloudflare</a> — Cloudflare</li><li><a href="https://www.microsoft.com/en-us/about">About Microsoft</a> — Microsoft</li></ul>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="article-entry" data-publisher="The JetBrains Blog"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://blog.jetbrains.com/rust/2026/07/27/cpp-to-rust-migration/"><strong>C++ to Rust Migration: By Luca Palmieri from Mainmatter</strong></a></td>
+    <td>The JetBrains Blog</td>
+    <td><span class="badge no-obvious-errors-found">No errors found</span></td>
+    <td><span class="meta">None</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="article-detail-row">
+    <td colspan="5">
+      <details>
+        <summary>Fact-check details</summary>
+        <div class="details-body">
+          <p>Representative biographical, organizational, and technical claims were checked against official Rust documentation, Google security engineering reports, and Mainmatter materials; no obvious factual error met the strict threshold.</p>
+          <details>
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No obvious factual errors were recorded.</p></div>
+          </details>
+          <details>
+            <summary>Article and research details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Not listed</p>
+              <p><strong>Published:</strong> Not listed</p>
+              <p class="meta">Checked 2026-08-03 10:56:05+00:00 UTC ·
+              gpt-5.6-sol (high)</p>
+              <p><strong>Sources consulted:</strong></p><ul><li><a href="https://blog.jetbrains.com/rust/2026/07/27/cpp-to-rust-migration/">C++ to Rust Migration</a> — JetBrains</li><li><a href="https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html">What is Ownership?</a> — The Rust Project</li><li><a href="https://security.googleblog.com/2022/12/memory-safe-languages-in-android-13.html">Memory Safe Languages in Android 13</a> — Google Security Blog</li><li><a href="https://mainmatter.com/rust-consulting/">Rust Consulting</a> — Mainmatter</li></ul>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="article-entry" data-publisher="LocalAI"
+  data-error-types="number-error" data-severities="minor">
+  <tr>
+    <td><a href="https://localai.io/blog/why-we-write-our-own-engines/"><strong>Why we write our own C and C++ engines</strong></a></td>
+    <td>LocalAI</td>
+    <td><span class="badge errors-found">Errors found</span></td>
+    <td><span class="tag">number-error</span></td>
+    <td><span class="tag">minor</span></td>
+  </tr>
+  <tr class="article-detail-row">
+    <td colspan="5">
+      <details>
+        <summary>Fact-check details</summary>
+        <div class="details-body">
+          <p>Representative checks against LocalAI&#x27;s repositories, the upstream Depth Anything 3 project, and Qwen&#x27;s model record supported the sampled technical claims. One minor but unambiguous arithmetic error appears in the reported llama.cpp prefill comparison.</p>
+          <details>
+            <summary>Findings (1)</summary>
+            <div class="findings-body"><details>
+  <summary><strong>Using the article&#x27;s primary benchmark figures, 223.8 tok/s divided by 177.3 tok/s is approximately 1.262, so the reported result is about 1.26x the llama.cpp throughput (about 26.2% higher), not 1.18x.</strong>
+  (minor)</summary>
+  <dl>
+    <dt>Article claim</dt><dd><blockquote>prefill runs 1.18x faster (223.8 against 177.3 tok/s)</blockquote></dd>
+    <dt>Location</dt><dd>“What you get: one file, and memory you can predict,” paragraph following the vLLM concurrency table</dd>
+    <dt>Error type</dt><dd>number-error</dd>
+    <dt>Analysis</dt><dd>The official article supplies both underlying throughput measurements. Their ratio is 223.8/177.3 ≈ 1.2623, which decisively contradicts the stated 1.18x multiplier. This is a direct arithmetic discrepancy, independent of benchmark methodology or interpretation.</dd>
+    <dt>Evidence</dt><dd><ul><li><a href="https://localai.io/blog/why-we-write-our-own-engines/">Why we write our own C and C++ engines</a> — LocalAI<blockquote>Against llama.cpp on CPU from the same GGUF file, prefill runs 1.18x faster (223.8 against 177.3 tok/s)</blockquote></li></ul></dd>
+  </dl>
+</details></div>
+          </details>
+          <details>
+            <summary>Article and research details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Ettore Di Giacinto</p>
+              <p><strong>Published:</strong> Not listed</p>
+              <p class="meta">Checked 2026-08-03 10:51:54+00:00 UTC ·
+              gpt-5.6-sol (high)</p>
+              <p><strong>Sources consulted:</strong></p><ul><li><a href="https://localai.io/blog/why-we-write-our-own-engines/">Why we write our own C and C++ engines</a> — LocalAI</li><li><a href="https://raw.githubusercontent.com/mudler/vllm.cpp/main/README.md">vllm.cpp README</a> — LocalAI team / GitHub</li><li><a href="https://raw.githubusercontent.com/mudler/LocalAI/master/README.md">LocalAI README</a> — LocalAI / GitHub</li><li><a href="https://raw.githubusercontent.com/localai-org/depth-anything.cpp/master/README.md">depth-anything.cpp README</a> — LocalAI team / GitHub</li><li><a href="https://raw.githubusercontent.com/ByteDance-Seed/Depth-Anything-3/main/README.md">Depth Anything 3 README</a> — ByteDance Seed / GitHub</li><li><a href="https://huggingface.co/Qwen/Qwen3.6-27B">Qwen3.6-27B model card</a> — Qwen / Hugging Face</li></ul>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="article-entry" data-publisher="SenderLedger"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://senderledger.com/articles/what-dmarc-actually-protects-you-from"><strong>What DMARC Actually Protects You From, and What It Does Not - SenderLedger</strong></a></td>
+    <td>SenderLedger</td>
+    <td><span class="badge no-obvious-errors-found">No errors found</span></td>
+    <td><span class="meta">None</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="article-detail-row">
+    <td colspan="5">
+      <details>
+        <summary>Fact-check details</summary>
+        <div class="details-body">
+          <p>A representative review found no obvious, high-confidence factual errors. RFC 9989 supports the article’s description of DMARC as validating authorized use of the visible From domain through aligned SPF or DKIM, including relaxed versus strict alignment and the fact that a pass is not a safety or inbox-placement guarantee. RFC 9990 supports its aggregate-reporting claims, while the SPF, DKIM, and indirect-mail-flow RFCs and guidance from Microsoft and Google support its explanations of authentication records, pass logic, enforcement policies, and forwarding or mailing-list complications.</p>
+          <details>
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No obvious factual errors were recorded.</p></div>
+          </details>
+          <details>
+            <summary>Article and research details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> SenderLedger</p>
+              <p><strong>Published:</strong> 2026-08-03T10:25:07+00:00</p>
+              <p class="meta">Checked 2026-08-03 10:51:18+00:00 UTC ·
+              gpt-5.6-sol (high)</p>
+              <p><strong>Sources consulted:</strong></p><ul><li><a href="https://www.rfc-editor.org/rfc/rfc9989.html">RFC 9989: Domain-Based Message Authentication, Reporting, and Conformance (DMARC)</a> — RFC Editor / Internet Engineering Task Force</li><li><a href="https://www.rfc-editor.org/rfc/rfc9990.html">RFC 9990: Domain-Based Message Authentication, Reporting, and Conformance (DMARC) Aggregate Reporting</a> — RFC Editor / Internet Engineering Task Force</li><li><a href="https://www.rfc-editor.org/rfc/rfc7208.html">RFC 7208: Sender Policy Framework (SPF) for Authorizing Use of Domains in Email, Version 1</a> — RFC Editor / Internet Engineering Task Force</li><li><a href="https://www.rfc-editor.org/rfc/rfc6376.html">RFC 6376: DomainKeys Identified Mail (DKIM) Signatures</a> — RFC Editor / Internet Engineering Task Force</li><li><a href="https://www.rfc-editor.org/rfc/rfc7960.html">RFC 7960: Interoperability Issues between DMARC and Indirect Email Flows</a> — RFC Editor / Internet Engineering Task Force</li><li><a href="https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dmarc-configure">Set up DMARC to validate the From address domain for cloud senders</a> — Microsoft Learn</li><li><a href="https://knowledge.workspace.google.com/admin/security/set-up-dmarc?hl=en">Set up DMARC</a> — Google Workspace Help</li></ul>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+<tbody class="article-entry" data-publisher="NASA"
+  data-error-types="" data-severities="none">
+  <tr>
+    <td><a href="https://www.nasa.gov/news-release/nasa-selects-axiom-space-for-fifth-private-mission-to-space-station/"><strong>NASA Selects Axiom Space for Fifth Private Mission to Space Station - NASA</strong></a></td>
+    <td>NASA</td>
+    <td><span class="badge no-obvious-errors-found">No errors found</span></td>
+    <td><span class="meta">None</span></td>
+    <td><span class="meta">None</span></td>
+  </tr>
+  <tr class="article-detail-row">
+    <td colspan="5">
+      <details>
+        <summary>Fact-check details</summary>
+        <div class="details-body">
+          <p>No obvious, high-confidence factual errors were found. NASA&#x27;s award announcement was corroborated by Axiom Space&#x27;s same-day primary-source release, including the signed fifth-mission order, no-earlier-than-January-2027 target, Kennedy Space Center launch site, up-to-14-day station stay, and pending crew approvals. Official NASA and Axiom records also support the named officials&#x27; roles and the existence of four prior Axiom missions.</p>
+          <details>
+            <summary>Findings (0)</summary>
+            <div class="findings-body"><p>No obvious factual errors were recorded.</p></div>
+          </details>
+          <details>
+            <summary>Article and research details</summary>
+            <div class="details-body">
+              <p><strong>Authors:</strong> Not listed</p>
+              <p><strong>Published:</strong> Not listed</p>
+              <p class="meta">Checked 2026-08-03 10:36:43+00:00 UTC ·
+              gpt-5.6-sol (high)</p>
+              <p><strong>Sources consulted:</strong></p><ul><li><a href="https://www.nasa.gov/news-release/nasa-selects-axiom-space-for-fifth-private-mission-to-space-station/">NASA Selects Axiom Space for Fifth Private Mission to Space Station</a> — NASA</li><li><a href="https://www.axiomspace.com/release/nasa-selects-axiom-space-for-fifth-private-astronaut-mission-to-international-space-station">NASA Selects Axiom Space for Fifth Private Astronaut Mission to International Space Station</a> — Axiom Space</li><li><a href="https://www.nasa.gov/people/jared-isaacman/">Jared Isaacman</a> — NASA</li><li><a href="https://www.nasa.gov/people/dana-weigel/">Dana Weigel</a> — NASA</li><li><a href="https://www.axiomspace.com/team/jonathan-cirtain">Dr. Jonathan W. Cirtain</a> — Axiom Space</li><li><a href="https://www.axiomspace.com/missions/ax4">Axiom Mission 4</a> — Axiom Space</li><li><a href="https://www.nasa.gov/news-release/nasa-selects-second-private-astronaut-mission-to-space-station/">NASA Selects Second Private Astronaut Mission to Space Station</a> — NASA</li></ul>
+            </div>
+          </details>
+        </div>
+      </details>
+    </td>
+  </tr>
+</tbody>
+      </table>
+    </div>
+    <p id="no-results" hidden>No articles match these filters.</p>
+  </main>
+  <script>
+    const entries = [...document.querySelectorAll(".article-entry")];
+    const publisherFilter = document.querySelector("#publisher-filter");
+    const errorFilter = document.querySelector("#error-filter");
+    const severityFilter = document.querySelector("#severity-filter");
+    const resultCount = document.querySelector("#result-count");
+    const noResults = document.querySelector("#no-results");
+
+    function values(entry, key) {
+      return entry.dataset[key].split(",").filter(Boolean);
+    }
+    function applyFilters() {
+      let visible = 0;
+      for (const entry of entries) {
+        const matches =
+          (!publisherFilter.value || entry.dataset.publisher === publisherFilter.value) &&
+          (!errorFilter.value || values(entry, "errorTypes").includes(errorFilter.value)) &&
+          (!severityFilter.value || values(entry, "severities").includes(severityFilter.value));
+        entry.hidden = !matches;
+        if (matches) visible += 1;
+      }
+      resultCount.textContent = `${visible} ${visible === 1 ? "article" : "articles"}`;
+      noResults.hidden = visible !== 0;
+    }
+    for (const filter of [publisherFilter, errorFilter, severityFilter]) {
+      filter.addEventListener("change", applyFilters);
+    }
+    document.querySelector("#clear-filters").addEventListener("click", () => {
+      publisherFilter.value = "";
+      errorFilter.value = "";
+      severityFilter.value = "";
+      applyFilters();
+    });
+  </script>
+</body>
+</html>

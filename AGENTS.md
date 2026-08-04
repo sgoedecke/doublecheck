@@ -121,3 +121,25 @@ The PR body should list the added arXiv IDs, explain how the papers improve
 disciplinary or citation-range coverage, state the model and effort used, and
 summarize any retained findings. Clearly say when all added papers received
 `no-glaring-errors-found`.
+
+## Contributing article fact checks
+
+Article fact checks are separate from paper audits:
+
+```sh
+doublecheck factcheck <public-article-url>
+```
+
+- Check `data/factchecks.csv` first and do not duplicate a canonical URL.
+- Only use open HTTP(S) articles whose text the local extractor can read.
+- Retain only obvious discrete errors involving numbers, dates, identities,
+  locations, quotations, or official records.
+- Require an authoritative primary source or two independent reputable sources.
+- Never retain findings about framing, omissions, bias, political arguments,
+  policy merits, disputed terminology, predictions, or causal interpretation.
+- Do not use search snippets or another fact-check article as evidence.
+- Adjudicate unparsed responses from `data/factcheck-pending/`; do not rerun a
+  completed model response solely because its JSON was imperfect.
+- Rebuild with `doublecheck build-news`.
+- A fact-check-only PR should normally contain `data/factchecks.csv` and
+  `docs/news/index.html`.

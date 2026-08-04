@@ -5,6 +5,7 @@ on:
     branches: ["main"]
     paths:
       - "data/reviews.csv"
+      - "data/factchecks.csv"
       - "src/**"
       - "pyproject.toml"
       - ".github/workflows/pages.yml"
